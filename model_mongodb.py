@@ -1,6 +1,16 @@
 import pymongo
+import os
+from flask import Flask
 from bson import ObjectId
 from pymongo import MongoClient
+from dotenv import load_dotenv
+APP_ROOT = os.path.join(os.path.dirname(__file__), '..')
+dotenv_path = os.path.join(APP_ROOT, '.env')
+load_dotenv(dotenv_path)
+
+def create_app():
+    app = Flask(__name__)
+    return app
 
 class Model(dict):
     """
@@ -33,7 +43,8 @@ class Model(dict):
             return resp.deleted_count
 
 class Post(Model):
-    db_client = MongoClient('mongodb+srv://daSilva:teamDPosts@csc-308-teamd.crp9s.mongodb.net/Posts?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE')
+    url = os.getenv('DB_LINK')
+    db_client = MongoClient(url)
     collection = db_client["Posts"]["websitePosts"]
 
     def find_all(self):
