@@ -15,7 +15,7 @@ function Form(props) {
  
  function submitForm() {
      post.handleSubmit(post);
-     setPost({title: '', date: '', time: '', author: '', description: '', keyword: '', image: '',});
+     setPost({title: '', date: '', time: '', author: '', description: '', keyword: ''});
  }
  
  function handleChange(event) {
@@ -50,27 +50,27 @@ function Form(props) {
      <div >
         <form>
  
-           <label for="Title">Name of event:</label>
+           <label for="title">Name of event:</label>
            <input 
              type="text"  
-             id="Title" 
-             name="Title"
+             id="title" 
+             name="title"
              value={post.title}
              onChange={handleChange}>
              </input>
            <br></br>
  
-           <label for="Date">Date of event:</label>
+           <label for="date">Date of event:</label>
            <input 
              type="date" 
-             id="start" 
-             name="trip-start"
+             id="date" 
+             name="date"
              value={post.date}
              onChange = {handleChange}>
              </input>
            <br></br>
            
-           <label for="appt">Time of event:</label>
+           <label for="time">Time of event:</label>
            <input 
              type="time" 
              id="time" 
@@ -80,7 +80,7 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label for="Publisher">Publisher of event:</label>
+           <label for="publisher">Publisher of event:</label>
            <input 
              type="text" 
              id="Publisher"
@@ -90,18 +90,18 @@ function Form(props) {
               </input>
            <br></br>
  
-           <label for="Description">Description of event:</label>
+           <label for="description">Description of event:</label>
            <textarea 
-             id="Description" 
-             name="Description" 
+             id="description" 
+             name="description" 
              rows="5" cols="50"
              value={post.description}
              onChange = {handleChange}>
              </textarea>
            <br></br>
            
-           <label for="Keyword">What categorey is the event under:</label>
-             <select name="keywords" id="Keywords">
+           <label for="keyword">What categorey is the event under:</label>
+             <select name="keywords" id="keywords">
              <option value="Sports">Sports</option>
              <option value="Muisc">Music</option>
              <option value="Community">Community</option>

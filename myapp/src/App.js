@@ -1,12 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Menu from './components/menu';
 import { PLACES } from './shared/places';
-import {BrowserRouter as Router,Route, Link,} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav} from 'mdbreact';
-import { NavDropdown, Button, Form, FormControl, ControlLabel } from "react-bootstrap";
 import PostPage from "./PostPage";
 
 class MyNavbar extends React.Component {
