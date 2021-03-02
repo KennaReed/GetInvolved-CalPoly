@@ -15,8 +15,27 @@ def flask_mongodb_atlas():
 @app.route('/posts', methods=['GET', 'POST'])
 def get_posts():
     if request.method == 'GET':
-        posts = Post().find_all()
+        search_title = request.args.get('title')
+        search_eventDate = request.args.get('DateEvent')
+        search_publisher = request.args.get('publisher')
+        search_cost = request.args.get('Cost')
+        filters = {}
+        if (search_title):
+            filters["title"] = search_title
+        if (search_eventDate):
+            filters["DateEvent"] = search_eventDate
+        if (search_publisher):
+            filters["publisher"] = search_publisher
+        if (search_cost):
+            filters["Cost"] = search_cost
+        
+        if (filters == []):
+            posts = Post().find_all()
+        else: 
+            posts = Post().apply_filter(filters)
+
         return {"posts_list": posts}
+
     elif request.method == 'POST':
         postToAdd = request.get_json()
         newPost = Post(postToAdd)
