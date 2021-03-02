@@ -4,6 +4,7 @@ from flask import Flask
 from bson import ObjectId
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from datetime import datetime
 APP_ROOT = os.path.join(os.path.dirname(__file__), '..')
 dotenv_path = os.path.join(APP_ROOT, '.env')
 load_dotenv(dotenv_path)
@@ -51,4 +52,12 @@ class Post(Model):
         posts = list(self.collection.find())
         for post in posts:
             post["_id"] = str(post["_id"]) #converting ObjectId to str
+        return posts
+
+    def apply_filter(self, filters):
+        posts = list(self.collection.find(filters))
+
+        for post in posts:
+            post["_id"] = str(post["_id"]) #converting ObjectId to str
+
         return posts
