@@ -1,47 +1,53 @@
-import React from "react";
-import {TextField} from "@material-ui/core";
+import React, {useState, useEffect} from 'react';
+import Form from './Form';
+import axios from 'axios';
 
-function PostPage() {
+function MyApp() {
+  const [characters, setPost] = useState([]);
 
-  return (
-    <div >
-       <form>
+  useEffect(() => {
+    fetchAll().then( result => {
+        if (result)
+            setPost(result);
+     });
+  }, [] );
 
-          <label for="Title">Name of event:</label>
-          <input type="text" id="Title" name="Title"></input>
-          <br></br>
+  async function makePostCall(person){
+    try {
+       const response = await axios.post('http://localhost:5000/posts', person);
+       return response;
+    }
+    catch (error) {
+       console.log(error);
+       return false;
+    }
+ }
 
-          <label for="Date">Date of event:</label>
-          <input type="date" id="start" name="trip-start"></input>
-          <br></br>
-          
-          <label for="appt">Time of event:</label>
-          <input type="time" id="time" name="time"></input>
-          <br></br>
+  function updateList(person) { 
+    makePostCall(person).then( result => {
+    if (result.status === 201)
+       setPost([...characters, person.data] );
+    });
+ }
 
-          <label for="Publisher">Publisher of event:</label>
-          <input type="text" id="Publisher" name="Publisher"></input>
-          <br></br>
-
-          <label for="Description">Description of event:</label>
-          <textarea id="Description" name="Description" rows="5" cols="50"></textarea>
-          <br></br>
-          
-          <label for="Keyword">What categorey is the event under:</label>
-            <select name="keywords" id="Keywords">
-            <option value="Sports">Sports</option>
-            <option value="Muisc">Music</option>
-            <option value="Community">Community</option>
-            <option value="Art">Art</option>
-            </select>
-            <br></br>
-
-          <input type="submit" value="Submit"></input>
-        </form>
-      
-        </div>
-      );
-
+  async function fetchAll(){
+    try {
+       const response = await axios.get('http://localhost:5000/posts');
+       return response.data.users_list;     
+    }
+    catch (error){
+       //We're not handling errors. Just logging into the console.
+       console.log(error); 
+       return false;         
+    }
   }
+  
+  return (
+    <div className="container">
+      <Form handleSubmit={updateList} />
+    </div>
+  )
 
-export default PostPage;
+}
+
+export default MyApp;
