@@ -17,6 +17,7 @@ function Form(props) {
     );
  
  function submitForm() {
+    console.log("in submitForm")
      post.handleSubmit(post);
      setPost({title: '', date: '', datePosted: '', time: '', author: '', content: '', keyword: '', cost: '', location: ''});
  }

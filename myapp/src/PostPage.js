@@ -12,9 +12,10 @@ function MyApp() {
      });
   }, [] );
 
-  async function makePostCall(person){
+  async function makePostCall(post){
     try {
-       const response = await axios.post('http://localhost:5000/posts', person);
+       console.log("Here")
+       const response = await axios.post('http://localhost:5000/posts', post);
        return response;
     }
     catch (error) {
@@ -23,11 +24,13 @@ function MyApp() {
     }
  }
 
-  function updateList(person) { 
-    makePostCall(person).then( result => {
-    if (result.status === 201)
-       setPost([...characters, person.data] );
-    });
+  function updateList(post) { 
+   console.log("Here in UpdateList")
+   makePostCall(post).then( result => {
+   if (result.status === 201)
+   post['_id'] = result.data['_id']
+   setPost([...characters, post] );
+   });
  }
 
   async function fetchAll(){
