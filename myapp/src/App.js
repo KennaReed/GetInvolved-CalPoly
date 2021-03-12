@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { PLACES } from './shared/places';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PostPage from "./PostPage";
 
@@ -19,14 +18,6 @@ class MyNavbar extends React.Component {
 }
 
 class App extends React.Component {					
-  
-	constructor(props){
-		super(props);
-		
-		this.state = {
-			places: PLACES
-		};
-	}
 	
 	render(){
 		return (
