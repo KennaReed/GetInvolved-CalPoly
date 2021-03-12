@@ -5,17 +5,20 @@ function Form(props) {
        {  
           title: '',
           date: '',
+          datePosted: '',
           time: '',
           publisher: '',
-          description: '',
+          content: '',
           keyword: '',
+          cost: '',
+          location: '',
           //image: '',
        }
     );
  
  function submitForm() {
      post.handleSubmit(post);
-     setPost({title: '', date: '', time: '', author: '', description: '', keyword: ''});
+     setPost({title: '', date: '', datePosted: '', time: '', author: '', content: '', keyword: '', cost: '', location: ''});
  }
  
  function handleChange(event) {
@@ -24,10 +27,14 @@ function Form(props) {
       setPost(
          {name: post['title'], title: value}
       );
-   if (name === "date")
+   if (name === "datePosted")
        setPost(
-         {name: post['date'], date: value}
+         {name: post['datePosted'], datePosted: value}
       );
+   if (name === "date")
+      setPost(
+        {name: post['date'], date: value}
+     );
    if (name === "time")
        setPost(
          {name: post['time'], time: value}
@@ -36,13 +43,22 @@ function Form(props) {
       setPost(
          {name: post['publisher'], publisher: value}
       );
-   if (name === "description")
+   if (name === "content")
       setPost(
-         {name: post['description'], description: value}
+         {name: post['content'], content: value}
       );
    if (name === "keyword")
       setPost(
          {name: post['keyword'], keyword: value}
+      );
+
+   if (name === "cost")
+      setPost(
+         {name: post['cost'], cost: value}
+      );
+   if (name === "location")
+      setPost(
+         {name: post['location'], location: value}
       );
  }
  
@@ -57,6 +73,16 @@ function Form(props) {
              name="title"
              value={post.title}
              onChange={handleChange}>
+             </input>
+           <br></br>
+
+           <label for="datePosted">Today's date:</label>
+           <input 
+             type="date" 
+             id="datePosted" 
+             name="datePosted"
+             value={post.datePosted}
+             onChange = {handleChange}>
              </input>
            <br></br>
  
@@ -83,19 +109,29 @@ function Form(props) {
            <label for="publisher">Publisher of event:</label>
            <input 
              type="text" 
-             id="Publisher"
-             name="Publisher"
+             id="publisher"
+             name="publisher"
              value={post.publisher}
              onChange = {handleChange}>
               </input>
            <br></br>
+
+           <label for="location">Location of event:</label>
+           <input 
+             type="text" 
+             id="location"
+             name="location"
+             value={post.location}
+             onChange = {handleChange}>
+              </input>
+           <br></br>
  
-           <label for="description">Description of event:</label>
+           <label for="content">Description of event:</label>
            <textarea 
-             id="description" 
-             name="description" 
+             id="content" 
+             name="content" 
              rows="5" cols="50"
-             value={post.description}
+             value={post.content}
              onChange = {handleChange}>
              </textarea>
            <br></br>
@@ -108,6 +144,19 @@ function Form(props) {
              <option value="Art">Art</option>
              <input
              value={post.keyword}
+             onChange = {handleChange}>
+             </input>
+             </select>
+             <br></br>
+
+             <label for="cost">About how much does the event cost:</label>
+             <select name="cost" id="cost">
+             <option value="Free">Free</option>
+             <option value="About5">About 5</option>
+             <option value="About10">About 10</option>
+             <option value="More">More than 10</option>
+             <input
+             value={post.cost}
              onChange = {handleChange}>
              </input>
              </select>
