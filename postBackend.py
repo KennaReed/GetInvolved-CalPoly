@@ -15,13 +15,13 @@ def flask_mongodb_atlas():
 @app.route('/posts', methods=['GET', 'POST'])
 def get_posts():
     if request.method == 'GET':
-        search_title = request.args.get('title')
+        search_keyWords = request.args.get('keyWords')
         search_eventDate = request.args.get('DateEvent')
         search_publisher = request.args.get('publisher')
         search_cost = request.args.get('Cost')
         filters = {}
-        if (search_title):
-            filters["title"] = search_title
+        if (search_keyWords):
+            filters["keyWords"] = search_keyWords
         if (search_eventDate):
             filters["DateEvent"] = search_eventDate
         if (search_publisher):
