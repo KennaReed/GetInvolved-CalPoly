@@ -43,5 +43,6 @@ def get_posts():
         resp = jsonify(newPost), 201
         return resp
 
+
 if __name__ == '__main__':
     app.run(port=5000)
