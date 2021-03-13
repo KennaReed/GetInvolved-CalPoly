@@ -6,62 +6,72 @@ function Form(props) {
     const [post, setPost] = useState(
        {  
           title: '',
-          date: '',
-          datePosted: '',
+          DateEvent: new Date,
+          DatePosted: new Date,
           time: '',
           publisher: '',
           content: '',
-          keyword: '',
-          cost: '',
-          location: '',
+          keyWords: '',
+          Cost: '',
+          Location: '',
           //image: '',
        }
     );
     
  
  function submitForm() {
-     post.handleSubmit(post);
-     setPost({title: '', date: '', datePosted: '', time: '', author: '', content: '', keyword: '', cost: '', location: ''});
+    console.log("in submitForm")
+    props.handleSubmit(post);
+    setPost({title: '', DateEvent: '', DatePosted: '', time: '', publisher: '', content: '', keyWords: '', Cost: '', Location: ''});
  }
  
  function handleChange(event) {
    const { name, value } = event.target;
    if (name === "title")
+      console.log("title")
       setPost(
          {name: post['title'], title: value}
       );
-   if (name === "datePosted")
+   if (name === "DatePosted")
+      console.log("DatePosted")
        setPost(
-         {name: post['datePosted'], datePosted: value}
+         {name: post['DatePosted'], datePosted: value}
       );
-   if (name === "date")
+   if (name === "DateEvent")
+      console.log("DateEvent")
       setPost(
-        {name: post['date'], date: value}
+        {name: post['DateEvent'], date: value}
      );
    if (name === "time")
+      console.log("time")
        setPost(
          {name: post['time'], time: value}
       );
    if (name === "publisher")
+      console.log("publisher")
       setPost(
          {name: post['publisher'], publisher: value}
       );
    if (name === "content")
+      console.log("content")
       setPost(
          {name: post['content'], content: value}
       );
-   if (name === "keyword")
+   if (name === "keyWords")
+      console.log("keyWords")
       setPost(
-         {name: post['keyword'], keyword: value}
+         {name: post['keyWords'], keyword: value}
       );
 
-   if (name === "cost")
+   if (name === "Cost")
+      console.log("Cost")
       setPost(
-         {name: post['cost'], cost: value}
+         {name: post['Cost'], cost: value}
       );
-   if (name === "location")
+   if (name === "Location")
+      console.log("Location")
       setPost(
-         {name: post['location'], location: value}
+         {name: post['Location'], location: value}
       );
  }
  
@@ -70,7 +80,7 @@ function Form(props) {
      <div >
         <form>
  
-           <label for="title">Name of event:</label>
+           <label htmlFor="title">Name of event:</label>
            <input 
              type="text"  
              id="title" 
@@ -80,27 +90,27 @@ function Form(props) {
              </input>
            <br></br>
 
-           <label for="datePosted">Today's date:</label>
+           <label htmlFor="DatePosted">Today's date:</label>
            <input 
              type="date" 
-             id="datePosted" 
-             name="datePosted"
-             value={post.datePosted}
+             id="DatePosted" 
+             name="DatePosted"
+             value={post.DatePosted}
              onChange = {handleChange}>
              </input>
            <br></br>
  
-           <label for="date">Date of event:</label>
+           <label htmlFor="DateEvent">Date of event:</label>
            <input 
              type="date" 
-             id="date" 
-             name="date"
-             value={post.date}
+             id="DateEvent" 
+             name="DateEvent"
+             value={post.DateEvent}
              onChange = {handleChange}>
              </input>
            <br></br>
            
-           <label for="time">Time of event:</label>
+           <label htmlFor="time">Time of event:</label>
            <input 
              type="time" 
              id="time" 
@@ -110,7 +120,7 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label for="publisher">Publisher of event:</label>
+           <label htmlFor="publisher">Poster:</label>
            <input 
              type="text" 
              id="publisher"
@@ -120,17 +130,17 @@ function Form(props) {
               </input>
            <br></br>
 
-           <label for="location">Location of event:</label>
+           <label htmlFor="Location">Location of event:</label>
            <input 
              type="text" 
-             id="location"
-             name="location"
-             value={post.location}
+             id="Location"
+             name="Location"
+             value={post.Location}
              onChange = {handleChange}>
               </input>
            <br></br>
  
-           <label for="content">Description of event:</label>
+           <label htmlFor="content">Description of event:</label>
            <textarea 
              id="content" 
              name="content" 
@@ -140,29 +150,21 @@ function Form(props) {
              </textarea>
            <br></br>
            
-           <label for="keyword">What categorey is the event under:</label>
-             <select name="keywords" id="keywords">
+           <label htmlFor="keyWords">What categorey is the event under:</label>
+             <select name="keyWords" id="keyWords" value={post.keyWords} onChange = {handleChange}>
              <option value="Sports">Sports</option>
              <option value="Muisc">Music</option>
              <option value="Community">Community</option>
              <option value="Art">Art</option>
-             <input
-             value={post.keyword}
-             onChange = {handleChange}>
-             </input>
              </select>
              <br></br>
 
-             <label for="cost">About how much does the event cost:</label>
-             <select name="cost" id="cost">
+             <label htmlFor="Cost">About how much does the event cost:</label>
+             <select name="Cost" id="Cost" value={post.Cost} onChange = {handleChange}>
              <option value="Free">Free</option>
              <option value="About5">About 5</option>
              <option value="About10">About 10</option>
              <option value="More">More than 10</option>
-             <input
-             value={post.cost}
-             onChange = {handleChange}>
-             </input>
              </select>
              <br></br>
              <filePicker/>

@@ -7,8 +7,8 @@ class MyNavbar extends React.Component {
 
   render() {
     return(
-        <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <div className="topnav">
+        <a className="active" href="#home">Home</a>
         <a href="#news">Post</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
