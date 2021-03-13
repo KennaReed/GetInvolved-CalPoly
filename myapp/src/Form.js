@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useFilePicker } from 'use-file-picker';
+
 
 function Form(props) {   
     const [post, setPost] = useState(
@@ -15,6 +17,7 @@ function Form(props) {
           //image: '',
        }
     );
+    
  
  function submitForm() {
      post.handleSubmit(post);
@@ -63,6 +66,7 @@ function Form(props) {
  }
  
    return (
+      
      <div >
         <form>
  
@@ -161,6 +165,7 @@ function Form(props) {
              </input>
              </select>
              <br></br>
+             <filePicker/>
  
            <input type="submit" value="Submit" onClick={submitForm}></input>
          </form>
