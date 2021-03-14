@@ -27,52 +27,43 @@ function Form(props) {
  
  function handleChange(event) {
    const { name, value } = event.target;
-   if (name === "title")
-      console.log("title")
-      setPost(
-         {name: post['title'], title: value}
-      );
-   if (name === "DatePosted")
-      console.log("DatePosted")
-       setPost(
-         {name: post['DatePosted'], datePosted: value}
-      );
-   if (name === "DateEvent")
-      console.log("DateEvent")
-      setPost(
-        {name: post['DateEvent'], date: value}
-     );
-   if (name === "time")
-      console.log("time")
-       setPost(
-         {name: post['time'], time: value}
-      );
-   if (name === "publisher")
-      console.log("publisher")
-      setPost(
-         {name: post['publisher'], publisher: value}
-      );
-   if (name === "content")
-      console.log("content")
-      setPost(
-         {name: post['content'], content: value}
-      );
-   if (name === "keyWords")
-      console.log("keyWords")
-      setPost(
-         {name: post['keyWords'], keyword: value}
-      );
+   if (name === "title"){
+      setPost({title: value, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+   }
+   if (name === "DatePosted"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: value, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
 
-   if (name === "Cost")
-      console.log("Cost")
-      setPost(
-         {name: post['Cost'], cost: value}
-      );
-   if (name === "Location")
-      console.log("Location")
-      setPost(
-         {name: post['Location'], location: value}
-      );
+   }
+   if (name === "DateEvent"){
+     setPost({title: post.title, DateEvent: value, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+      content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+   }
+   if (name === "time"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: value, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+   }
+   if (name === "publisher"){
+
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: value, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+   }
+   if (name === "content"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: value, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+   }
+   if (name === "keyWords"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: value, Cost: post.Cost, Location: post.Location});   }
+
+   if (name === "Cost"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: value, Location: post.Location});
+   }
+   if (name === "Location"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: value});   }
  }
  
    return (
@@ -152,6 +143,7 @@ function Form(props) {
            
            <label htmlFor="keyWords">What categorey is the event under:</label>
              <select name="keyWords" id="keyWords" value={post.keyWords} onChange = {handleChange}>
+             <option value="Select">Select</option>
              <option value="Sports">Sports</option>
              <option value="Muisc">Music</option>
              <option value="Community">Community</option>
@@ -161,14 +153,14 @@ function Form(props) {
 
              <label htmlFor="Cost">About how much does the event cost:</label>
              <select name="Cost" id="Cost" value={post.Cost} onChange = {handleChange}>
+             <option value="SelectC">Select</option>
              <option value="Free">Free</option>
              <option value="About5">About 5</option>
              <option value="About10">About 10</option>
              <option value="More">More than 10</option>
              </select>
              <br></br>
-             <filePicker/>
- 
+             <filePicker/> 
            <input type="submit" value="Submit" onClick={submitForm}></input>
          </form>
        
