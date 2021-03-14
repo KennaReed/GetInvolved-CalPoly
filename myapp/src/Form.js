@@ -141,7 +141,7 @@ function Form(props) {
              </textarea>
            <br></br>
            
-           <label htmlFor="keyWords">What categorey is the event under:</label>
+           <label htmlFor="keyWords">What category is the event under:</label>
              <select name="keyWords" id="keyWords" value={post.keyWords} onChange = {handleChange}>
              <option value="Select">Select</option>
              <option value="Sports">Sports</option>
@@ -155,9 +155,9 @@ function Form(props) {
              <select name="Cost" id="Cost" value={post.Cost} onChange = {handleChange}>
              <option value="SelectC">Select</option>
              <option value="Free">Free</option>
-             <option value="About5">About 5</option>
-             <option value="About10">About 10</option>
-             <option value="More">More than 10</option>
+             <option value="Five">About 5</option>
+             <option value="Ten">About 10</option>
+             <option value="Highest">More than 10</option>
              </select>
              <br></br>
              <filePicker/> 
