@@ -1,23 +1,29 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navibar from "./Navibar";
 import Header from "./better";
+import Forum from "./Forum";
+import Home from "./Home";
+import App1 from "./App1"
+import {Switch, Route} from "react-router-dom"
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends React.Component {					
 	
    render(){	
-      return (			
-         <div className='App'>
-	   <h1 style={{backgroundColor: "green"}}>Get Involved - Cal Poly </h1>
-	   <Header/>
-           <h1> Events and Recent Posts : </h1>	
-		   <p>
-		Example Post 1:
-		Meet up at the Pac! Freshman Welcome! Come meet other students!
-		Time: 12:30 PM  
-		   </p>
-	</div>
+      return (	
+		<BrowserRouter>		
+			<div className='App'>
+				<h1 style={{backgroundColor: "green"}}>Get Involved - Cal Poly </h1>
+				<Header/>
+				<Switch>
+					<Route path="/calendar" component={Forum}/>
+					<Route path="/forum" component={Forum}/>
+					<Route path="/post" component={App1}/>
+					<Route path="/home" component={Home}/>
+				</Switch>
+			</div>
+		</BrowserRouter>
 	);
 	}
 }

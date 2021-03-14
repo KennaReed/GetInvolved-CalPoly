@@ -70,7 +70,7 @@ function Form(props) {
      <div >
         <form>
  
-           <label for="title">Name of event:</label>
+           <label for="title">Name of event: </label>
            <input 
              type="text"  
              id="title" 
@@ -80,7 +80,7 @@ function Form(props) {
              </input>
            <br></br>
 
-           <label for="datePosted">Today's date:</label>
+           <label for="datePosted">Today's date: </label>
            <input 
              type="date" 
              id="datePosted" 
@@ -90,7 +90,7 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label for="date">Date of event:</label>
+           <label for="date">Date of event: </label>
            <input 
              type="date" 
              id="date" 
@@ -100,7 +100,7 @@ function Form(props) {
              </input>
            <br></br>
            
-           <label for="time">Time of event:</label>
+           <label for="time">Time of event: </label>
            <input 
              type="time" 
              id="time" 
@@ -110,7 +110,7 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label for="publisher">Publisher of event:</label>
+           <label for="publisher">Publisher of event: </label>
            <input 
              type="text" 
              id="publisher"
@@ -120,7 +120,7 @@ function Form(props) {
               </input>
            <br></br>
 
-           <label for="location">Location of event:</label>
+           <label for="location">Location of event: </label>
            <input 
              type="text" 
              id="location"
@@ -130,7 +130,7 @@ function Form(props) {
               </input>
            <br></br>
  
-           <label for="content">Description of event:</label>
+           <label for="content">Description of event: </label>
            <textarea 
              id="content" 
              name="content" 
@@ -140,7 +140,7 @@ function Form(props) {
              </textarea>
            <br></br>
            
-           <label for="keyword">What categorey is the event under:</label>
+           <label for="keyword">What category is the event under: </label>
              <select name="keywords" id="keywords">
              <option value="Sports">Sports</option>
              <option value="Muisc">Music</option>
@@ -153,7 +153,7 @@ function Form(props) {
              </select>
              <br></br>
 
-             <label for="cost">About how much does the event cost:</label>
+             <label for="cost">About how much does the event cost: </label>
              <select name="cost" id="cost">
              <option value="Free">Free</option>
              <option value="About5">About 5</option>
@@ -162,6 +162,7 @@ function Form(props) {
              <input
              value={post.cost}
              onChange = {handleChange}>
+
              </input>
              </select>
              <br></br>

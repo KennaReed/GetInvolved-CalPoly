@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {IoChatbubble as Logo} from 'react-icons/io5';
+import {Link, Route} from "react-router-dom";
 import "./header.css";
 
 const Header = () => {
@@ -18,16 +19,16 @@ const Header = () => {
 
         <ul className={click ? "nav-options active" : "nav-options"}>
           <li className="option" onClick={closeMobileMenu}>
-            <a href="#">HOME</a>
+            <Link to={"/home"} activeStyle={{color:"red"}}>HOME</Link>
           </li>
           <li className="option" onClick={closeMobileMenu}>
-            <a href="#">POST</a>
+            <Link to="/post">POST</Link>
           </li>
           <li className="option" onClick={closeMobileMenu}>
-            <a href="#">FORUM</a>
+            <Link to="/forum">FORUM</Link>
           </li>
           <li className="option mobile-option" onClick={closeMobileMenu}>
-            <a href="#">CALENDAR</a>
+            <Link to="/calendar">CALENDAR</Link>
           </li>
           <li className=" option mobile-option" onClick={closeMobileMenu}>
             <a href="" className="sign-up">
