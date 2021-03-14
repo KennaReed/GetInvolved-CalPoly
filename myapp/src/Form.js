@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { useFilePicker } from 'use-file-picker';
 
-
 function Form(props) {   
     const [post, setPost] = useState(
        {  
@@ -14,11 +13,11 @@ function Form(props) {
           keyWords: '',
           Cost: '',
           Location: '',
-          //image: '',
+          image: '',
        }
     );
-    
- 
+
+   
  function submitForm() {
     console.log("in submitForm")
     props.handleSubmit(post);
@@ -29,41 +28,44 @@ function Form(props) {
    const { name, value } = event.target;
    if (name === "title"){
       setPost({title: value, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
    }
    if (name === "DatePosted"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: value, time: post.time, publisher: post.publisher, 
-         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
 
    }
    if (name === "DateEvent"){
      setPost({title: post.title, DateEvent: value, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-      content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+      content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
    }
    if (name === "time"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: value, publisher: post.publisher, 
-         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
    }
    if (name === "publisher"){
 
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: value, 
-         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
    }
    if (name === "content"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-         content: value, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location});
+         content: value, keyWords: post.keyWords, Cost: post.Cost, Location: post.Location, image: post.image});
    }
    if (name === "keyWords"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-         content: post.content, keyWords: value, Cost: post.Cost, Location: post.Location});   }
+         content: post.content, keyWords: value, Cost: post.Cost, Location: post.Location, image: post.image});   }
 
    if (name === "Cost"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-         content: post.content, keyWords: post.keyWords, Cost: value, Location: post.Location});
+         content: post.content, keyWords: post.keyWords, Cost: value, Location: post.Location, image: post.image});
    }
    if (name === "Location"){
       setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
-         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: value});   }
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: value, image: post.image});   }
+   if (name === "image"){
+      setPost({title: post.title, DateEvent: post.DateEvent, DatePosted: post.DatePosted, time: post.time, publisher: post.publisher, 
+         content: post.content, keyWords: post.keyWords, Cost: post.Cost, Location: post.location, image: value});   }
  }
  
    return (
@@ -160,7 +162,13 @@ function Form(props) {
              <option value="Highest">More than 10</option>
              </select>
              <br></br>
-             <filePicker/> 
+
+            <label htmlFor="image">Insert your own image:</label>
+      
+            <input type="file" id = "image" name = "image" value = {post.image} onChange={handleChange}/>
+         
+             <br></br>
+
            <input type="submit" value="Submit" onClick={submitForm}></input>
          </form>
        
