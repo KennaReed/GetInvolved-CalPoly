@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Forum from './ForumPage.js'
 import PostPage from "./PostPage";
 
 class MyNavbar extends React.Component {
@@ -21,12 +22,7 @@ class App extends React.Component {
 	
 	render(){
 		return (
-			<div className='App'>
-        <MyNavbar/>
-				<h1>Create a Post!</h1>
-                <PostPage/>
-
-			</div>
+			<Forum />
 		);
 	}
 }
