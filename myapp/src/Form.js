@@ -21,7 +21,7 @@ function Form(props) {
  function submitForm() {
     console.log("in submitForm")
     props.handleSubmit(post);
-    setPost({title: '', DateEvent: '', DatePosted: '', time: '', publisher: '', content: '', keyWords: '', Cost: '', Location: ''});
+    setPost({title: '', DateEvent: new Date, DatePosted: new Date, time: '', publisher: '', content: '', keyWords: '', Cost: '', Location: '', image: ''});
  }
  
  function handleChange(event) {
@@ -169,7 +169,7 @@ function Form(props) {
          
              <br></br>
 
-           <input type="submit" value="Submit" onClick={submitForm}></input>
+           <input type="button" value="Submit" onClick={submitForm} onClick="" ></input>
          </form>
        
          </div>

@@ -14,7 +14,6 @@ function MyApp() {
 
   async function makePostCall(post){
     try {
-       console.log("Here wiefofnsakncapdpiojsfhebfa  really long so easier to see")
        const response = await axios.post('http://localhost:5000/posts', post);
        return response;
     }
@@ -25,7 +24,6 @@ function MyApp() {
  }
 
   function updateList(post) { 
-   console.log("Here in UpdateList")
    makePostCall(post).then( result => {
    if (result.status === 201)
       post['_id'] = result.data['_id']
