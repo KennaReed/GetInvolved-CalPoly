@@ -12,8 +12,7 @@ code {
     monospace;
 }
 
-label {display:block; width:x; height:y; text-align:left;}
-input {display:block; width:x; height:y; text-align:left;}
-select {display:block; width:x; height:y; text-align:left;}
-textarea {display:block; width:x; height:y; text-align:left;}
-img {display:block; width:x; height:y; text-align:right;}
+label {
+  padding-right:12px;
+  line-height: 2;
+}
