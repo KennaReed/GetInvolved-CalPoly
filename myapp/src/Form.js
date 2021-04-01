@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { useFilePicker } from 'use-file-picker';
+import {Link} from "react-router-dom";
 
 function Form(props) {   
     const [post, setPost] = useState(
        {  
           title: '',
-          DateEvent: new Date,
-          DatePosted: new Date,
+          DateEvent: new Date(),
+          DatePosted: new Date(),
           time: '',
           publisher: '',
           content: '',
@@ -19,9 +19,9 @@ function Form(props) {
 
    
  function submitForm() {
-    console.log("in submitForm")
+    alert("Thank you for submitting a post!")
     props.handleSubmit(post);
-    setPost({title: '', DateEvent: new Date, DatePosted: new Date, time: '', publisher: '', content: '', keyWords: '', Cost: '', Location: '', image: ''});
+    setPost({title: '', DateEvent: new Date(), DatePosted: new Date(), time: '', publisher: '', content: '', keyWords: '', Cost: '', Location: '', image: ''});
  }
  
  function handleChange(event) {
@@ -168,8 +168,11 @@ function Form(props) {
             <input type="file" id = "image" name = "image" value = {post.image} onChange={handleChange}/>
          
              <br></br>
-
-           <input type="button" value="Submit" onClick={submitForm} onClick="" ></input>
+           <Link to="/home">
+              <button type="button" onClick={submitForm} >
+                 Submit!
+              </button>
+           </Link>
          </form>
        
          </div>

@@ -30,3 +30,4 @@ Here is some documentation to connect to our database!
  8) Now in Boomerang (like we used in class), GET at this url: http://127.0.0.1:5000/posts and SEND. That should output all of the example posts I put in the database. 
  
  Note: As of writing this, that is the only endpoint I have set up, but I am doing more this week, so I will let you know as I get them up.
+Update: There is now filtering functionality. 

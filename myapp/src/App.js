@@ -1,33 +1,30 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PostPage from "./PostPage";
-
-class MyNavbar extends React.Component {
-
-  render() {
-    return(
-        <div className="topnav">
-        <a className="active" href="#home">Home</a>
-        <a href="#news">Post</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-  )
-  }
-}
+import Header from "./better";
+import Forum from "./Forum";
+import Home from "./Home";
+import App1 from "./App1"
+import {Switch, Route} from "react-router-dom"
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends React.Component {					
 	
-	render(){
-		return (
+   render(){	
+      return (	
+		<BrowserRouter>		
 			<div className='App'>
-        <MyNavbar/>
-				<h1>Create a Post!</h1>
-                <PostPage/>
-
+				<h1 style={{backgroundColor: "green"}}>Get Involved - Cal Poly </h1>
+				<Header/>
+				<Switch>
+					<Route path="/calendar" component={Forum}/>
+					<Route path="/forum" component={Forum}/>
+					<Route path="/post" component={App1}/>
+					<Route path="/home" component={Home}/>
+				</Switch>
 			</div>
-		);
+		</BrowserRouter>
+	);
 	}
 }
 

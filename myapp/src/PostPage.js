@@ -14,6 +14,8 @@ function MyApp() {
 
   async function makePostCall(post){
     try {
+
+       console.log("Here wiefofnsakncapdpiojsfhebfa  really long so easier to see")
        const response = await axios.post('http://localhost:5000/posts', post);
        return response;
     }
@@ -30,18 +32,6 @@ function MyApp() {
       setPost([...posts, post] );
    });
  }
-
-//   async function fetchAll(){
-//     try {
-//        const response = await axios.get('http://localhost:5000/posts');
-//        return response.data.users_list;     
-//     }
-//     catch (error){
-//        //We're not handling errors. Just logging into the console.
-//        console.log(error); 
-//        return false;         
-//     }
-//   }
   
   return (
     <div className="container">
