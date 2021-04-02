@@ -16,8 +16,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-<<<<<<< HEAD
-=======
 
 //I got the above code from a tutorial website that I can no longer find or else I would site
->>>>>>> 2264bb32946bc953d57258441eeb6e7fdebb5c92
