@@ -12,14 +12,14 @@ const Header = () => {
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
-          <a href="#">
-            <Logo className="logo" />
+          <a href="/post">
+            <Logo class="logo" />
           </a>
         </div>
 
         <ul>
           <li>
-            <Link to={"/home"} activeStyle={{color:"red"}}>HOME</Link>
+            <Link to="/home">HOME</Link>
           </li>
           <li>
             <Link to="/post">POST</Link>
