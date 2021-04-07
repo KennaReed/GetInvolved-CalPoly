@@ -12,6 +12,12 @@ CORS(app)
 def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
 
+@app.route('/forum', methods=['GET'])
+def get_forumPosts():
+    if request.method == 'GET':
+        posts = Post().find_all()
+        return {"posts_list": posts}
+
 @app.route('/posts', methods=['GET', 'POST'])
 def get_posts():
     if request.method == 'GET':

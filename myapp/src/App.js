@@ -5,6 +5,7 @@ import Header from "./better";
 import Forum from "./Forum";
 import Home from "./Home";
 import App1 from "./App1"
+import ReactDOM from 'react-dom'
 import {Switch, Route} from "react-router-dom"
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -21,7 +22,7 @@ class App extends React.Component {
 				</div>
 				<Switch>
 					<Route path="/calendar" component={Forum}/>
-					<Route path="/forum" component={Forum}/>
+					<Route path="/forum" component={ReactDOM.render(<Forum />, document.getElementById('root'))}/>
 					<Route path="/post" component={App1}/>
 					<Route path="/" component={Home}/>
 				</Switch>

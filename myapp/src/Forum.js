@@ -1,6 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import ForumPosts from './ForumPosts';
+import axios from 'axios';
 
-function Forum(props) {
+
+function Forum() {
+    const [forumPosts, setForumPosts] = useState([]);
+
+    useEffect(() => {
+        fetchAll().then(result => {
+        if (result)
+            setForumPosts(result);
+        });
+    }, []);
+
+    async function fetchAll() {
+        console.log("HERE")
+        try { 
+        const response = await axios.get('http://localhost:5000/forum');
+          return response.data.posts_list;
+        }
+        
+        catch (error) {
+          console.log(error);
+          return false;
+        }
+      } 
+
+    console.log(forumPosts)
     return (
         <div id="ForumComp">
             <div id="nav">
@@ -12,7 +38,7 @@ function Forum(props) {
             </div>
 
             <div id="posts">
-                <h2>Placeholder for Displaying Posts</h2>
+                <ForumPosts postData={forumPosts}/>
             </div>
 
             <div id="sideBar">
