@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {IoChatbubble as Logo} from 'react-icons/io5';
 import {Link} from "react-router-dom";
 import "./header.css";
+import SearchPage from "./SearchPage";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -12,14 +13,14 @@ const Header = () => {
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
-          <a href="#">
-            <Logo className="logo" />
+          <a href="/post">
+            <Logo class="logo" />
           </a>
         </div>
 
         <ul>
           <li>
-            <Link to={"/home"} activeStyle={{color:"red"}}>HOME</Link>
+            <Link to="/home">HOME</Link>
           </li>
           <li>
             <Link to="/post">POST</Link>
@@ -42,6 +43,9 @@ const Header = () => {
           </a>
         </li>
       </ul>
+      <div>
+        <SearchPage/>
+      </div>
       <div className="mobile-menu" onClick={handleClick}>
         {click ? (
           <Logo className="menu-icon" />

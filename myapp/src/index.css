@@ -16,3 +16,133 @@ label {
   padding-right:12px;
   line-height: 2;
 }
+
+
+.logo {
+  width: 1px;
+  height: 1px;
+}
+
+.event {
+  position: absolute;
+  left: 560px;
+  top: 190px;
+}
+
+.event1 {
+  position: absolute;
+  left: 680px;
+  top: 190px;
+}
+
+.date {
+  position: absolute;
+  left: 572px;
+  top: 230px;
+}
+
+.date1 {
+  position: absolute;
+  left: 680px;
+  top: 230px;
+}
+
+.eventd {
+  position: absolute;
+  left: 568px;
+  top: 270px;
+}
+
+.eventd1 {
+  position: absolute;
+  left: 680px;
+  top: 270px;
+}
+.eventt {
+  position: absolute;
+  left: 565px;
+  top: 310px;
+}
+
+.eventt1 {
+  position: absolute;
+  left: 680px;
+  top: 310px;
+}
+
+.poster {
+  position: absolute;
+  left: 430px;
+  top: 350px;
+}
+
+.poster1 {
+  position: absolute;
+  left: 680px;
+  top: 350px;
+}
+
+.location {
+  position: absolute;
+  left: 538px;
+  top: 390px;
+}
+
+.location1 {
+  position: absolute;
+  left: 680px;
+  top: 390px;
+}
+
+.description {
+  position: absolute;
+  left: 518px;
+  bottom: 300px;
+}
+
+.description1 {
+  position: absolute;
+  left: 680px;
+  bottom: 250px;
+}
+
+.category {
+  position: absolute;
+  left: 425px;
+  bottom: 200px;
+}
+
+.category1 {
+  position: absolute;
+  left: 680px;
+  bottom: 200px;
+}
+
+.cost {
+  position: absolute;
+  left: 400px;
+  bottom: 150px;
+}
+
+.cost1 {
+  position: absolute;
+  left: 680px;
+  bottom: 150px;
+}
+
+.image {
+  position: absolute;
+  left: 508px;
+  bottom: 110px;
+}
+
+.image1 {
+  position: absolute;
+  left: 680px;
+  bottom: 110px;
+}
+
+.submit {
+  position: absolute;
+  bottom: 10px;
+}

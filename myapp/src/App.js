@@ -13,14 +13,17 @@ class App extends React.Component {
    render(){	
       return (	
 		<BrowserRouter>		
+			
 			<div className='App'>
-				<h1 style={{backgroundColor: "green"}}>Get Involved - Cal Poly </h1>
+				<h1 class="top">Get Involved - Cal Poly </h1>
+				<div class="it">
 				<Header/>
+				</div>
 				<Switch>
 					<Route path="/calendar" component={Forum}/>
 					<Route path="/forum" component={Forum}/>
 					<Route path="/post" component={App1}/>
-					<Route path="/home" component={Home}/>
+					<Route path="/" component={Home}/>
 				</Switch>
 			</div>
 		</BrowserRouter>

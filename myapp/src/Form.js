@@ -73,8 +73,8 @@ function Form(props) {
      <div >
         <form>
  
-           <label htmlFor="title">Name of event:</label>
-           <input 
+           <label class="event" htmlFor="title">Name of event:</label>
+           <input class="event1"
              type="text"  
              id="title" 
              name="title"
@@ -83,8 +83,8 @@ function Form(props) {
              </input>
            <br></br>
 
-           <label htmlFor="DatePosted">Today's date:</label>
-           <input 
+           <label class="date" htmlFor="DatePosted">Today's date:</label>
+           <input class="date1"
              type="date" 
              id="DatePosted" 
              name="DatePosted"
@@ -93,8 +93,8 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label htmlFor="DateEvent">Date of event:</label>
-           <input 
+           <label class="eventd" htmlFor="DateEvent">Date of event:</label>
+           <input class="eventd1"
              type="date" 
              id="DateEvent" 
              name="DateEvent"
@@ -103,8 +103,8 @@ function Form(props) {
              </input>
            <br></br>
            
-           <label htmlFor="time">Time of event:</label>
-           <input 
+           <label class="eventt" htmlFor="time">Time of event:</label>
+           <input class="eventt1"
              type="time" 
              id="time" 
              name="time"
@@ -113,8 +113,8 @@ function Form(props) {
              </input>
            <br></br>
  
-           <label htmlFor="publisher">Poster:</label>
-           <input 
+           <label class="poster" htmlFor="publisher">Poster(your name or club name):</label>
+           <input class="poster1"
              type="text" 
              id="publisher"
              name="publisher"
@@ -123,8 +123,8 @@ function Form(props) {
               </input>
            <br></br>
 
-           <label htmlFor="Location">Location of event:</label>
-           <input 
+           <label class="location" htmlFor="Location">Location of event:</label>
+           <input class="location1"
              type="text" 
              id="Location"
              name="Location"
@@ -133,8 +133,8 @@ function Form(props) {
               </input>
            <br></br>
  
-           <label htmlFor="content">Description of event:</label>
-           <textarea 
+           <label class="description" htmlFor="content">Description of event:</label>
+           <textarea class="description1"
              id="content" 
              name="content" 
              rows="5" cols="50"
@@ -143,18 +143,18 @@ function Form(props) {
              </textarea>
            <br></br>
            
-           <label htmlFor="keyWords">What category is the event under:</label>
-             <select name="keyWords" id="keyWords" value={post.keyWords} onChange = {handleChange}>
+           <label class="category" htmlFor="keyWords">What category is the event under:</label>
+             <select class="category1" name="keyWords" id="keyWords" value={post.keyWords} onChange = {handleChange}>
              <option value="Select">Select</option>
              <option value="Sports">Sports</option>
-             <option value="Muisc">Music</option>
+             <option value="Music">Music</option>
              <option value="Community">Community</option>
              <option value="Art">Art</option>
              </select>
              <br></br>
 
-             <label htmlFor="Cost">About how much does the event cost:</label>
-             <select name="Cost" id="Cost" value={post.Cost} onChange = {handleChange}>
+             <label class="cost" htmlFor="Cost">About how much does the event cost:</label>
+             <select class="cost1" name="Cost" id="Cost" value={post.Cost} onChange = {handleChange}>
              <option value="SelectC">Select</option>
              <option value="Free">Free</option>
              <option value="Five">About 5</option>
@@ -163,9 +163,9 @@ function Form(props) {
              </select>
              <br></br>
 
-            <label htmlFor="image">Insert your own image:</label>
+            <label class="image" htmlFor="image">Insert your own image:</label>
       
-            <input type="file" id = "image" name = "image" value = {post.image} onChange={handleChange}/>
+            <input class="image1" type="file" id = "image" name = "image" value = {post.image} onChange={handleChange}/>
          
              <br></br>
            <Link to="/home">

@@ -8,11 +8,13 @@ class App extends React.Component {
 	
 	render(){
 		return (
+			<body class='App1'>
 			<div className='App'>
 				<h1>Create a Post!</h1>
                 <PostPage/>
 
 			</div>
+			</body>
 		);
 	}
 }
