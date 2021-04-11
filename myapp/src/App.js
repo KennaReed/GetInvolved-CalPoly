@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./better";
 import Forum from "./Forum";
-import Calendar from "./Calendar";
+import Cal from "./Cal";
 import Home from "./Home";
 import App1 from "./App1"
 import {Switch, Route} from "react-router-dom"
@@ -21,7 +21,7 @@ class App extends React.Component {
 				<Header/>
 				</div>
 				<Switch>
-					<Route path="/calendar" component={Calendar}/>
+					<Route path="/calendar" component={Cal}/>
 					<Route path="/forum" component={Forum}/>
 					<Route path="/post" component={App1}/>
 					<Route path="/" component={Home}/>
