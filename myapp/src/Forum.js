@@ -29,20 +29,18 @@ function Forum() {
     console.log(forumPosts)
     return (
         <div id="ForumComp">
-            <div id="nav">
-                <h2>Placeholder for Nav Bar</h2>
-            </div>
+            <h1 id="opener">Welcome to our Community Forum Page</h1>
 
-            <div id="opener">
-                <h1>Welcome to our Community Forum Page</h1>
-            </div>
+            <h3 id="instruct">Here you can interact with our community by commenting on posts and adding reactions!</h3>
 
-            <div id="posts">
-                <ForumPosts postData={forumPosts}/>
-            </div>
+            <div id="mainBody">
+                <div id="posts">
+                    <ForumPosts postData={forumPosts}/>
+                </div>
 
-            <div id="sideBar">
-                <h2>Placeholder for side Bar for Filtering/Sorting</h2>
+                <div id="sideBar">
+                    <h2>Placeholder for side Bar for Filtering/Sorting</h2>
+                </div>
             </div>
         </div>
     );
