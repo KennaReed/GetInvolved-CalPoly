@@ -1,0 +1,30 @@
+.ForumComp {
+    background-color: lightgoldenrodyellow;
+}
+
+.ForumBody {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
+.opener {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1em;
+}
+
+.instruct {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    padding-bottom: 1em;
+}
+
+.displayPost {
+    margin: 50px;
+    border-style: solid;
+    border-radius: 30px;
+    border-color:green;
+}
+
+
+
+

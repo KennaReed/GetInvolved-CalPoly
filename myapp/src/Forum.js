@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ForumPosts from './ForumPosts';
 import axios from 'axios';
+import styles from "./forum.module.css"
 
 
 function Forum() {
@@ -26,14 +27,13 @@ function Forum() {
         }
       } 
 
-    console.log(forumPosts)
     return (
-        <div id="ForumComp">
-            <h1 id="opener">Welcome to our Community Forum Page</h1>
+        <div className={styles.ForumComp}>
+            <h1 className={styles.opener}>Welcome to our Community Forum Page</h1>
 
-            <h3 id="instruct">Here you can interact with our community by commenting on posts and adding reactions!</h3>
+            <h3 className={styles.instruct}>Here you can interact with our community by commenting on posts and adding reactions!</h3>
 
-            <div id="mainBody">
+            <div className={styles.ForumBody}>
                 <div id="posts">
                     <ForumPosts postData={forumPosts}/>
                 </div>
