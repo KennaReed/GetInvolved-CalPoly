@@ -11,7 +11,7 @@ class App extends React.Component {
 			<body class='App1'>
 			<div className='App'>
 				<h1>Create a Post!</h1>
-                <PostPage/>
+                <PostPage class="postpage"/>
 
 			</div>
 			</body>

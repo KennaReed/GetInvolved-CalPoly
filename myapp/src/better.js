@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import {IoChatbubble as Logo} from 'react-icons/io5';
 import {Link} from "react-router-dom";
 import "./header.css";
-import SearchPage from "./SearchPage";
+import SearchBar from "./SearchBar";
+
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -44,7 +45,8 @@ const Header = () => {
         </li>
       </ul>
       <div>
-        <SearchPage/>
+      <SearchBar
+      />
       </div>
       <div className="mobile-menu" onClick={handleClick}>
         {click ? (

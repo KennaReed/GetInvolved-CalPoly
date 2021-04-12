@@ -14,8 +14,6 @@ function MyApp() {
 
   async function makePostCall(post){
     try {
-
-       console.log("Here wiefofnsakncapdpiojsfhebfa  really long so easier to see")
        const response = await axios.post('http://localhost:5000/posts', post);
        return response;
     }
