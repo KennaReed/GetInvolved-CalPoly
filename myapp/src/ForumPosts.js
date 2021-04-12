@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styles from "./forum.module.css"
 
 function ForumPosts(props) {
+    console.log(props);
     const posts = props.postData.map((p, index) => {
         return(
             <div className={styles.displayPost}>

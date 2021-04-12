@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
-import ForumPosts from './ForumPosts';
+
 function SearchBar(){
   const [search, setSearch] = useState(
     {  
        word: '',
     }
   );
-  
+
   function handleChange(event) {
     const { name, value } = event.target;
     if (name === "word"){
-       setSearch({word: value,});
+      setSearch({word: value});
     }
   }
 
@@ -31,7 +31,8 @@ function SearchBar(){
           }
         }
       } 
-      setSearch({word: ''});     
+      setSearch({word: ''});
+      return result;
     });
 
   }
@@ -52,7 +53,7 @@ function SearchBar(){
         type="text" 
         id="word"
         name="word"
-        value={search.word}
+        value = {search.word}
         onChange = {handleChange}>
       </input>
       <Link to="/forum">

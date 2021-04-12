@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ForumPosts from './ForumPosts';
 import axios from 'axios';
-import styles from "./forum.module.css"
-
+import styles from "./forum.module.css";
+import submitSearch from './SearchBar';
+import word from './SearchBar';
 
 function Forum() {
     const [forumPosts, setForumPosts] = useState([]);
@@ -15,16 +16,16 @@ function Forum() {
     }, []);
 
     async function fetchAll() {
-        console.log("HERE")
         try { 
-        const response = await axios.get('http://localhost:5000/forum');
-          return response.data.posts_list;
+            const response = await axios.get('http://localhost:5000/forum');            
+            return response.data.posts_list;
         }
         
         catch (error) {
-          console.log(error);
-          return false;
+        console.log(error);
+        return false;
         }
+        
       } 
 
     return (
