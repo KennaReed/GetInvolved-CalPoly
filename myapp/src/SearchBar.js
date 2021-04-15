@@ -15,10 +15,10 @@ function SearchBar(){
       setSearch({word: value});
     }
   }
-
   function submitSearch(){
     var i;
-    getData().then(result => {;
+    getData().then(result => {
+      console.log(result);
       for(i = 0; i < result.length; i++){
         if(!result[i].title.includes(search.word)) {
           if(!result[i].content.includes(search.word)) {
@@ -57,16 +57,15 @@ function SearchBar(){
         onChange = {handleChange}>
       </input>
       <Link to="/forum">
-        <button type="button" onClick={submitSearch} >
+        <button type="button" onClick={submitSearch}>
             Search!
         </button>
       </Link>
     </div>
   );
 }
+
 export default SearchBar;
-
-
 /*class SearchBar extends React.Component {
   state = {
     query: "",

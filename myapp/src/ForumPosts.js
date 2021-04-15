@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./forum.module.css"
 
 function ForumPosts(props) {
@@ -13,7 +13,6 @@ function ForumPosts(props) {
             </div>
         );
     });
-    console.log(posts.length);
     return posts;
 }
 export default ForumPosts;

@@ -2,23 +2,25 @@ import React, {useState, useEffect} from 'react';
 import ForumPosts from './ForumPosts';
 import axios from 'axios';
 import styles from "./forum.module.css";
-import submitSearch from './SearchBar';
-import word from './SearchBar';
+import search from './SearchBar';
+import SearchBar from './SearchBar';
+
 
 function Forum() {
+    var value = search.word;
     const [forumPosts, setForumPosts] = useState([]);
-
     useEffect(() => {
         fetchAll().then(result => {
         if (result)
             setForumPosts(result);
         });
-    }, []);
-
+    },[]);
     async function fetchAll() {
         try { 
-            const response = await axios.get('http://localhost:5000/forum');            
+            
+            const response = await axios.get('http://localhost:5000/forum');
             return response.data.posts_list;
+ 
         }
         
         catch (error) {
@@ -27,7 +29,7 @@ function Forum() {
         }
         
       } 
-
+    
     return (
         <div className={styles.ForumComp}>
             <h1 className={styles.opener}>Welcome to our Community Forum Page</h1>
