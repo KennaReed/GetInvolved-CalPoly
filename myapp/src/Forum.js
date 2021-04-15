@@ -7,7 +7,6 @@ import SearchBar from './SearchBar';
 
 
 function Forum() {
-    var value = search.word;
     const [forumPosts, setForumPosts] = useState([]);
     useEffect(() => {
         fetchAll().then(result => {
@@ -15,9 +14,9 @@ function Forum() {
             setForumPosts(result);
         });
     },[]);
+    
     async function fetchAll() {
         try { 
-            
             const response = await axios.get('http://localhost:5000/forum');
             return response.data.posts_list;
  
@@ -29,9 +28,14 @@ function Forum() {
         }
         
       } 
-    
+
+    function updatePost(updated){
+        setForumPosts(updated);
+    }
+
     return (
         <div className={styles.ForumComp}>
+            <SearchBar upPost = {updatePost}/>
             <h1 className={styles.opener}>Community Forum Page</h1>
 
             <div className={styles.ForumBody}>

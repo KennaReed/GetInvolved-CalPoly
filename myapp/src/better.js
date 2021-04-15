@@ -3,6 +3,7 @@ import {IoChatbubble as Logo} from 'react-icons/io5';
 import {Link} from "react-router-dom";
 import "./header.css";
 import SearchBar from "./SearchBar";
+import updatePost from "./Forum";
 
 
 const Header = () => {
@@ -45,7 +46,7 @@ const Header = () => {
         </li>
       </ul>
       <div>
-      <SearchBar
+      <SearchBar upPost = {updatePost}
       />
       </div>
       <div className="mobile-menu" onClick={handleClick}>

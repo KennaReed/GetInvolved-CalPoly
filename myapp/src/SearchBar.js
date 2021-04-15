@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from 'axios';
 
-function SearchBar(){
+function SearchBar(props){
   const [search, setSearch] = useState(
     {  
        word: '',
@@ -15,10 +15,10 @@ function SearchBar(){
       setSearch({word: value});
     }
   }
+  
   function submitSearch(){
     var i;
     getData().then(result => {
-      console.log(result);
       for(i = 0; i < result.length; i++){
         if(!result[i].title.includes(search.word)) {
           if(!result[i].content.includes(search.word)) {
@@ -31,11 +31,14 @@ function SearchBar(){
           }
         }
       } 
+      
       setSearch({word: ''});
-      return result;
-    });
+      console.log(result);
 
+      props.upPost(result);
+    });
   }
+
   async function getData () {
     try { 
       const response = await axios.get('http://localhost:5000/home');
@@ -46,7 +49,7 @@ function SearchBar(){
         console.log(error);
         return false;
       }
-  };
+  }
   return (
     <div>
       <input class="word"
