@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import ForumPosts from './ForumPosts';
+import ForumPost from './ForumPosts';
 import axios from 'axios';
 import styles from "./forum.module.css";
 import search from './SearchBar';
@@ -32,16 +32,17 @@ function Forum() {
     
     return (
         <div className={styles.ForumComp}>
-            <h1 className={styles.opener}>Welcome to our Community Forum Page</h1>
-
-            <h3 className={styles.instruct}>Here you can interact with our community by commenting on posts and adding reactions!</h3>
+            <h1 className={styles.opener}>Community Forum Page</h1>
 
             <div className={styles.ForumBody}>
-                <div id="posts">
-                    <ForumPosts postData={forumPosts}/>
+                <div>
+                    {/* <ForumPosts postData={forumPosts}/> */}
+                    {forumPosts.map((p, index) => {
+                        return <ForumPost postData={p}/>;
+                    })}
                 </div>
 
-                <div id="sideBar">
+                <div>
                     <h2>Placeholder for side Bar for Filtering/Sorting</h2>
                 </div>
             </div>

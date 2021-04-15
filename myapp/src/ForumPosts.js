@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./forum.module.css"
+import { FaAngleDown } from 'react-icons/fa'
 
 function ForumPosts(props) {
     console.log(props);
@@ -11,8 +12,8 @@ function ForumPosts(props) {
                 <p>{p.content}</p>
                 <p>{p.cost}</p>
             </div>
-        );
-    });
-    return posts;
+    );
+        }
+    
 }
-export default ForumPosts;
+export default ForumPost;
