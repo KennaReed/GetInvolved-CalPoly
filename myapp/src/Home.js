@@ -1,22 +1,50 @@
 import React,{ useState, useEffect } from "react";
 import axios from 'axios';
 
-function Home(){
+function DisplayPost(props) {
+   const posts = props.post1.map((post, index) => {
+   return (
+      <div key={index}>
+        <h3> Title:  {post.title} </h3>
+	<bold> Date: {post.DatePosted} </bold>
+	<br/>
+	<bold> Location:  {post.Location} </bold>
+        <br/>
+        <small> Content: {post.content} </small>
+        <br/>
+        <br/>
+      </div>
+    );
+  });
+   return(
+       <displayPost>
+       <div>
+         {posts}
+       </div>
+       </displayPost>
+   );
+}
 
-        const [getUsers, setGetUsers] = useState({})
 
-        async function fetchAll(){
-           const response = await axios.get('http://localhost:5000/users', { params: { EventPosted: 3/21/21 } })
-        return response.data.users_list;
-    }
+function Home(props){
 
-        useEffect(() => {
-        fetchAll().then( result => {
-        if (result)
-                setGetUsers(result);
-        });
-        }, [] );
-   
+     const [posts, setPost] = useState([]); 
+
+     async function fetchAll(){
+         const response = await axios.get('http://localhost:5000/posts');
+         return response.data.posts_list; 
+     }
+    
+     useEffect(() => {
+      fetchAll().then( result => {
+         if (result)
+             setPost(result);
+      });
+  }, [] );
+
+
+     const sortedposts = posts.reverse().sort((a, b) => Math.abs((b.DatePosted - a.DatePosted)))
+	
      return(
         <div class="home">
             <p class="bio">
@@ -27,32 +55,11 @@ function Home(){
         <br/>
         <h1> Recent Posts: </h1>
         <br/>
-        <h3> Title:    Example Post1  </h3>
-        <br/>
-        <bold> Date: Time Y</bold>
-        <br/>
-        <bold> Location:  Place X </bold>
-        <br/>
-        <small> Content: PlaceHolder  PlaceHolder Content will be here </small>
-        <br/>
-        <br/>
-        <h3> Title:    Example Post2  </h3>
-        <br/>
-        <bold> Date: Time Y</bold>
-        <br/>
-        <bold> Location:  Place X </bold>
-        <br/>
-        <small> Content: PlaceHolder  PlaceHolder Content will be here </small>
-        <br/>
-        <h3> Title:    Example Post2  </h3>
-        <br/>
-        <bold> Date: Time Y</bold>
-        <br/>
-        <bold> Location:  Place X </bold>
-        <br/>
-        <small> Content: PlaceHolder  PlaceHolder Content will be here </small>
+	<div className="container">
+        <DisplayPost post1={sortedposts}/>
         </div>
-    )
+        </div>
+    );
 }
 
 export default Home;

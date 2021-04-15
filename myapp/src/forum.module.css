@@ -9,21 +9,37 @@
 }
 
 .opener {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: DejaVu Sans Mono, monospaces;
+    font-weight: bold;
     padding: 1em;
 }
 
-.instruct {
-    font-family: Verdana, Geneva, Tahoma, sans-serif; 
-    padding-bottom: 1em;
-}
-
 .displayPost {
-    margin: 50px;
-    border-style: solid;
-    border-radius: 30px;
+    margin: 3%;
+    font-family: OCR A Std;
+    border-style: groove;
     border-color:green;
 }
+
+.shiftText {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.top {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
+.post .opening {
+    display: none;
+  }
+  
+.active .opening {
+    display: block
+}
+
 
 
 
