@@ -1,0 +1,46 @@
+.ForumComp {
+    background-color: lightgoldenrodyellow;
+}
+
+.ForumBody {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
+.opener {
+    font-family: DejaVu Sans Mono, monospaces;
+    font-weight: bold;
+    padding: 1em;
+}
+
+.displayPost {
+    margin: 3%;
+    font-family: OCR A Std;
+    border-style: groove;
+    border-color:green;
+}
+
+.shiftText {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.top {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
+.post .opening {
+    display: none;
+  }
+  
+.active .opening {
+    display: block
+}
+
+
+
+
+
