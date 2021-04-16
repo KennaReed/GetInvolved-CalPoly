@@ -46,8 +46,6 @@ const Header = () => {
         </li>
       </ul>
       <div>
-      <SearchBar upPost = {updatePost}
-      />
       </div>
       <div className="mobile-menu" onClick={handleClick}>
         {click ? (
