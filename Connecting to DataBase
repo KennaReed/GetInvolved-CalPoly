@@ -1,0 +1,33 @@
+Here is some documentation to connect to our database!
+
+1) Login to MongoDB Atlas account: https://account.mongodb.com/account/login
+
+2) I sent you the invitation when I first made it, so you should already see it 
+   Note: You don't need to do anything here, but it might be helpful for you to see what the other side looks like.
+   
+3) Make sure you pull my files from github. From in the branch you are working on: git pull origin main
+
+4) cd until you are level with my postBackend.py file and your venv folder
+
+5) create a .env file
+
+6) Paste this into your .env file replacing <Username> and <Password> with what I sent you in the chat
+    DB_LINK=mongodb+srv://<UserName>:<Password>@csc-308-teamd.crp9s.mongodb.net/Posts?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE
+    PORT=3001
+    
+    Note: Ideally, you should not need the &ssl=true&ssl_cert_reqs=CERT_NONE, but for some wack reason I needed it, so maybe try with and without it to see if it works for you.
+
+7) Run these Commands:
+   $ pip install python-dotenv
+   $pip install -U python-dotenv
+   $. venv/bin/activate
+   $python -m pip install pymongo[tls]
+   $pip install dnspython
+   $export FLASK_APP=postBackend.py
+   $export FLASK_ENV=development
+   $flask run
+   
+ 8) Now in Boomerang (like we used in class), GET at this url: http://127.0.0.1:5000/posts and SEND. That should output all of the example posts I put in the database. 
+ 
+ Note: As of writing this, that is the only endpoint I have set up, but I am doing more this week, so I will let you know as I get them up.
+Update: There is now filtering functionality. 
