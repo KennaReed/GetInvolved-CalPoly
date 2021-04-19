@@ -39,13 +39,6 @@ function Form(props) {
             content: post.content, keyWords: post.keyWords,
             Cost: post.Cost, Location: post.Location, image: post.image});
     }
-    if (name === 'DatePosted') {
-      setPost(
-          {title: post.title, DateEvent: post.DateEvent,
-            DatePosted: value, time: post.time, publisher: post.publisher,
-            content: post.content, keyWords: post.keyWords, Cost: post.Cost,
-            Location: post.Location, image: post.image});
-    }
     if (name === 'DateEvent') {
       setPost(
           {title: post.title, DateEvent: value, DatePosted: post.DatePosted,
@@ -110,23 +103,13 @@ function Form(props) {
     <div >
       <form>
 
-        <label className="event" htmlFor="title">Name of event:</label>
+        <label className="event" htmlFor="title">Post Title:</label>
         <input className="event1"
           type="text"
           id="title"
           name="title"
           value={post.title}
           onChange={handleChange}>
-        </input>
-        <br></br>
-
-        <label className="date" htmlFor="DatePosted">Today's date:</label>
-        <input className="date1"
-          type="date"
-          id="DatePosted"
-          name="DatePosted"
-          value={post.DatePosted}
-          onChange = {handleChange}>
         </input>
         <br></br>
 

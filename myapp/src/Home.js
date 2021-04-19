@@ -2,6 +2,7 @@
 /* eslint-disable require-jsdoc */
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import styles from './home.module.css';
 
 function DisplayPost(props) {
   const posts = props.post1.map((post, index) => {
@@ -49,16 +50,9 @@ function Home(props) {
     Math.abs((b.DatePosted - a.DatePosted)));
 
   return (
-    <div className="home">
-      <p className="bio">
-            Welcome to our site! Below you can find multiple posts.
-            By clicking on calendar, you can check out all the
-            events during a certain period of time.
-            The forum page is where you can make comments on
-            events or ask questions.
-      </p>
+    <div className={styles.home}>
       <br/>
-      <h1> Recent Posts: </h1>
+      <h1 className={styles.opener}> Recent Posts: </h1>
       <br/>
       <div className="container">
         <DisplayPost post1={sortedposts}/>
