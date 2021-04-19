@@ -9,6 +9,7 @@ function SearchBar(props){
   );
 
   function handleChange(event) {
+  console.log("chicken")
     const { name, value } = event.target;
     if (name === "word"){
       setSearch({word: value});
