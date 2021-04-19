@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import {IoChatbubble as Logo} from 'react-icons/io5';
 import {Link} from "react-router-dom";
 import "./header.css";
-import SearchBar from "./SearchBar";
-import updatePost from "./Forum";
-
 
 const Header = () => {
   const [click, setClick] = useState(false);

@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ForumPost from './ForumPosts';
 import axios from 'axios';
 import styles from "./forum.module.css";
-import search from './SearchBar';
 import SearchBar from './SearchBar';
-
 
 function Forum() {
     const [forumPosts, setForumPosts] = useState([]);

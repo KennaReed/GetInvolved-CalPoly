@@ -6,7 +6,6 @@ function ForumPost(props) {
     const [open, setOpen] = useState(false); 
 
     function getDetails() {
-        console.log(props.postData.content)
         if(open) {
             return (
                 <div>
@@ -20,9 +19,7 @@ function ForumPost(props) {
     function expand() {
         setOpen(!open)
     }
-    
-    console.log(open)
-    return(
+        return(
         <div className={styles.displayPost}>
             <div className={styles.top}>
                     <h2 className={styles.shiftText}>{props.postData.title}</h2>
