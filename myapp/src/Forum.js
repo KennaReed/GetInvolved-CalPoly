@@ -10,11 +10,12 @@ function Forum() {
   const [forumPosts, setForumPosts] = useState([]);
 
   useEffect(() => {
-    fetchAll().then((result) => {
-      if (result) {
-        setForumPosts(result);
-      }
-    });
+    fetchAll().then((result) => result.reverse())
+        .then((data) => {
+          if (data) {
+            setForumPosts(data);
+          }
+        });
   }, []);
 
   async function fetchAll() {

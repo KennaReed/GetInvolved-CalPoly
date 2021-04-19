@@ -200,9 +200,9 @@ function Form(props) {
           id="Cost" value={post.Cost} onChange = {handleChange}>
           <option value="SelectC">Select</option>
           <option value="Free">Free</option>
-          <option value="Five">About 5</option>
-          <option value="Ten">About 10</option>
-          <option value="Highest">More than 10</option>
+          <option value="About 5 Dollars">About 5</option>
+          <option value="About 10 Dollars">About 10</option>
+          <option value="More than 10 Dollars">More than 10</option>
         </select>
         <br></br>
 
