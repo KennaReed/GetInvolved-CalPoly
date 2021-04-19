@@ -1,4 +1,4 @@
 import pytest
 
-def test_build();
+def test_build():
   assert True
