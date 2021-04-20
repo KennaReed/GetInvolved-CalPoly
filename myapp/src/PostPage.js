@@ -17,34 +17,19 @@ function MyApp() {
     try {
       const response = await axios.post('http://localhost:5000/posts', post);
       return response;
-    } catch (error) {
-      console.log(error);
-      return false;
+    } finally {
+      return 500;
     }
   }
 
   function updateList(post) {
-    console.log('Here in UpdateList');
-    makePostCall(post).then( (result) => {
+    makePostCall(post).then((result) => {
       if (result.status === 201) {
         post['_id'] = result.data['_id'];
+        setPost([...posts, post] );
       }
-      setPost([...posts, post] );
     });
   }
-
-  //   async function fetchAll(){
-  //     try {
-  //        const response = await axios.get('http://localhost:5000/posts');
-  //        return response.data.users_list;
-  //     }
-  //     catch (error){
-  //        //We're not handling errors. Just logging into the console.
-  //        console.log(error);
-  //        return false;
-  //     }
-  //   }
-
   return (
     <div className="container">
       <Form handleSubmit={updateList} />

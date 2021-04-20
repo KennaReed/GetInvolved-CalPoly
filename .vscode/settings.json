@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+    "git.ignoreLimitWarning": true
+=======
     "git.ignoreLimitWarning": true,
     "python.pythonPath": "venv1/bin/python"
+>>>>>>> 4888517b0f66aec078bf15d140a39e965bd727f6
 }

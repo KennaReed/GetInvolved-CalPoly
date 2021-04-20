@@ -4,18 +4,17 @@ import React, {useState, useEffect} from 'react';
 import ForumPost from './ForumPosts';
 import axios from 'axios';
 import styles from './forum.module.css';
+import SearchBar from './SearchBar';
 
 
 function Forum() {
   const [forumPosts, setForumPosts] = useState([]);
-
   useEffect(() => {
-    fetchAll().then((result) => result.reverse())
-        .then((data) => {
-          if (data) {
-            setForumPosts(data);
-          }
-        });
+    fetchAll().then((result) => {
+      if (result) {
+        setForumPosts(result);
+      }
+    });
   }, []);
 
   async function fetchAll() {
@@ -28,13 +27,17 @@ function Forum() {
     }
   }
 
+  function updatePost(updated) {
+    setForumPosts(updated);
+  }
+
   return (
     <div className={styles.ForumComp}>
+      <SearchBar upPost = {updatePost}/>
       <h1 className={styles.opener}>Community Forum Page</h1>
 
       <div className={styles.ForumBody}>
         <div>
-          {/* <ForumPosts postData={forumPosts}/> */}
           {forumPosts.map((p, index) => {
             return <ForumPost postData={p}/>;
           })}

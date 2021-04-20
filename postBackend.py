@@ -18,6 +18,12 @@ def get_forumPosts():
         posts = Post().find_all()
         return {"posts_list": posts}
 
+@app.route('/home', methods = ['GET'])
+def get_posts_searchbar():
+    if request.method == 'GET':
+        posts = Post().find_all()
+        return {"posts_list": posts}
+
 @app.route('/posts', methods=['GET', 'POST'])
 def get_posts():
     if request.method == 'GET':

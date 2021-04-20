@@ -21,7 +21,6 @@ function Form(props) {
 
 
   function submitForm() {
-    console.log('in submitForm');
     props.handleSubmit(post);
     setPost(
         {title: '', DateEvent: '', DatePosted: '',
