@@ -1,17 +1,44 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
 import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
+import moment from 'moment';
+
 function ForumPost(props) {
   const [open, setOpen] = useState(false);
 
   function getDetails() {
+    console.log(props.postData.content);
     if (open) {
       return (
-        <div>
+        <div className={styles.hiddenDetails}>
           <p>{props.postData.content}</p>
-          <p>{props.postData.cost}</p>
+          <p>Cost: {props.postData.Cost}</p>
+          {handleEvents()}
+          {handleLocation()}
+        </div>
+      );
+    }
+  }
+
+  function handleLocation() {
+    if (props.postData.Location) {
+      return (
+        <div>
+          <p>Location: {props.postData.Location}</p>
+        </div>
+      );
+    }
+  }
+  function convertTime(time) {
+    return moment(time, 'HH:mm').format('h:mm A');
+  }
+
+  function handleEvents() {
+    if (props.postData.DateEvent) {
+      return (
+        <div className={styles.eventInfo}>
+          <p>Date of Event: {props.postData.DateEvent}</p>
+          <p>Time of Event: {convertTime(props.postData.time)}</p>
         </div>
       );
     }

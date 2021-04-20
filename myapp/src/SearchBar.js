@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-
 function SearchBar(props) {
   const [search, setSearch] = useState(
       {
