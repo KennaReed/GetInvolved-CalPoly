@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
-import styles from "./forum.module.css"
-import { FaAngleDown } from 'react-icons/fa'
+import styles from './forum.module.css';
+import {FaAngleDown} from 'react-icons/fa';
+import moment from 'moment';
 
 function ForumPost(props) {
     const [open, setOpen] = useState(false); 
@@ -15,20 +18,27 @@ function ForumPost(props) {
             );
         }
       }
+      
+  function expand() {
+    setOpen(!open);
+  }
 
-    function expand() {
-        setOpen(!open)
-    }
-        return(
-        <div className={styles.displayPost}>
-            <div className={styles.top}>
-                    <h2 className={styles.shiftText}>{props.postData.title}</h2>
-                    <p className={styles.shiftText}>{props.postData.publisher}</p>
-                    {getDetails()}
-                    <FaAngleDown onClick={() => expand()}/>
-            </div>
-        </div>
-    );
-    
+  console.log(open);
+  return (
+    <div className={styles.displayPost}>
+      <div className={styles.top}>
+        <h2 className={styles.shiftText}>{props.postData.title}</h2>
+        <p className={styles.shiftText}>{props.postData.publisher}</p>
+      </div>
+
+      <h5 className={styles.shiftText}>
+          Date Posted: {props.postData.DatePosted}</h5>
+      {getDetails()}
+      <div className={styles.down}>
+        <FaAngleDown onClick={() => expand()}/>
+      </div>
+
+    </div>
+  );
 }
 export default ForumPost;

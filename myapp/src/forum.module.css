@@ -21,15 +21,34 @@
     border-color:green;
 }
 
+.top {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
 .shiftText {
     padding-left: 2%;
     padding-right: 2%;
 }
 
-.top {
+.down {
+    display: flex;
+    justify-content: center;
+}
+
+.right {
     display: flex;
     flex-wrap: none;
     justify-content: space-between;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+
+.hiddenDetails {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
 }
 
 .post .opening {
@@ -37,8 +56,11 @@
   }
   
 .active .opening {
-    display: block
+    display: block;
 }
+
+
+
 
 
 

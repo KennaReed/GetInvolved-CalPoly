@@ -4,9 +4,9 @@ import axios from 'axios';
 
 function SearchBar(props){
   const [search, setSearch] = useState(
-    {  
-       word: '',
-    }
+      {
+        word: '',
+      },
   );
 
   function handleChange(event) {
@@ -36,23 +36,21 @@ function SearchBar(props){
             }
           }
         }
-      } 
-      
+      }
+
       setSearch({word: ''});
       props.upPost(result.reverse());
     });
   }
 
-  async function getData () {
-    try { 
+  async function getData() {
+    try {
       const response = await axios.get('http://localhost:5000/home');
-        return response.data.posts_list;
-      }
-      
-      catch (error) {
-        console.log(error);
-        return false;
-      }
+      return response.data.posts_list;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
   return (
     <div>
