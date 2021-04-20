@@ -22,7 +22,6 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "lint": "eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -48,6 +47,7 @@
   },
   "devDependencies": {
     "eslint": "^7.24.0",
+    "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.23.2"
   }
