@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, {useState} from 'react';
 import {IoChatbubble as Logo} from 'react-icons/io5';
-import {Link} from "react-router-dom";
-import "./header.css";
-import SearchBar from "./SearchBar";
-import updatePost from "./Forum";
-
+import {Link} from 'react-router-dom';
+import './header.css';
 
 const Header = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  
+
   return (
     <div className="header">
       <div className="logo-nav">
@@ -45,10 +43,6 @@ const Header = () => {
           </a>
         </li>
       </ul>
-      <div>
-      <SearchBar upPost = {updatePost}
-      />
-      </div>
       <div className="mobile-menu" onClick={handleClick}>
         {click ? (
           <Logo className="menu-icon" />
