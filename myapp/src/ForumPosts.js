@@ -3,22 +3,20 @@
 import React, {useState} from 'react';
 import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
-import moment from 'moment';
-
 function ForumPost(props) {
-    const [open, setOpen] = useState(false); 
+  const [open, setOpen] = useState(false);
 
-    function getDetails() {
-        if(open) {
-            return (
-                <div>
-                    <p>{props.postData.content}</p>
-                    <p>{props.postData.cost}</p>
-                </div>
-            );
-        }
-      }
-      
+  function getDetails() {
+    if (open) {
+      return (
+        <div>
+          <p>{props.postData.content}</p>
+          <p>{props.postData.cost}</p>
+        </div>
+      );
+    }
+  }
+
   function expand() {
     setOpen(!open);
   }

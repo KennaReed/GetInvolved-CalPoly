@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import ForumPost from './ForumPosts';
 import axios from 'axios';
-import styles from "./forum.module.css";
+import styles from './forum.module.css';
 import SearchBar from './SearchBar';
 
 function Forum() {

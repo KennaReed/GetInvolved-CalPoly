@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 
-function SearchBar(props){
+function SearchBar(props) {
   const [search, setSearch] = useState(
       {
         word: '',
@@ -10,27 +10,25 @@ function SearchBar(props){
   );
 
   function handleChange(event) {
-  console.log("chicken")
-    const { name, value } = event.target;
-    if (name === "word"){
+    const {name, value} = event.target;
+    if (name === 'word') {
       setSearch({word: value});
     }
   }
-  function handleEnter(event){
-    if (event.key === "Enter"){
+  function handleEnter(event) {
+    if (event.key === 'Enter') {
       submitSearch();
     }
   }
-  function submitSearch(){
-    var i;    
+  function submitSearch() {
     search.word = search.word.toLowerCase();
-    getData().then(result => {
-      for(i = 0; i < result.length; i++){
-        if(!result[i].title.toLowerCase().includes(search.word)) {
-          if(!result[i].content.toLowerCase().includes(search.word)) {
-            if(!result[i].keyWords.toLowerCase().includes(search.word)) { 
-              if(!result[i].publisher.toLowerCase().includes(search.word)) {
-                result.splice(i,1)
+    getData().then((result) => {
+      for (let i = 0; i < result.length; i++) {
+        if (!result[i].title.toLowerCase().includes(search.word)) {
+          if (!result[i].content.toLowerCase().includes(search.word)) {
+            if (!result[i].keyWords.toLowerCase().includes(search.word)) {
+              if (!result[i].publisher.toLowerCase().includes(search.word)) {
+                result.splice(i, 1);
                 i = -1;
               }
             }
@@ -54,17 +52,17 @@ function SearchBar(props){
   }
   return (
     <div>
-        <input class="word"
-          type="text" 
-          id="word"
-          name="word"
-          value = {search.word}
-          onChange = {handleChange}
-          onKeyPress = {handleEnter}>
-        </input>
-          <button type="button" onClick={submitSearch} >
+      <input className="word"
+        type="text"
+        id="word"
+        name="word"
+        value = {search.word}
+        onChange = {handleChange}
+        onKeyPress = {handleEnter}>
+      </input>
+      <button type="button" onClick={submitSearch} >
             Search!
-          </button>
+      </button>
     </div>
   );
 }

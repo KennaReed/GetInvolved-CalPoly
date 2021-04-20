@@ -50,11 +50,8 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@babel/core": "^7.13.15",
     "eslint": "^7.24.0",
-=======
->>>>>>> 703fb6592f0db16ea19b756ce145ddf8d0fd2b0c
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.23.2"
   }
