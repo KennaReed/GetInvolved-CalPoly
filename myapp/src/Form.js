@@ -21,9 +21,6 @@ function Form(props) {
   let errorOutput = 'Please fix errors and resubmit.\n';
 
   function errorChecker() {
-    console.log(post.DateEvent);
-    console.log(post.DatePosted);
-
     let error = 0;
     if (post.title === '') {
       error += 1;
@@ -45,7 +42,7 @@ function Form(props) {
       error += 1;
       errorOutput += 'Select a cost\n';
     }
-    if (post.DateEvent.getTime() === post.DatePosted.getTime()) {
+    if (post.DateEvent.getTime === post.DatePosted.getTime) {
       if (post.time !== '') {
         error += 1;
         errorOutput += 'You have selected a time for an event that has no date';
@@ -58,14 +55,14 @@ function Form(props) {
       }
     }
 
-    if (post.DateEvent.getTime() !== post.DatePosted.getTime()) {
+    if (post.DateEvent.getTime !== post.DatePosted.getTime) {
       if (post.time === '') {
         error += 1;
-        errorOutput += 'Please select a time for the event';
+        errorOutput += 'Please select a time for the event\n';
       }
       if (post.Location === '') {
         error += 1;
-        errorOutput += 'Please select a location for the event';
+        errorOutput += 'Please select a location for the event\n';
       }
     }
     return error;
@@ -73,7 +70,7 @@ function Form(props) {
 
   function submitForm(event) {
     const errors = errorChecker();
-    console.log('here');
+    console.log('here2');
     event.preventDefault();
     if (errors === 0) {
       if (window.confirm('Thank you for submitting a post!')) {
@@ -86,6 +83,7 @@ function Form(props) {
             Cost: '', Location: ''});
     } else {
       window.confirm(errorOutput);
+      errorOutput = 'Please fix errors and resubmit.\n';
     }
   }
 
@@ -254,7 +252,7 @@ function Form(props) {
           value = {post.image} onChange={handleChange}/>
         <br></br>
 
-        <input className="submit" type="submit"
+        <input className="submit" type="button"
           value="Submit" onClick={submitForm}></input>
       </form>
 
