@@ -18,14 +18,75 @@ function Form(props) {
         image: '',
       },
   );
+  let errorOutput = 'Please fix errors and resubmit.\n';
 
+  function errorChecker() {
+    console.log(post.DateEvent);
+    console.log(post.DatePosted);
 
-  function submitForm() {
-    props.handleSubmit(post);
-    setPost(
-        {title: '', DateEvent: '', DatePosted: '',
-          time: '', publisher: '', content: '', keyWords: '',
-          Cost: '', Location: ''});
+    let error = 0;
+    if (post.title === '') {
+      error += 1;
+      errorOutput += 'Title is missing\n';
+    }
+    if (post.publisher === '') {
+      error += 1;
+      errorOutput += 'Publisher is missing\n';
+    }
+    if (post.content === '') {
+      error += 1;
+      errorOutput += 'Description is missing\n';
+    }
+    if (post.keyWords === '') {
+      error += 1;
+      errorOutput += 'Select a category\n';
+    }
+    if (post.Cost === '') {
+      error += 1;
+      errorOutput += 'Select a cost\n';
+    }
+    if (post.DateEvent.getTime() === post.DatePosted.getTime()) {
+      if (post.time !== '') {
+        error += 1;
+        errorOutput += 'You have selected a time for an event that has no date';
+        errorOutput += ', please select a date for the event\n';
+      }
+      if (post.Location !== '') {
+        error += 1;
+        errorOutput += 'You have selected a location for an event that has';
+        errorOutput += ' no date, please select a date for the event\n';
+      }
+    }
+
+    if (post.DateEvent.getTime() !== post.DatePosted.getTime()) {
+      if (post.time === '') {
+        error += 1;
+        errorOutput += 'Please select a time for the event';
+      }
+      if (post.Location === '') {
+        error += 1;
+        errorOutput += 'Please select a location for the event';
+      }
+    }
+    return error;
+  }
+
+  function submitForm(event) {
+    const errors = errorChecker();
+    console.log('here');
+    event.preventDefault();
+    if (errors === 0) {
+      if (window.confirm('Thank you for submitting a post!')) {
+        window.location.href='http://localhost:3000/home';
+      };
+      props.handleSubmit(post);
+      setPost(
+          {title: '', DateEvent: new Date(), DatePosted: new Date(),
+            time: '', publisher: '', content: '', keyWords: '',
+            Cost: '', Location: ''});
+    } else {
+      window.confirm(errorOutput);
+    }
   }
 
   function handleChange(event) {
@@ -39,11 +100,11 @@ function Form(props) {
             Cost: post.Cost, Location: post.Location, image: post.image});
     }
     if (name === 'DateEvent') {
-      setPost(
-          {title: post.title, DateEvent: value, DatePosted: post.DatePosted,
-            time: post.time, publisher: post.publisher,
-            content: post.content, keyWords: post.keyWords,
-            Cost: post.Cost, Location: post.Location, image: post.image});
+      setPost({title: post.title, DateEvent: value,
+        DatePosted: post.DatePosted, time: post.time,
+        publisher: post.publisher,
+        content: post.content, keyWords: post.keyWords,
+        Cost: post.Cost, Location: post.Location, image: post.image});
     }
     if (name === 'time') {
       setPost(
@@ -96,7 +157,6 @@ function Form(props) {
           Location: post.location, image: value});
     }
   }
-
   return (
 
     <div >
@@ -115,7 +175,7 @@ function Form(props) {
         <label className="eventd" htmlFor="DateEvent">Date of event:</label>
         <input className="eventd1"
           type="date"
-          id="DateEvent"
+          id='DateEvent'
           name="DateEvent"
           value={post.DateEvent}
           onChange = {handleChange}>
@@ -192,7 +252,6 @@ function Form(props) {
 
         <input className="image1" type="file" id = "image" name = "image"
           value = {post.image} onChange={handleChange}/>
-
         <br></br>
 
         <input className="submit" type="submit"
