@@ -1,18 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from 'react';
+import React from 'react';
 import {IoChatbubble as Logo} from 'react-icons/io5';
 import {Link} from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  // const [click, setClick] = useState(false);
+  // const handleClick = () => setClick(!click);
+  // const closeMobileMenu = () => setClick(false);
 
   return (
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
+          <h1>GetInvolved - Cal Poly</h1>
           <a href="/post">
             <Logo class="logo" />
           </a>
@@ -34,22 +35,15 @@ const Header = () => {
         </ul>
       </div>
       <ul className="signin-up">
-        <li className="sign-in" onClick={closeMobileMenu}>
+        <li className="sign-in">
           <a href="#">SIGN-IN</a>
         </li>
-        <li onClick={closeMobileMenu}>
+        <li>
           <a href="" className="signup-btn">
             SIGN-UP
           </a>
         </li>
       </ul>
-      <div className="mobile-menu" onClick={handleClick}>
-        {click ? (
-          <Logo className="menu-icon" />
-        ) : (
-          <Logo className="menu-icon" />
-        )}
-      </div>
     </div>
   );
 };

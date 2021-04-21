@@ -1,17 +1,22 @@
-.ForumComp {
-    background-color: lightgoldenrodyellow;
-}
-
 .ForumBody {
     display: flex;
     flex-wrap: none;
     justify-content: space-between;
 }
 
+.search {
+    background-color: lightgoldenrodyellow;
+    border-style: groove;
+    border-color:green;
+    padding: 1%;
+    width:fit-content;
+    margin: 2%;
+}
+
 .opener {
     font-family: DejaVu Sans Mono, monospaces;
     font-weight: bold;
-    padding: 1em;
+    padding-bottom: 5%;
 }
 
 .displayPost {
@@ -19,6 +24,7 @@
     font-family: OCR A Std;
     border-style: groove;
     border-color:green;
+    background-color: lightgoldenrodyellow;
 }
 
 .top {
