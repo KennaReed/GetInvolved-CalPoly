@@ -6,7 +6,6 @@ import axios from 'axios';
 import styles from './forum.module.css';
 import SearchBar from './SearchBar';
 
-
 function Forum() {
   const [forumPosts, setForumPosts] = useState([]);
   useEffect(() => {

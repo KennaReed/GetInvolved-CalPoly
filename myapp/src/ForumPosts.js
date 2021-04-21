@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
 import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
