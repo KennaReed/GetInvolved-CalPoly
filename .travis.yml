@@ -12,8 +12,7 @@ matrix:
 
     - language: node_js
         
-      node_js:
-        - 14
+      node_js: "14"
         
       before_install:
         - cd myapp/
