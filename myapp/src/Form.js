@@ -66,15 +66,20 @@ function Form(props) {
       }
     }
     const today = new Date();
+    if (post.time === '') {
+      post.time = '23:59';
+    }
     const timeString = 'T' + post.time + ':00';
     const date = new Date(post.DateEvent + timeString);
-    console.log(date);
     console.log(date - today);
     if (date - today < 0) {
       error += 1;
-      errorOutput += 'An event cannot be made earlier todays date';
+      errorOutput += 'An event cannot be made earlier than todays date';
       errorOutput += ' and time. Please select either a new date or, ';
       errorOutput += 'if the event is later today, a later time\n';
+    }
+    if (post.time === '23:59') {
+      post.time = '';
     }
     return error;
   }
