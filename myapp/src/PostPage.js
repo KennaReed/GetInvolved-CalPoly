@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import Form from './Form';
 import axios from 'axios';
+import styles from './postpage.module.css';
 
 function MyApp() {
   const [posts, setPost] = useState([]);
@@ -31,7 +32,8 @@ function MyApp() {
     });
   }
   return (
-    <div className="container">
+    <div>
+      <h1 className={styles.title}>Create a Post</h1>
       <Form handleSubmit={updateList} />
     </div>
   );

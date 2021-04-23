@@ -6,7 +6,7 @@ import Header from './better';
 import Forum from './Forum';
 import Cal from './Cal';
 import Home from './Home';
-import App1 from './App1';
+import PostPage from './PostPage';
 import {Switch, Route} from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -23,7 +23,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/calendar" component={Cal}/>
               <Route path="/forum" component={Forum}/>
-              <Route path="/post" component={App1}/>
+              <Route path="/post" component={PostPage}/>
               <Route path="/" component={Home}/>
             </Switch>
           </div>

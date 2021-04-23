@@ -159,7 +159,6 @@ function Form(props) {
 
     <div >
       <form>
-
         <label className="event" htmlFor="title">Post Title:</label>
         <input className="event1"
           type="text"
