@@ -1,0 +1,12 @@
+.title {
+    font-family: DejaVu Sans Mono, monospaces;
+    background-color: khaki;
+    border-style: groove;
+    border-color:green;
+    padding: 1%;
+    
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.75%;
+}
