@@ -1,6 +1,6 @@
 .ForumBody {
     display: flex;
-    flex-wrap: none;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -25,6 +25,7 @@
     border-style: groove;
     border-color:green;
     background-color: lightgoldenrodyellow;
+    width: 30em;
 }
 
 .top {
