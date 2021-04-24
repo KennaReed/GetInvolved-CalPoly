@@ -33,7 +33,7 @@ function MyApp() {
   }
   return (
     <div>
-      <h1 className={styles.title}>Create a Post</h1>
+      <h1 className={styles.opener}>Create a Post</h1>
       <Form handleSubmit={updateList} />
     </div>
   );

@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
+import styles from './postpage.module.css';
 
 function Form(props) {
   const [post, setPost] = useState(
@@ -174,100 +175,116 @@ function Form(props) {
   return (
 
     <div >
-      <form>
-        <label className="event" htmlFor="title">Post Title:</label>
-        <input className="event1"
-          type="text"
-          id="title"
-          name="title"
-          value={post.title}
-          onChange={handleChange}>
-        </input>
-        <br></br>
+      <form className={styles.all}>
+        <div className={styles.formBody}>
+          <div className={styles.announcement}>
+            <p className={styles.boxHeader}>General Information</p>
+            <label className={styles.text} htmlFor="title">* Post Title:</label>
+            <input className="event1"
+              type="text"
+              id="title"
+              name="title"
+              value={post.title}
+              onChange={handleChange}>
+            </input>
+            <br></br>
 
-        <label className="eventd" htmlFor="DateEvent">Date of event:</label>
-        <input className="eventd1"
-          type="date"
-          id='DateEvent'
-          name="DateEvent"
-          value={post.DateEvent}
-          onChange = {handleChange}>
-        </input>
-        <br></br>
+            <label className={styles.text} htmlFor="publisher">* Poster:</label>
+            <input className="poster1"
+              type="text"
+              id="publisher"
+              name="publisher"
+              value={post.publisher}
+              onChange = {handleChange}>
+            </input>
+            <br></br>
 
-        <label className="eventt" htmlFor="time">Time of event:</label>
-        <input className="eventt1"
-          type="time"
-          id="time"
-          name="time"
-          value={post.time}
-          onChange = {handleChange}>
-        </input>
-        <br></br>
+            <div className={styles.descrip}>
+              <label className={styles.text} htmlFor="content">
+                * Description:</label>
+              <textarea
+                id="content"
+                name="content"
+                rows="5" cols="50"
+                value={post.content}
+                onChange = {handleChange}>
+              </textarea>
+            </div>
 
-        <label className="poster" htmlFor="publisher">Poster:</label>
-        <input className="poster1"
-          type="text"
-          id="publisher"
-          name="publisher"
-          value={post.publisher}
-          onChange = {handleChange}>
-        </input>
-        <br></br>
+            <label className={styles.text} htmlFor="keyWords">
+              * Category:</label>
+            <select className="category1" name="keyWords"
+              id="keyWords" value={post.keyWords} onChange = {handleChange}>
+              <option value="Select">Select</option>
+              <option value="Sports">Sports</option>
+              <option value="Music">Music</option>
+              <option value="Community">Community</option>
+              <option value="Art">Art</option>
+              <option value="School">School</option>
+            </select>
+            <br></br>
 
-        <label className="location" htmlFor="Location">
-           Location of event:</label>
-        <input className="location1"
-          type="text"
-          id="Location"
-          name="Location"
-          value={post.Location}
-          onChange = {handleChange}>
-        </input>
-        <br></br>
+            <label className={styles.text} htmlFor="Cost">
+              * Cost:</label>
+            <select className="cost1" name="Cost"
+              id="Cost" value={post.Cost} onChange = {handleChange}>
+              <option value="SelectC">Select</option>
+              <option value="Free">Free</option>
+              <option value="About 5 Dollars">About 5</option>
+              <option value="About 10 Dollars">About 10</option>
+              <option value="More than 10 Dollars">More than 10</option>
+            </select>
+            <br></br>
 
-        <label className="description" htmlFor="content">
-           Description of event:</label>
-        <textarea className="description1"
-          id="content"
-          name="content"
-          rows="5" cols="50"
-          value={post.content}
-          onChange = {handleChange}>
-        </textarea>
-        <br></br>
+            <label className={styles.text}
+              htmlFor="image">Image:</label>
+            <input className={styles.text}
+              type="file" id = "image" name = "image"
+              value = {post.image} onChange={handleChange}/>
+            <br></br>
+          </div>
 
-        <label className="category" htmlFor="keyWords">
-           What category is the event under:</label>
-        <select className="category1" name="keyWords"
-          id="keyWords" value={post.keyWords} onChange = {handleChange}>
-          <option value="Select">Select</option>
-          <option value="Sports">Sports</option>
-          <option value="Music">Music</option>
-          <option value="Community">Community</option>
-          <option value="Art">Art</option>
-        </select>
-        <br></br>
+          <div className={styles.event}>
+            <p className={styles.boxHeader}>Posting about an Event?</p>
+            <p className={styles.eventD}>(Not Required)</p>
 
-        <label className="cost" htmlFor="Cost">
-           About how much does the event cost:</label>
-        <select className="cost1" name="Cost"
-          id="Cost" value={post.Cost} onChange = {handleChange}>
-          <option value="SelectC">Select</option>
-          <option value="Free">Free</option>
-          <option value="About 5 Dollars">About 5</option>
-          <option value="About 10 Dollars">About 10</option>
-          <option value="More than 10 Dollars">More than 10</option>
-        </select>
-        <br></br>
+            <label className={styles.text}
+              htmlFor="DateEvent">Event Date:</label>
+            <input className="eventd1"
+              type="date"
+              id='DateEvent'
+              name="DateEvent"
+              value={post.DateEvent}
+              onChange = {handleChange}>
+            </input>
+            <br></br>
 
-        <label className="image" htmlFor="image">Insert your own image:</label>
+            <label className={styles.text} htmlFor="time">Start Time:</label>
+            <input className="eventt1"
+              type="time"
+              id="time"
+              name="time"
+              value={post.time}
+              onChange = {handleChange}>
+            </input>
+            <br></br>
 
-        <input className="image1" type="file" id = "image" name = "image"
-          value = {post.image} onChange={handleChange}/>
-        <br></br>
+            <label className={styles.text} htmlFor="Location">
+              Location:</label>
+            <input className="location1"
+              type="text"
+              id="Location"
+              name="Location"
+              value={post.Location}
+              onChange = {handleChange}>
+            </input>
+            <p className={styles.zoom} htmlFor="Location">
+              (or Zoom Link)</p>
 
-        <input className="submit" type="button"
+          </div>
+        </div>
+
+        <input className={styles.submit} type="button"
           value="Submit" onClick={submitForm}></input>
       </form>
 
