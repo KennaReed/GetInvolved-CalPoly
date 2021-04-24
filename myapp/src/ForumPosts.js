@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable require-jsdoc */
 import React, {useState} from 'react';
 import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
@@ -9,7 +7,6 @@ function ForumPost(props) {
   const [open, setOpen] = useState(false);
 
   function getDetails() {
-    console.log(props.postData.content);
     if (open) {
       return (
         <div className={styles.hiddenDetails}>
@@ -35,12 +32,23 @@ function ForumPost(props) {
     return moment(time, 'HH:mm').format('h:mm A');
   }
 
+  function pad(n) {
+    return n < 10 ? '0'+n : n;
+  }
+
+  function formatDate(datestr) {
+    const dateobj = new Date(datestr);
+    return pad(dateobj.getDate())+'/'+
+      pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
+  }
+
   function handleEvents() {
-    if (props.postData.DateEvent) {
+    if (props.postData.DateEvent != props.postData.DatePosted) {
       return (
         <div className={styles.eventInfo}>
-          <p>Date of Event: {props.postData.DateEvent}</p>
-          <p>Time of Event: {convertTime(props.postData.time)}</p>
+          <p>Event Date: {
+            formatDate(props.postData.DateEvent)}</p>
+          <p>Start Time: {convertTime(props.postData.time)}</p>
         </div>
       );
     }
@@ -50,7 +58,6 @@ function ForumPost(props) {
     setOpen(!open);
   }
 
-  console.log(open);
   return (
     <div className={styles.displayPost}>
       <div className={styles.top}>
@@ -59,7 +66,7 @@ function ForumPost(props) {
       </div>
 
       <h5 className={styles.shiftText}>
-          Date Posted: {props.postData.DatePosted}</h5>
+          Date Posted: {formatDate(props.postData.DatePosted)}</h5>
       {getDetails()}
       <div className={styles.down}>
         <FaAngleDown onClick={() => expand()}/>

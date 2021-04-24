@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 function SearchBar(props) {
@@ -15,15 +14,19 @@ function SearchBar(props) {
       setSearch({word: value});
     }
   }
-
+  function handleEnter(event) {
+    if (event.key === 'Enter') {
+      submitSearch();
+    }
+  }
   function submitSearch() {
-    let i;
+    search.word = search.word.toLowerCase();
     getData().then((result) => {
-      for (i = 0; i < result.length; i++) {
-        if (!result[i].title.includes(search.word)) {
-          if (!result[i].content.includes(search.word)) {
-            if (!result[i].keyWords.includes(search.word)) {
-              if (!result[i].publisher.includes(search.word)) {
+      for (let i = 0; i < result.length; i++) {
+        if (!result[i].title.toLowerCase().includes(search.word)) {
+          if (!result[i].content.toLowerCase().includes(search.word)) {
+            if (!result[i].keyWords.toLowerCase().includes(search.word)) {
+              if (!result[i].publisher.toLowerCase().includes(search.word)) {
                 result.splice(i, 1);
                 i = -1;
               }
@@ -33,9 +36,7 @@ function SearchBar(props) {
       }
 
       setSearch({word: ''});
-      console.log(result);
-
-      props.upPost(result);
+      props.upPost(result.reverse());
     });
   }
 
@@ -55,13 +56,12 @@ function SearchBar(props) {
         id="word"
         name="word"
         value = {search.word}
-        onChange = {handleChange}>
+        onChange = {handleChange}
+        onKeyPress = {handleEnter}>
       </input>
-      <Link to="/forum">
-        <button type="button" onClick={submitSearch}>
+      <button type="button" onClick={submitSearch} >
             Search!
-        </button>
-      </Link>
+      </button>
     </div>
   );
 }

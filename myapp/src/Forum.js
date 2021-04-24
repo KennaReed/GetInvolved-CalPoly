@@ -6,7 +6,6 @@ import axios from 'axios';
 import styles from './forum.module.css';
 import SearchBar from './SearchBar';
 
-
 function Forum() {
   const [forumPosts, setForumPosts] = useState([]);
   useEffect(() => {
@@ -33,9 +32,10 @@ function Forum() {
 
   return (
     <div className={styles.ForumComp}>
-      <SearchBar upPost = {updatePost}/>
-      <h1 className={styles.opener}>Community Forum Page</h1>
-
+      <div className={styles.search}>
+        <h1 className={styles.opener}>Community Forum Page</h1>
+        <SearchBar upPost = {updatePost}/>
+      </div>
       <div className={styles.ForumBody}>
         <div>
           {forumPosts.map((p, index) => {
