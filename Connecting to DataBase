@@ -18,16 +18,28 @@ Here is some documentation to connect to our database!
     Note: Ideally, you should not need the &ssl=true&ssl_cert_reqs=CERT_NONE, but for some wack reason I needed it, so maybe try with and without it to see if it works for you.
 
 7) Run these Commands:
-   $ pip install python-dotenv
-   $pip install -U python-dotenv
+Activate your virtual environment~
+IN TERMINAL:
    $. venv/bin/activate
+IN WINDOWS:
+   >py -3 -m venv venv
+   >venv\scripts\activate
+   
+Install necessary packages~
    $python -m pip install pymongo[tls]
-   $pip install dnspython
+   $pip install dnspython   
+   $pip install python-dotenv
+   $pip install -U python-dotenv
+   
+Set variables~
+IN TERMINAL:
    $export FLASK_APP=postBackend.py
    $export FLASK_ENV=development
+IN WINDOWS:
+   >set FLASK_APP=postBackend.py
+   >set FLASK_ENV=development
+   
+Run flask!~
    $flask run
    
  8) Now in Boomerang (like we used in class), GET at this url: http://127.0.0.1:5000/posts and SEND. That should output all of the example posts I put in the database. 
- 
- Note: As of writing this, that is the only endpoint I have set up, but I am doing more this week, so I will let you know as I get them up.
-Update: There is now filtering functionality. 

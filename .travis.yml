@@ -1,17 +1,21 @@
-language: python
-python:
-  - "3.9"
 <<<<<<< HEAD
-# command to install dependencies
-install:
-  - pip install -r requirement.txt
-=======
-  
-# command to install dependencies
-install:
-  - pip install -r requirement.txt
-  
->>>>>>> 703fb6592f0db16ea19b756ce145ddf8d0fd2b0c
-# command to run tests
-script:
-  - pytest
+matrix:
+  inlcude:
+    - language: python
+      install:
+        - pip install -r requirement.txt
+
+      script:
+         - pytest
+
+    - language: node_js
+      node_js: "14"
+        
+      before_install:
+        - cd myapp/
+        
+      install:
+        - npm install
+        
+       script:
+        - npm run build

@@ -3,19 +3,23 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styles from './home.module.css';
+import moment from 'moment';
 
 function DisplayPost(props) {
   const posts = props.post1.map((post, index) => {
     return (
-      <div key={index}>
-        <h3> Title:  {post.title} </h3>
-        <bold> Date: {post.DatePosted} </bold>
-        <br/>
-        <bold> Location:  {post.Location} </bold>
-        <br/>
-        <small> Content: {post.content} </small>
-        <br/>
-        <br/>
+      <div key={index} className={styles.whole}>
+        <div className={styles.shiftText}>
+          <div className={styles.top}>
+            <p className={styles.title}> {post.title} </p>
+            <p className={styles.datePosted}>
+              Posted On: {handleDate(post.DatePosted)} </p>
+          </div>
+
+          <p className={styles.description}> {post.content} </p>
+          {handleEvent(post)}
+          <p className={styles.generalInfo}>Cost: {post.Cost}</p>
+        </div>
       </div>
     );
   });
@@ -26,6 +30,26 @@ function DisplayPost(props) {
       </div>
     </displayPost>
   );
+}
+
+function handleDate(d) {
+  return d;
+}
+
+function handleEvent(post) {
+  if (post.DateEvent) {
+    return (
+      <div className={styles.generalInfo}>
+        <p>Date of Event: {post.DateEvent}</p>
+        <p>Starting at: {convertTime(post.time)}</p>
+        <p>Location {post.Location}</p>
+      </div>
+    );
+  }
+}
+
+function convertTime(time) {
+  return moment(time, 'HH:mm').format('h:mm A');
 }
 
 
@@ -52,7 +76,7 @@ function Home(props) {
   return (
     <div className={styles.home}>
       <br/>
-      <h1 className={styles.opener}> Recent Posts: </h1>
+      <h1 className={styles.opener}> Most Relevant Posts </h1>
       <br/>
       <div className="container">
         <DisplayPost post1={sortedposts}/>

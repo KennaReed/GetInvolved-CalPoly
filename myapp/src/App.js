@@ -13,21 +13,22 @@ import {BrowserRouter} from 'react-router-dom/cjs/react-router-dom.min';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <body>
+        <BrowserRouter>
 
-        <div className='App'>
-          <h1 className="top">Get Involved - Cal Poly </h1>
-          <div className="it">
-            <Header/>
+          <div className='App'>
+            <div className="it">
+              <Header/>
+            </div>
+            <Switch>
+              <Route path="/calendar" component={Cal}/>
+              <Route path="/forum" component={Forum}/>
+              <Route path="/post" component={App1}/>
+              <Route path="/" component={Home}/>
+            </Switch>
           </div>
-          <Switch>
-            <Route path="/calendar" component={Cal}/>
-            <Route path="/forum" component={Forum}/>
-            <Route path="/post" component={App1}/>
-            <Route path="/" component={Home}/>
-          </Switch>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </body>
     );
   }
 }
