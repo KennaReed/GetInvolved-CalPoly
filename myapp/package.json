@@ -8,10 +8,6 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-<<<<<<< HEAD
-    "eslint": "^7.24.0",
-=======
->>>>>>> 6438cc9a23a8f366b7b5ef30d9833cb6ffe54cec
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-big-calendar": "^0.33.2",
@@ -34,17 +30,12 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-<<<<<<< HEAD
-      "react-app/jest"
-    ]
-=======
       "react-app/jest",
       "shared-config"
     ],
-    "rules" : {
-      "additional-rule" : "warn"
+    "rules": {
+      "additional-rule": "warn"
     }
->>>>>>> 6438cc9a23a8f366b7b5ef30d9833cb6ffe54cec
   },
   "browserslist": {
     "production": [
@@ -57,14 +48,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "eslint": "^7.24.0",
     "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.23.2"
->>>>>>> 6438cc9a23a8f366b7b5ef30d9833cb6ffe54cec
   }
 }
