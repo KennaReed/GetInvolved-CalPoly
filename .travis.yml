@@ -1,5 +1,8 @@
-language: node_js
-node_js: "14"
+language: python
 
-before-install:
-  - cd myapp/
+install:
+ - pip install -r requirement.txt
+
+script:
+ - pytest
+
