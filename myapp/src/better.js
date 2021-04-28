@@ -1,31 +1,21 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
 import {IoChatbubble as Logo} from 'react-icons/io5';
-import {Link} from "react-router-dom";
-import "./header.css";
-import SearchBar from "./SearchBar";
-import updatePost from "./Forum";
-
+import {Link} from 'react-router-dom';
+import './header.css';
 
 const Header = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-  
+  // const [click, setClick] = useState(false);
+  // const handleClick = () => setClick(!click);
+  // const closeMobileMenu = () => setClick(false);
+
   return (
     <div className="header">
       <div className="logo-nav">
-        <div className="logo-container">
-          <a href="/post">
-            <Logo class="logo" />
-          </a>
-        </div>
-
+        <h1>GetInvolved - Cal Poly </h1>
         <ul>
           <li>
             <Link to="/home">HOME</Link>
-          </li>
-          <li>
-            <Link to="/post">POST</Link>
           </li>
           <li>
             <Link to="/forum">FORUM</Link>
@@ -33,29 +23,27 @@ const Header = () => {
           <li>
             <Link to="/calendar">CALENDAR</Link>
           </li>
+          <li>
+            <Link to="/post">POST</Link>
+          </li>
         </ul>
+
+        <div className="logo-container">
+          <a href="/post">
+            <Logo class="logo"/>
+          </a>
+        </div>
       </div>
       <ul className="signin-up">
-        <li className="sign-in" onClick={closeMobileMenu}>
-          <a href="#">SIGN-IN</a>
+        <li className="sign-in">
+          <a href="#" className="signup-btn">SIGN-IN</a>
         </li>
-        <li onClick={closeMobileMenu}>
+        <li>
           <a href="" className="signup-btn">
             SIGN-UP
           </a>
         </li>
       </ul>
-      <div>
-      <SearchBar upPost = {updatePost}
-      />
-      </div>
-      <div className="mobile-menu" onClick={handleClick}>
-        {click ? (
-          <Logo className="menu-icon" />
-        ) : (
-          <Logo className="menu-icon" />
-        )}
-      </div>
     </div>
   );
 };

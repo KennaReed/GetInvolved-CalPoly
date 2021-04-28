@@ -1,0 +1,57 @@
+.opener {
+    font-family: DejaVu Sans Mono, monospaces;
+    background-color: khaki;
+    border-style: groove;
+    border-color:green;
+    padding: 1%;
+    
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.whole {
+    font-family: OCR A Std;
+    border-style: groove;
+    border-color:green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -10px 10px 5px lightgrey;
+    background-color: lightgoldenrodyellow;
+    margin: 3%
+}
+
+.shiftText {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+}
+
+.top {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.datePosted {
+    font-size: 1.5em;
+    font-weight: 250;
+    font-style: italic;
+}
+
+.description {
+    font-size: 1.5em;
+    font-weight: 225;
+    padding-bottom: 2%;
+}
+
+.generalInfo {
+    font-size: 1.4em;
+    font-weight: 200;
+}
