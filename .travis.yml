@@ -1,20 +1,12 @@
-matrix:
-  inlcude:
-    - language: python
-      install:
-        - pip install -r requirement.txt
 
-      script:
-         - pytest
-
-    - language: node_js
-      node_js: "14"
+language: node_js
+node_js: "14"
         
-      before_install:
-        - cd myapp/
+before_install:
+- cd myapp/
         
-      install:
-        - npm install
+install:
+- npm install
         
-       script:
-        - npm run build
+script:
+- npm run build
