@@ -38,8 +38,8 @@ function ForumPost(props) {
 
   function formatDate(datestr) {
     const dateobj = new Date(datestr);
-    return pad(dateobj.getDate())+'/'+
-      pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
+    return pad(dateobj.getMonth()+1)+'/'+
+      pad(dateobj.getDate())+'/'+dateobj.getFullYear();
   }
 
   function handleEvents() {

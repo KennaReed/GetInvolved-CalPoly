@@ -11,7 +11,7 @@ function Forum() {
   useEffect(() => {
     fetchAll().then((result) => {
       if (result) {
-        setForumPosts(result);
+        setForumPosts(result.reverse());
       }
     });
   }, []);
