@@ -6,8 +6,8 @@ function DisplayPost(props) {
    return (
       <div key={index}>
         <h3> Title:  {post.title} </h3>
-	<bold> Date: {post.DatePosted} </bold>
-	<br/>
+           <bold> Date: {post.DateEvent} </bold>
+        <br/>
 	<bold> Location:  {post.Location} </bold>
         <br/>
         <small> Content: {post.content} </small>
@@ -25,6 +25,10 @@ function DisplayPost(props) {
    );
 }
 
+function sortDates(props){
+
+
+}
 
 function Home(props){
 
@@ -37,14 +41,21 @@ function Home(props){
     
      useEffect(() => {
       fetchAll().then( result => {
-         if (result)
-             setPost(result);
-      });
-  }, [] );
+         if (result){
+            const reversed = result.reverse().sort((a, b) => {
+                if (a.DateEvent < b.DateEvent) return -1;
+               if (a.DateEvent > b.DateEvent) return 1;
+              return 0;
+             });
+             setPost(reversed); 
+      };
+  })}, [] );
 
 
-     const sortedposts = posts.reverse().sort((a, b) => Math.abs((b.DatePosted - a.DatePosted)))
-	
+     let sortedposts = [...posts].reverse().sort((a, b) => Math.abs((b.DateEvent - a.DateEvent)));
+
+     let reverseposts = posts.reverse();
+
      return(
         <div class="home">
             <p class="bio">
@@ -56,7 +67,7 @@ function Home(props){
         <h1> Recent Posts: </h1>
         <br/>
 	<div className="container">
-        <DisplayPost post1={sortedposts}/>
+        <DisplayPost post1={posts}/>
         </div>
         </div>
     );
