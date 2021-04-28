@@ -82,6 +82,7 @@ function Home(props) {
 
   return (
     <div className={styles.home}>
+      {console.log("DELETE ME")};
       <br/>
       <h1 className={styles.opener}> Most Relevant Posts </h1>
       <br/>
