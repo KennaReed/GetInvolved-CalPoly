@@ -68,16 +68,17 @@ function Home(props) {
   }
 
   useEffect(() => {
-    fetchAll().then( (result) => {
+    fetchAll().then((result) => {
       if (result) {
-        setPost(result);
-      }
+        const reversed = result.reverse().sort((a, b) => {
+          if (a.DateEvent < b.DateEvent) return -1;
+          if (a.DateEvent > b.DateEvent) return 1;
+          return 0;
+        });
+        setPost(reversed);
+      };
     });
   }, [] );
-
-
-  const sortedposts = posts.reverse().sort((a, b) =>
-    Math.abs((b.DatePosted - a.DatePosted)));
 
   return (
     <div className={styles.home}>
@@ -85,7 +86,7 @@ function Home(props) {
       <h1 className={styles.opener}> Most Relevant Posts </h1>
       <br/>
       <div className="container">
-        <DisplayPost post1={sortedposts}/>
+        <DisplayPost post1={posts}/>
       </div>
     </div>
   );
