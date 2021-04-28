@@ -43,8 +43,11 @@ function Home(props){
       fetchAll().then( result => {
          if (result){
             const reversed = result.reverse().sort((a, b) => {
-                if (a.DateEvent < b.DateEvent) return -1;
-               if (a.DateEvent > b.DateEvent) return 1;
+               var today = new Date();
+               var t1 = Math.abs(a.DateEvent - today);
+               var t2 = Math.abs(b.DateEvent - today);
+               if (t1 < t2) return -1;
+               if (t1 > t2) return 1;
               return 0;
              });
              setPost(reversed); 
