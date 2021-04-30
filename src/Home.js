@@ -76,8 +76,8 @@ function Home(props) {
       <h1 className={styles.opener}> Most Relevant Posts </h1>
       <br/>
       <div className="container">
-      {sortedposts.map((p, index) => {
-        return <DisplayPost post={p, index}/>;
+      {sortedposts.map((p, i) => {
+        return <DisplayPost post={p} index={i}/>;
       })}
       </div>
     </div>
