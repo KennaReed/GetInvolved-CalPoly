@@ -21,6 +21,9 @@
     "use-file-picker": "^0.2.1",
     "web-vitals": "^1.1.0"
   },
+  "engines": {
+    "node":">12"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
