@@ -19,8 +19,7 @@ function getPosts(posts) {
 
 function DisplayPost(props) {
   console.log(getPosts(props.post1));
-  if (getPosts(props.post1)){
-    const posts = getPosts(props.post1).map((post, index) => {
+    (props.post1 && getPosts(props.post1).map((post, index) => {
       return (
         <div key={index} className={styles.whole}>
           <div className={styles.shiftText}>
@@ -36,7 +35,7 @@ function DisplayPost(props) {
           </div>
         </div>
       );
-    });
+    }));
     return (
       <DisplayPost>
         <div>
@@ -44,8 +43,6 @@ function DisplayPost(props) {
         </div>
       </DisplayPost>
     );
-  }
-  return null;
 }
 
 function handleEvent(post) {
