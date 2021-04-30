@@ -13,10 +13,14 @@ function formatDate(datestr) {
     pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
 }
 
+function getPosts(posts) {
+  return posts;
+}
+
 function DisplayPost(props) {
-  console.log(props.post1);
-  if (props.post1){
-    const posts = props.post1.map((post, index) => {
+  console.log(getPosts(props.post1));
+  if (getPosts(props.post1)){
+    const posts = getPosts(props.post1).map((post, index) => {
       return (
         <div key={index} className={styles.whole}>
           <div className={styles.shiftText}>
@@ -65,7 +69,6 @@ function Home(props) {
   const [posts, setPost] = useState([]);
 
   async function fetchAll() {
-    console.log("HERE");
     const response = await axios.get('https://getinvolvedapi.herokuapp.com/posts');
     console.log(response.data.posts_list);
     return response.data.posts_list;
