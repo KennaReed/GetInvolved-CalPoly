@@ -24,6 +24,7 @@ function DisplayPost(props) {
         <div key={index} className={styles.whole}>
           <div className={styles.shiftText}>
             <div className={styles.top}>
+              {console.log(post.title)}
               <p className={styles.title}> {post.title} </p>
               <p className={styles.datePosted}>
                 Posted On: {formatDate(post.DatePosted)} </p>
