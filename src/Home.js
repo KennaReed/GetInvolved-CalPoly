@@ -14,7 +14,6 @@ function formatDate(datestr) {
 }
 
 function DisplayPost(props) {
-  if (props.post1) {
   const posts = props.post1.map((post, index) => {
     return (
       <div key={index} className={styles.whole}>
@@ -39,7 +38,6 @@ function DisplayPost(props) {
       </div>
     </DisplayPost>
   );
-  }
 }
 
 function handleEvent(post) {
