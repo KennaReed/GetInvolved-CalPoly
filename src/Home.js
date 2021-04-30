@@ -13,7 +13,7 @@ function formatDate(datestr) {
     pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
 }
 
-function DisplayPost(post) {
+function DisplayPost(post, index) {
   return (
     <div key={index} className={styles.whole}>
       <div className={styles.shiftText}>
@@ -77,7 +77,7 @@ function Home(props) {
       <br/>
       <div className="container">
       {sortedposts.map((p, index) => {
-        return <DisplayPost post={p}/>;
+        return <DisplayPost post={p, index}/>;
       })}
       </div>
     </div>
