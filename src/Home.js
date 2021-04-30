@@ -14,30 +14,34 @@ function formatDate(datestr) {
 }
 
 function DisplayPost(props) {
-  const posts = props.post1.map((post, index) => {
-    return (
-      <div key={index} className={styles.whole}>
-        <div className={styles.shiftText}>
-          <div className={styles.top}>
-            <p className={styles.title}> {post.title} </p>
-            <p className={styles.datePosted}>
-              Posted On: {formatDate(post.DatePosted)} </p>
-          </div>
+  if (props.post1){
+    const posts = props.post1.map((post, index) => {
+      return (
+        <div key={index} className={styles.whole}>
+          <div className={styles.shiftText}>
+            <div className={styles.top}>
+              <p className={styles.title}> {post.title} </p>
+              <p className={styles.datePosted}>
+                Posted On: {formatDate(post.DatePosted)} </p>
+            </div>
 
-          <p className={styles.description}> {post.content} </p>
-          {handleEvent(post)}
-          <p className={styles.generalInfo}>Cost: {post.Cost}</p>
+            <p className={styles.description}> {post.content} </p>
+            {handleEvent(post)}
+            <p className={styles.generalInfo}>Cost: {post.Cost}</p>
+          </div>
         </div>
-      </div>
+      );
+    });
+    console.log(props.post1);
+    return (
+      <DisplayPost>
+        <div>
+          {posts}
+        </div>
+      </DisplayPost>
     );
-  });
-  return (
-    <DisplayPost>
-      <div>
-        {posts}
-      </div>
-    </DisplayPost>
-  );
+  }
+  return null;
 }
 
 function handleEvent(post) {
