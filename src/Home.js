@@ -14,7 +14,9 @@ function formatDate(datestr) {
 }
 
 function DisplayPost(props) {
-  if (props.post1){
+  console.log(props.post1);
+  console.log(props.post1.length);
+  if ((props.post1).length !== 0){
     const posts = props.post1.map((post, index) => {
       return (
         <div key={index} className={styles.whole}>
@@ -32,7 +34,6 @@ function DisplayPost(props) {
         </div>
       );
     });
-    console.log(props.post1);
     return (
       <DisplayPost>
         <div>
