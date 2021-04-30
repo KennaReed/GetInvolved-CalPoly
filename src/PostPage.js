@@ -16,7 +16,7 @@ function MyApp() {
 
   async function makePostCall(post) {
     try {
-      const response = await axios.post('http://localhost:5000/posts', post);
+      const response = await axios.post('https://getinvolvedapi.herokuapp.com/posts', post);
       return response;
     } finally {
       return 500;

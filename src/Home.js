@@ -32,11 +32,11 @@ function DisplayPost(props) {
     );
   });
   return (
-    <displayPost>
+    <DisplayPost>
       <div>
         {posts}
       </div>
-    </displayPost>
+    </DisplayPost>
   );
 }
 
@@ -61,7 +61,9 @@ function Home(props) {
   const [posts, setPost] = useState([]);
 
   async function fetchAll() {
-    const response = await axios.get('http://localhost:5000/posts');
+    console.log("HERE");
+    const response = await axios.get('https://getinvolvedapi.herokuapp.com/posts');
+    console.log(response.data.posts_list);
     return response.data.posts_list;
   }
 

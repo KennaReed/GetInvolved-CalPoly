@@ -88,7 +88,7 @@ function Form(props) {
     event.preventDefault();
     if (errors === 0) {
       if (window.confirm('Thank you for submitting a post!')) {
-        window.location.href='http://localhost:3000/home';
+        window.location.href='https://getinvolvedapi.herokuapp.com/home';
       };
       props.handleSubmit(post);
       setPost(

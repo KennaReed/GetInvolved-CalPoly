@@ -42,7 +42,7 @@ function SearchBar(props) {
 
   async function getData() {
     try {
-      const response = await axios.get('http://localhost:5000/home');
+      const response = await axios.get('https://getinvolvedapi.herokuapp.com/home');
       return response.data.posts_list;
     } catch (error) {
       console.log(error);

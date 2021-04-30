@@ -16,7 +16,7 @@ function Forum() {
 
   async function fetchAll() {
     try {
-      const response = await axios.get('http://localhost:5000/forum');
+      const response = await axios.get('https://getinvolvedapi.herokuapp.com/forum');
       return response.data.posts_list;
     } catch (error) {
       console.log(error);
