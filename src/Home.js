@@ -13,30 +13,23 @@ function formatDate(datestr) {
     pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
 }
 
-function getPosts(posts) {
-  return posts;
-}
-
-function DisplayPost(props) {
-  console.log(getPosts(props.post1));
-    (props.post1 && getPosts(props.post1).map((post, index) => {
-      return (
-        <div key={index} className={styles.whole}>
-          <div className={styles.shiftText}>
-            <div className={styles.top}>
-              {console.log(post.title)}
-              <p className={styles.title}> {post.title} </p>
-              <p className={styles.datePosted}>
-                Posted On: {formatDate(post.DatePosted)} </p>
-            </div>
-
-            <p className={styles.description}> {post.content} </p>
-            {handleEvent(post)}
-            <p className={styles.generalInfo}>Cost: {post.Cost}</p>
-          </div>
+function DisplayPost(post) {
+  return (
+    <div key={index} className={styles.whole}>
+      <div className={styles.shiftText}>
+        <div className={styles.top}>
+          {console.log(post.title)}
+          <p className={styles.title}> {post.title} </p>
+          <p className={styles.datePosted}>
+            Posted On: {formatDate(post.DatePosted)} </p>
         </div>
-      );
-    }));
+
+        <p className={styles.description}> {post.content} </p>
+        {handleEvent(post)}
+        <p className={styles.generalInfo}>Cost: {post.Cost}</p>
+      </div>
+    </div>
+  );
 }
 
 function handleEvent(post) {
@@ -83,7 +76,9 @@ function Home(props) {
       <h1 className={styles.opener}> Most Relevant Posts </h1>
       <br/>
       <div className="container">
-        <DisplayPost post1={sortedposts}/>
+      {sortedposts.map((p, index) => {
+        return <DisplayPost post={p}/>;
+      })}
       </div>
     </div>
   );
