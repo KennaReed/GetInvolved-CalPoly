@@ -36,13 +36,7 @@ function DisplayPost(props) {
         </div>
       );
     }));
-    return (
-      <DisplayPost>
-        <div>
-          {posts}
-        </div>
-      </DisplayPost>
-    );
+    return null;
 }
 
 function handleEvent(post) {
