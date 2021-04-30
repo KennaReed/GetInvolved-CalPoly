@@ -37,7 +37,6 @@ function DisplayPost(props) {
         </div>
       );
     }));
-    return null;
 }
 
 function handleEvent(post) {
