@@ -83,8 +83,8 @@ function Form(props) {
   }
 
   function submitForm(event) {
+    console.log("HERE");
     const errors = errorChecker();
-    console.log('here2');
     event.preventDefault();
     if (errors === 0) {
       if (window.confirm('Thank you for submitting a post!')) {
