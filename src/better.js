@@ -33,16 +33,6 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <ul className="signin-up">
-        <li className="sign-in">
-          <p className="signup-btn">SIGN-IN</p>
-        </li>
-        <li>
-          <p className="signup-btn">
-            SIGN-UP
-          </p>
-        </li>
-      </ul>
     </div>
   );
 };
