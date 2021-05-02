@@ -43,7 +43,7 @@ function DisplayPost(props) {
 }
 
 function handleEvent(post) {
-  if (post.DateEvent != post.DatePosted) {
+  if (post.DateEvent !== post.DatePosted) {
     return (
       <div className={styles.generalInfo}>
         <p>Date of Event: {formatDate(post.DateEvent)}</p>

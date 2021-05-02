@@ -43,7 +43,7 @@ function ForumPost(props) {
   }
 
   function handleEvents() {
-    if (props.postData.DateEvent != props.postData.DatePosted) {
+    if (props.postData.DateEvent !== props.postData.DatePosted) {
       return (
         <div className={styles.eventInfo}>
           <p>Event Date: {
