@@ -49,9 +49,13 @@ def add_filters():
                 filters["keyWords"] = key
             posts.append(Post().apply_filter(filters, posts))
             filters = {}
-    posts2 = sum(posts, [])
+    combined = sum(posts, [])
+    retPosts = []
+    for i in combined:
+        if i not in retPosts:
+            retPosts.append(i)
 
-    return {"post_list": posts2}
+    return {"post_list": retPosts}
 
     
 
