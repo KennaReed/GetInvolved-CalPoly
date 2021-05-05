@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MultiSelect from "react-multi-select-component";
 import "./ForumFiltering.css";
+import axios from 'axios';
 
 export default function ForumFiltering(props) {
   const keywords = [
@@ -20,8 +21,27 @@ export default function ForumFiltering(props) {
 
   const [filteredKeywords, setKeywords] = useState([]);
   const [filteredCost, setCost] = useState([]);
-  function submitFilter(){
 
+  async function getData(filter) {
+    try {
+      const response = await axios.post('https://getinvolvedapi.herokuapp.com/filter', filter);
+      return response.data.posts_list;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  function submitFilter(){
+    var array = filteredKeywords + filteredCost
+    var temp
+    getData(JSON.stringify(array)).then((result) => {
+    //setKeywords('')
+    //setCost('')
+        temp = result
+    });
+    console.log(temp)
+    //props.upPost(temp)
   }
   return (
     <div>
