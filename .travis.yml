@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 language: node_js
 node_js: "14"
 <<<<<<< HEAD
@@ -16,10 +17,17 @@ script:
 =======
 language: python
 
+=======
+language: python
+
+>>>>>>> fe360a1d6d9c295aa90054652bbe7448a79f734d
 install:
  - pip install -r requirements.txt
 
 script:
  - pytest
 
+<<<<<<< HEAD
+>>>>>>> fe360a1d6d9c295aa90054652bbe7448a79f734d
+=======
 >>>>>>> fe360a1d6d9c295aa90054652bbe7448a79f734d
