@@ -83,6 +83,7 @@ function Form(props) {
   }
 
   function submitForm(event) {
+    console.log("HERE");
     const errors = errorChecker();
     event.preventDefault();
     if (errors === 0) {

@@ -1,32 +1,18 @@
-html,
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0.5rem;
-}
-
 h1 {
   font-family: OCR A Std;
   margin: 0;
   font-weight: bold;
 }
 
-.multi-select {
-  max-width: 230px;
-  color: black;
-  border-color: black;
-}
-
-.multi-select:focus-within label {
-    color:black !important;
-    font-size: 110%;
-    font-weight: bold;
-    margin: 5%;
-}
-
 text {
     font-family: OCR A Std;
     font-weight: bold;
-    font-size: 150%;
+    font-size: 200%;
     padding-bottom: 2%;
 }
+h4 {
+    font-family: OCR A Std;
+    margin: 0;
+    font-weight: bold;
+    font-size: 130%;
+  }

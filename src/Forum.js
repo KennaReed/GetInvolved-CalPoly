@@ -28,7 +28,7 @@ function Forum() {
   function updatePost(updated) {
     setForumPosts(updated);
   }
-  
+
   return (
     <div className={styles.ForumComp}>
       <div className={styles.search}>
@@ -43,7 +43,7 @@ function Forum() {
         </div>
 
         <div>
-          <ForumFiltering upPost = {updatePost}/>
+          < ForumFiltering upPost = {updatePost}/>
         </div>
       </div>
     </div>
