@@ -50,16 +50,20 @@ class Post(Model):
     db_client = MongoClient(url)
     collection = db_client["Posts"]["websitePosts"]
 
+    def __eq__(self, other):
+        return self.DatePosted == other.DatePosted
+
     def find_all(self):
         posts = list(self.collection.find())
         for post in posts:
             post["_id"] = str(post["_id"]) #converting ObjectId to str
         return posts
 
-    def apply_filter(self, filters):
+    def apply_filter(self, filters, ogPosts):
         posts = list(self.collection.find(filters))
-
+    
         for post in posts:
             post["_id"] = str(post["_id"]) #converting ObjectId to str
 
         return posts
+
