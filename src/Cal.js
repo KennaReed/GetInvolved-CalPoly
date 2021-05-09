@@ -25,10 +25,11 @@ function Cal() {
         let postsList = response.data.posts_list;
         for (let i = 0; i < postsList.length; i++) {
           if (postsList[i].DateEvent !== "") {
-            let time = moment.utc(postsList[i].DateEvent).toDate()
+            let start_time = moment.utc(postsList[i].DateEvent).toDate();
+            let end_time = start_time;
             let event = {
-              start: time,
-              end: moment(time),
+              start: start_time,
+              end: end_time,
               title: postsList[i].title,
             }
             eventsList.push(event)
