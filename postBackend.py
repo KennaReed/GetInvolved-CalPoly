@@ -12,6 +12,10 @@ CORS(app)
 def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
 
+@app.route('/login', methods=['GET', 'POST'])
+def loginstuff():
+    return jsonify(token="check")
+
 @app.route('/forum', methods=['GET'])
 def get_forumPosts():
     if request.method == 'GET':
