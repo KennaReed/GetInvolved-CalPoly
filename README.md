@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# GetInvolved-CalPoly
+CSC 308 Team D Project 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A public forum/place where anyone can see the activities going on at Cal Poly. 
+  This includes clubs, sporting events, local events, new buisnesses, and more!
 
-## Available Scripts
+Figma UI Prototype
+https://www.figma.com/proto/pPqLzsmCB5yZfrUgGJlonF/GetInvolved-Cal-Poly?scaling=min-zoom&node-id=2%3A4
 
-In the project directory, you can run:
+Style Checkers and Linters:
 
-### `npm start`
+For Python in VS Code: pylint
+https://code.visualstudio.com/docs/python/linting
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1) $pip3 install pylint (macOS/Linux)
+    $pip install pylint (Windows)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2) Open Command Pallete and select Python: Run Linting
 
-### `npm test`
+Now in your Python files, you should see any problems in the Problems Panel located near the terminal. 
+Note: As of 04/16 we are sticking with the basic settings and plan to change once we understand preferences better 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For JavaScript in VS Code: ESLint
+https://dev.to/devdammak/setting-up-eslint-in-your-javascript-project-with-vs-code-2amf
 
-### `npm run build`
+1) Install ESlint extension on vs code editor (see image in link for details)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2) npm install eslint -g //this should be in myapp
+  *For some reason McKenna needed to run sudo chown -R $USER /usr/local/lib/node_modules to get write access to node_modules
+  
+3) eslint --init //this should be in one directory above myapp
+    How would you like to use ESLint?
+      To check syntax, find problems, and enforce code style
+    What type of modules does your project use?
+      Javascript module (import/export) 
+    Which framework does your project use?
+      React
+    Where does your code run?
+      Browser
+    How would you like to define a style for your project?
+      Use a popular style guide
+        Google
+    What format do you want your config file to be in?
+      Javascript
+      
+   //Now you should see lots of formatting errors to fix!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
