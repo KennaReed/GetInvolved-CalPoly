@@ -49,9 +49,11 @@
     ]
   },
   "devDependencies": {
+    "cors": "^2.8.5",
     "eslint": "^7.24.0",
     "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "express": "^4.17.1"
   }
 }
