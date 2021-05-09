@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask import request
 from flask import jsonify
-from model_mongodb import Post
+from model_mongodb import Post, Login
 
 app = Flask(__name__)
 
@@ -12,9 +12,18 @@ CORS(app)
 def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
 
+
 @app.route('/login', methods=['GET', 'POST'])
-def loginstuff():
-    return jsonify(token="check")
+def get_accounts():
+    if request.method == 'GET':
+        return {"account_list": Login().find_all()}
+
+    elif request.method == 'POST':
+        accountToAdd = request.get_json()
+        newaccount = Login(accountToAdd)
+        newaccount.save()
+        return jsonify(token="check")
+
 
 @app.route('/forum', methods=['GET'])
 def get_forumPosts():

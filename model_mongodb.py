@@ -45,6 +45,33 @@ class Model(dict):
             resp = self.collection.delete_one({"_id": ObjectId(self._id)})
             return resp.deleted_count
 
+class Model2(dict):
+    """
+    A simple model that wraps mongodb document
+    """
+    __getattr__ = dict.get
+    __delattr__ = dict.__delitem__
+    __setattr__ = dict.__setitem__
+
+    def save(self):
+        if not self._id:
+            self.collection.insert(self)
+        else:
+            self._id = ObjectId(self._id)
+            self.collection.update(
+                { "_id": ObjectId(self._id) }, self)
+        self._id = str(self._id)
+        
+
+    def reload(self):
+        if self._id:
+            result = self.collection.find_one({"_id": ObjectId(self._id)})
+            if result :
+                self.update(result)
+                self._id = str(self._id)
+                return True
+        return False
+
 class Post(Model):
     url = os.getenv('DB_LINK')
     db_client = MongoClient(url)
@@ -66,4 +93,16 @@ class Post(Model):
             post["_id"] = str(post["_id"]) #converting ObjectId to str
 
         return posts
+
+class Login(Model2):
+    url = os.getenv('DB_LINK')
+    db_client = MongoClient(url)
+    collection = db_client["Login"]["account"]
+
+
+    def find_all(self):
+        accounts = list(self.collection.find())
+        for account in accounts:
+            account["_ids"] = str(account["_ids"])
+        return accounts
 
