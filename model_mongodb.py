@@ -103,6 +103,6 @@ class Login(Model2):
     def find_all(self):
         accounts = list(self.collection.find())
         for account in accounts:
-            account["_ids"] = str(account["_ids"])
+            account["_id"] = str(account["_id"])
         return accounts
 
