@@ -4,6 +4,7 @@ from flask import request
 from flask import jsonify
 from model_mongodb import Post
 
+
 app = Flask(__name__)
 
 CORS(app)
@@ -38,7 +39,9 @@ def get_posts():
 
 @app.route('/filter', methods=['POST'])
 def add_filters():
+    app.logger.info(request.get_json())
     rawData = request.get_json()
+    print(rawData)
     filters = {}
     posts = []
     for i in range(len(rawData)):
