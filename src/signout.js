@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Signout() {
   localStorage.clear();
-  document.location.reload();
+  document.location.replace("https://getinvolvedcalpoly.herokuapp.com/");
 }
 
 export default Signout;

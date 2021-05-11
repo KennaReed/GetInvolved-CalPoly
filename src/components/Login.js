@@ -4,7 +4,7 @@ import './Login.css';
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
-    return fetch('https://getinvolvedapi.herokuapp.com/login',{
+    return fetch('https://getinvolvedapi.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -12,7 +12,7 @@ async function loginUser(credentials) {
       body: JSON.stringify(credentials)
     })
       .then(data => data.json())
-   }
+    }
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
