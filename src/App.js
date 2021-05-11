@@ -10,11 +10,11 @@ import {Switch, Route} from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom/cjs/react-router-dom.min';
 import Login from './components/Login'
 import useToken from './useToken';
+import Signout from './signout';
 
 
 function App() {
   const { token, setToken } = useToken();
-  console.log(token);
   if(!token) {
     return <Login setToken={setToken} />
   }
@@ -29,6 +29,7 @@ function App() {
           <Switch>
             <Route path="/calendar" component={Cal}/>
             <Route path="/forum" component={Forum}/>
+            <Route path="/logout" component={Signout}/>
             <Route path="/post" component={PostPage}/>
             <Route path="/" component={Home}/>
           </Switch>
