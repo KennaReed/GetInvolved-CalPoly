@@ -22,7 +22,7 @@ def get_accounts():
         accountToAdd = request.get_json()
         newaccount = Login(accountToAdd)
         newaccount.save()
-        return jsonify(token="check")
+        return jsonify(token=accountToAdd["username"])
 
 
 @app.route('/forum', methods=['GET'])
