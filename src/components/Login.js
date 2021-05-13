@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import './Login.css';
 import PropTypes from 'prop-types';
+
 
 async function loginUser(credentials) {
     return fetch('https://getinvolvedapi.herokuapp.com/login', {
@@ -19,58 +19,32 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState();
 
   const handleSubmit = async e => {
-    if (errorCheck() > 1){
-      window.confirm("Existing Account with Wrong Password");
-      return Login;
-    }
     e.preventDefault();
-    const token = await loginUser({
-      username,
-      password
-    });
-    setToken(token);
-  }
-
-  async function indatabase() {
-    try {
-      const response = await axios.get('');
+    fetch('https://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+      
+      console.log(json);
+      let check = false;
       let i = 0;
-      for (i=0; i < (response.data.account_list.length); i ++){
-        if (response.data.account_list[i] === username){
-            return true;
+      for (i=0; i < (json.account_list.length); i ++){
+        console.log(json.account_list[i]);
+        console.log(username);
+        if (json.account_list[i].username === username){
+            if (json.account_list[i].password !== password){
+              check = true;
+            }
         }
       }
-      return false;
-    } 
-    catch (error) {
-      console.log(error);
-      return false;
-    }
-  }
-  async function getpassword(){
-    try{
-      const response = await axios.get('');
-      let i = 0;
-      for (i=0; i < (response.data.account_list.length); i ++){
-        if (response.data.account_list[i]["username"] === username){
-            return response.data.account_list[i][password];
-        }
+      if (check === true){
+        window.confirm("Existing Account");
+        return Login;
       }
-    }
-    catch (error) {
-      console.log(error);
-      return false;
-    }
-
-  }
-
-  
-  function errorCheck(){
-    let error = 0;
-    if (indatabase() && getpassword() === password){
-      error += 1
-    }
-    return error;}
+      const token = await loginUser({
+        username,
+        password
+      });
+      setToken(token);
+      });}
+    
 
 
 
