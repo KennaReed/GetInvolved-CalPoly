@@ -13,7 +13,7 @@ def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
 
 @app.route('/login1', methods=['GET'])
-def get_accounts():
+def get_account():
     if request.method == 'GET':
         return {"account_list": Login().find_all()}
 
