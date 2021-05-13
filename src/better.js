@@ -25,6 +25,9 @@ const Header = () => {
           <li>
             <Link to="/post">POST</Link>
           </li>
+          <li>
+            <Link to="/logout">sign-out</Link>
+          </li>
         </ul>
 
         <div className="logo-container">
