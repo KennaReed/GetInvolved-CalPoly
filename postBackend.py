@@ -39,6 +39,7 @@ def get_posts():
 
 @app.route('/filter', methods=['POST'])
 def add_filters():
+    print("here")
     app.logger.info(request.get_json())
     rawData = request.get_json()
     print(rawData)
