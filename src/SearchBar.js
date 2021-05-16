@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import "./searchBar.css";
 
 function SearchBar(props) {
   const [search, setSearch] = useState(
@@ -61,6 +62,11 @@ function SearchBar(props) {
       </input>
       <button type="button" onClick={submitSearch} >
             Search!
+      </button>
+      <br/>
+      <reset>Click here to reset the forum </reset>
+      <button type="button" onClick={submitSearch} >
+            Reset!
       </button>
     </div>
   );

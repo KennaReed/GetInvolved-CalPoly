@@ -1,16 +1,18 @@
 import React from "react";
 import "./ForumFiltering.css";
+import axios from 'axios';
 
-function ForumFiltering (){
-    var keyword1 = {word: "Sports", type: "keyWords", checked: false}
-    var keyword2 = {word: "Community", type: "keyWords", checked: false}
-    var keyword3 = {word: "School", type: "keyWords", checked: false}
-    var keyword4 = {word: "Music", type: "keyWords", checked: false}
-    var keyword5 = {word: "Art", type: "keyWords", checked: false}
-    var cost1 = {word: "Free", type: "Cost", checked: false}
-    var cost2 = {word: "About 5 Dollars", type: "Cost", checked: false}
-    var cost3 = {word: "About 10 Dollars", type: "Cost", checked: false}
-    var cost4 = {word: "More than 10 Dollars", type: "Cost", checked: false}
+
+function ForumFiltering (props){
+    var keyword1 = {name: "keyword1", word: "Sports", type: "keyWords", checked: false}
+    var keyword2 = {name: "keyword2", word: "Community", type: "keyWords", checked: false}
+    var keyword3 = {name: "keyword3", word: "School", type: "keyWords", checked: false}
+    var keyword4 = {name: "keyword4", word: "Music", type: "keyWords", checked: false}
+    var keyword5 = {name: "keyword5", word: "Art", type: "keyWords", checked: false}
+    var cost1 = {name: "cost1", word: "Free", type: "Cost", checked: false}
+    var cost2 = {name: "cost2", word: "About 5 Dollars", type: "Cost", checked: false}
+    var cost3 = {name: "cost3", word: "About 10 Dollars", type: "Cost", checked: false}
+    var cost4 = {name: "cost4", word: "More than 10 Dollars", type: "Cost", checked: false}
 
     var dictionary = {}
     dictionary["keyword1"] = keyword1
@@ -28,17 +30,9 @@ function ForumFiltering (){
 
 
     async function getData(filter) {
-        console.log(filter)
         try {
-            const response = fetch('https://getinvolvedapi.herokuapp.com/filter', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application',
-                    'Access-Control-Allow-Origin': 'POST'
-                },
-                body: JSON.stringify(filter)
-            });
-            return response.data.posts_list;
+            const response = await axios.post('https://getinvolvedapi.herokuapp.com/filter', filter)
+            return response.data.post_list;
         } catch (error) {
             console.log(error);
             return false;
@@ -52,21 +46,32 @@ function ForumFiltering (){
         while (i < allItems.length){
             if(allItems[i].checked === true ) {
                 var object = {};
-                var key = JSON.stringify(allItems[i].word)
+                var key = allItems[i].word
                 object[key] = allItems[i].type;
-                console.log(object)
                 array.push(object)
             }
             i++;
         }
-        var temp
+        i = 0;
+        if (array.length === 0) {
+            while (i < allItems.length){
+                var item = {};
+                var thing = allItems[i].word
+                item[thing] = allItems[i].type;
+                array.push(item)
+                i++;
+            }
+        }
         getData(array).then((result) => {
-            temp = result
+            props.upPost(result.reverse())
+            uncheckAll()
+
         });
-        allkeywords.forEach(x => x.checked =false)
-        console.log(temp)
-        //props.upPost(temp)
     }
+    function uncheckAll() {
+        document.querySelectorAll('input[type="checkbox"]')
+          .forEach(el => el.checked = false);
+      }
     function handleClick(event){
         dictionary[event.target.name].checked = !dictionary[event.target.name].checked
 
