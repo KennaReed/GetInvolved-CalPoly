@@ -28,6 +28,7 @@
     "node": ">12"
   },
   "scripts": {
+    "cypress:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -54,6 +55,7 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
+    "cypress": "^7.3.0",
     "eslint": "^7.24.0",
     "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",
