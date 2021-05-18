@@ -1,4 +1,3 @@
-import pymongo
 import os
 from flask import Flask
 from bson import ObjectId
@@ -63,3 +62,14 @@ class Post(Model):
             post["_id"] = str(post["_id"]) #converting ObjectId to str
 
         return posts
+
+class Comment(Model):
+    url = os.getenv('DB_COMMENTS')
+    db_client = MongoClient(url)
+    collection = db_client["Comments"]["Comments"]
+
+    def find_all(self):
+        comments = list(self.collection.find())
+        for comment in comments:
+            comment["_id"] = str(comment["_id"]) #converting ObjectId to str
+        return comments

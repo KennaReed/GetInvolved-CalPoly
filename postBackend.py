@@ -3,10 +3,23 @@ from flask_cors import CORS
 from flask import request
 from flask import jsonify
 from model_mongodb import Post
+from model_mongodb import Comment
 
 app = Flask(__name__)
 
 CORS(app)
+
+@app.route('/comment', methods=['GET', 'POST'])
+def get_comments():
+    if request.method == 'GET':
+        comments = Comment().find_all()
+        return {"comments_list": comments}
+    elif request.method == 'POST':
+        commentToAdd = request.get_json()
+        newComment = Post(commentToAdd)
+        newComment.save()
+        resp = jsonify(newComment), 201
+        return resp
 
 @app.route('/')
 def flask_mongodb_atlas():
