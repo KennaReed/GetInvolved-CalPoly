@@ -3,10 +3,13 @@ import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
+import Comment from 'Comment.js';
+import axios from 'axios';
 
 function ForumPost(props) {
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState(false);
+  const [commentList, setAllComments] = useState([]);
 
   function getDetails() {
     if (open) {
@@ -44,17 +47,27 @@ function ForumPost(props) {
   function postCommentBox() {
     return (
       <div>
-        <label htmlFor="postingComment">Enter Comment</label>
-            <input 
-              type="text"
-              id="postingComment"
-              name="postingComment"
-              // value={post.title}
-              // onChange={handleChange}
-              >
-            </input>
+        <Comment handleSubmit={updateList}/>
       </div>
     );
+  }
+
+  async function makePostCall(post) {
+    try {
+      const response = await axios.post('https://getinvolvedapi.herokuapp.com/comments', post);
+      return response;
+    } finally {
+      return 500;
+    }
+  }
+
+  function updateList(comment) {
+    makePostCall(comment).then((result) => {
+      if (result.status === 201) {
+        comment['_id'] = result.data['_id'];
+        setAllComments([...commentList, comment] );
+      }
+    });
   }
 
   function handleLocation() {
