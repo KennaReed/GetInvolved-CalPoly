@@ -15,7 +15,7 @@ function Comment(props) {
     let error = 0;
     if (comment.content === '') {
       error += 1;
-      errorOutput += 'Description is missing\n';
+      errorOutput += 'Comment is missing\n';
     }
     
     const today = new Date();
@@ -67,7 +67,7 @@ function Comment(props) {
             <input 
               type="text"
               id="postingComment"
-              name="postingComment"
+              name="content"
               value={comment.content}
               onChange={handleChange}
               >

@@ -3,7 +3,7 @@ import styles from './forum.module.css';
 import {FaAngleDown} from 'react-icons/fa';
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
-import Comment from 'Comment.js';
+import Comment from './Comment';
 import axios from 'axios';
 
 function ForumPost(props) {
