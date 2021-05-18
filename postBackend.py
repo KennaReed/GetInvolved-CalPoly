@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 CORS(app)
 
+
 @app.route('/comment', methods=['GET', 'POST'])
 def get_comments():
     if request.method == 'GET':
