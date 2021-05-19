@@ -4,6 +4,7 @@ from bson import ObjectId
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from datetime import datetime
+import logging
 APP_ROOT = os.path.join(os.path.dirname(__file__), '..')
 dotenv_path = os.path.join(APP_ROOT, '.env')
 load_dotenv(dotenv_path)
@@ -68,7 +69,7 @@ class Comment(Model):
     db_client = MongoClient(url)
     collection = db_client["Comments"]["Comments"]
 
-    def find_all(self):
+    def find_relevant(self):
         comments = list(self.collection.find())
         for comment in comments:
             comment["_id"] = str(comment["_id"]) #converting ObjectId to str
