@@ -22,15 +22,7 @@ def post_comments():
 @app.route('/getComment', methods=['POST']) 
 def get_comments():
     rawData = request.get_json()
-    filters = {}
-    comments = []
-    for i in range(len(rawData)):
-        for key, value in rawData[i].items():
-            if value == "postID":
-                filters["postID"] = key
-            comments.append(Comment().find_relevant(filters, comments))
-            filters = {}
-
+    comments = Comment().find_relevant(rawData)
     return {"comments_list": comments}
 
 @app.route('/')
