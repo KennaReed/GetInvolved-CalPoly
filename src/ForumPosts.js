@@ -55,15 +55,15 @@ function ForumPost(props) {
 
   function fetchComments() {
     console.log("fetchComments")
-    fetchAll().then( (result) => {
+    fetchAll({"postID": props.postData._id}).then( (result) => {
       if (result) {
         setAllComments(result);
       }
     });
   }
 
-  async function fetchAll() {
-    const response = await axios.get('http://127.0.0.1:5000//comment');
+  async function fetchAll(filter) {
+    const response = await axios.post('http://127.0.0.1:5000//getComment', filter);
     console.log(response.data.comments_list);
     return response.data.comments_list;
   }
