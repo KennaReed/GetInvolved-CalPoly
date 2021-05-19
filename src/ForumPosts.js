@@ -46,10 +46,9 @@ function ForumPost(props) {
   }
 
   function postCommentBox() {
-    console.log("PostCommentBox")
     return (
       <div>
-        <Comment handleSubmit={updateList} publisher={JSON.parse(localStorage.getItem("token"))}/>
+        <Comment handleSubmit={updateList} publisher={JSON.parse(localStorage.getItem("token")).token} _id={props.postData._id}/>
       </div>
     );
   }
@@ -85,6 +84,7 @@ function ForumPost(props) {
         setAllComments([...commentList, comment] );
       }
     });
+    getComments();
   }
 
   function handleLocation() {

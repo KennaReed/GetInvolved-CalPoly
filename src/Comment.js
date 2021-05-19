@@ -4,8 +4,9 @@ function Comment(props) {
   const [comment, setComment] = useState(
       {
         DatePosted: new Date(),
-        publisher: '',
-        content: ''
+        publisher: props.publisher,
+        content: '',
+        postID: props._id
       },
   );
   let errorOutput = 'Please fix errors and resubmit.\n';
@@ -24,10 +25,9 @@ function Comment(props) {
     const errors = errorChecker();
     event.preventDefault();
     if (errors === 0) {
-      //change this
       props.handleSubmit(comment);
       setComment(
-          {DatePosted: new Date(), publisher: '', content: ''});
+          {DatePosted: new Date(), publisher: '', content: '', postID: ''});
     } else {
       window.confirm(errorOutput);
       errorOutput = 'Please fix errors and resubmit.\n';
@@ -40,7 +40,7 @@ function Comment(props) {
     if (name === 'content') {
       setComment(
           {
-            DatePosted: comment.DatePosted, publisher: comment.publisher, content: value});
+            DatePosted: comment.DatePosted, publisher: comment.publisher, content: value, postID: comment.postID});
     }
   }
   return (
