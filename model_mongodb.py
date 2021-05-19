@@ -86,7 +86,7 @@ class Post(Model):
             post["_id"] = str(post["_id"]) #converting ObjectId to str
         return posts
 
-    def apply_filter(self, filters, ogPosts):
+    def apply_filter(self, filters):
         posts = list(self.collection.find(filters))
     
         for post in posts:
@@ -94,18 +94,19 @@ class Post(Model):
 
         return posts
 
-<<<<<<< HEAD
 class Comment(Model):
     url = os.getenv('DB_COMMENTS')
     db_client = MongoClient(url)
     collection = db_client["Comments"]["Comments"]
 
-    def find_relevant(self):
-        comments = list(self.collection.find())
+    def find_relevant(self, filter):
+        comments = list(self.collection.find(filter))
+    
         for comment in comments:
             comment["_id"] = str(comment["_id"]) #converting ObjectId to str
+
         return comments
-=======
+
 class Login(Model2):
     url = os.getenv('DB_LINK')
     db_client = MongoClient(url)
@@ -118,4 +119,3 @@ class Login(Model2):
             account["_id"] = str(account["_id"])
         return accounts
 
->>>>>>> 9999841878db4b766e10ef6742c8c54eeeffe4ce
