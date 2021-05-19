@@ -2,8 +2,8 @@ from flask import Flask
 from flask_cors import CORS
 from flask import request
 from flask import jsonify
-from model_mongodb import Post
 from model_mongodb import Comment
+from model_mongodb import Post, Login
 
 app = Flask(__name__)
 
@@ -25,6 +25,23 @@ def get_comments():
 def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
 
+@app.route('/login1', methods=['GET'])
+def get_account():
+    if request.method == 'GET':
+        return {"account_list": Login().find_all()}
+
+@app.route('/login', methods=['GET', 'POST'])
+def get_accounts():
+    if request.method == 'GET':
+        return {"account_list": Login().find_all()}
+
+    elif request.method == 'POST':
+        accountToAdd = request.get_json()
+        newaccount = Login(accountToAdd)
+        newaccount.save()
+        return jsonify(token=accountToAdd["username"])
+
+
 @app.route('/forum', methods=['GET'])
 def get_forumPosts():
     if request.method == 'GET':
@@ -40,26 +57,7 @@ def get_posts_searchbar():
 @app.route('/posts', methods=['GET', 'POST'])
 def get_posts():
     if request.method == 'GET':
-        search_keyWords = request.args.get('keyWords')
-        search_eventDate = request.args.get('DateEvent')
-        search_publisher = request.args.get('publisher')
-        search_cost = request.args.get('Cost')
-        filters = {}
-        if (search_keyWords):
-            filters["keyWords"] = search_keyWords
-        if (search_eventDate):
-            filters["DateEvent"] = search_eventDate
-        if (search_publisher):
-            filters["publisher"] = search_publisher
-        if (search_cost):
-            filters["Cost"] = search_cost
-        
-        if (filters == []):
-            posts = Post().find_all()
-        else: 
-            posts = Post().apply_filter(filters)
-
-        return {"posts_list": posts}
+        return {"posts_list": Post().find_all()}
 
     elif request.method == 'POST':
         postToAdd = request.get_json()
@@ -67,6 +65,29 @@ def get_posts():
         newPost.save()
         resp = jsonify(newPost), 201
         return resp
+
+@app.route('/filter', methods=['POST'])
+def add_filters():
+    rawData = request.get_json()
+    filters = {}
+    posts = []
+    for i in range(len(rawData)):
+        for key, value in rawData[i].items():
+            if value == "Cost":
+                filters["Cost"] = key
+            if value == "keyWords":
+                filters["keyWords"] = key
+            posts.append(Post().apply_filter(filters, posts))
+            filters = {}
+    combined = sum(posts, [])
+    retPosts = []
+    for i in combined:
+        if i not in retPosts:
+            retPosts.append(i)
+
+    return {"post_list": retPosts}
+
+    
 
 
 
