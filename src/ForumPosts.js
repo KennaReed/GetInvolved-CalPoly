@@ -27,12 +27,10 @@ function ForumPost(props) {
   }
 
   function getComments() {
-    console.log("getComments")
     if (comments) {
       return (
         <div>
           {postCommentBox()}
-          {fetchComments()}
           {commentList.map((c, i) => {
             return <DisplayComment comment={c} index={i}/>;
           })}
@@ -44,13 +42,14 @@ function ForumPost(props) {
   function showComments() {
     console.log("In showComments");
     setComments(!comments);
+    fetchComments();
   }
 
   function postCommentBox() {
     console.log("PostCommentBox")
     return (
       <div>
-        <Comment handleSubmit={updateList}/>
+        <Comment handleSubmit={updateList} publisher={JSON.parse(localStorage.getItem("token"))}/>
       </div>
     );
   }
@@ -65,14 +64,14 @@ function ForumPost(props) {
   }
 
   async function fetchAll() {
-    const response = await axios.get('localhost:5000/comment');
+    const response = await axios.get('http://127.0.0.1:5000//comment');
     console.log(response.data.comments_list);
     return response.data.comments_list;
   }
 
   async function makePostCall(comment) {
     try {
-      const response = await axios.post('localhost:5000/comment', comment);
+      const response = await axios.post('http://127.0.0.1:5000//comment', comment);
       return response;
     } finally {
       return 500;
