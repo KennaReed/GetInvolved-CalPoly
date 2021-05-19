@@ -17,7 +17,7 @@ def get_comments():
         return {"comments_list": comments}
     elif request.method == 'POST':
         commentToAdd = request.get_json()
-        newComment = Post(commentToAdd)
+        newComment = Comment(commentToAdd)
         newComment.save()
         resp = jsonify(newComment), 201
         return resp
