@@ -4,7 +4,6 @@ function Comment(props) {
   const [comment, setComment] = useState(
       {
         DatePosted: new Date(),
-        time: '',
         publisher: '',
         content: ''
       },
@@ -17,17 +16,6 @@ function Comment(props) {
       error += 1;
       errorOutput += 'Comment is missing\n';
     }
-    
-    const today = new Date();
-    if (comment.time === '') {
-      comment.time = '23:59';
-    }
-    const timeString = 'T' + comment.time + ':00';
-    const date = new Date(comment.DatePosted + timeString);
-    console.log(date - today);
-    if (comment.time === '23:59') {
-      comment.time = '';
-    }
     return error;
   }
 
@@ -39,8 +27,7 @@ function Comment(props) {
       //change this
       props.handleSubmit(comment);
       setComment(
-          {DatePosted: new Date(),
-            time: '', publisher: '', content: ''});
+          {DatePosted: new Date(), publisher: '', content: ''});
     } else {
       window.confirm(errorOutput);
       errorOutput = 'Please fix errors and resubmit.\n';
@@ -53,8 +40,7 @@ function Comment(props) {
     if (name === 'content') {
       setComment(
           {
-            DatePosted: comment.DatePosted,
-              time: comment.time, publisher: comment.time, content: value});
+            DatePosted: comment.DatePosted, publisher: comment.publisher, content: value});
     }
   }
   return (

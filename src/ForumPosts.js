@@ -27,12 +27,14 @@ function ForumPost(props) {
   }
 
   function getComments() {
-    console.log("in getComments");
     if (comments) {
       return (
         <div>
           {postCommentBox()}
-          <p>Comments!</p>
+          {fetchComments()}
+          {commentList.map((c, i) => {
+            return <DisplayComment comment={c} index={i}/>;
+          })}
         </div>
       );
     }
@@ -52,9 +54,23 @@ function ForumPost(props) {
     );
   }
 
+  function fetchComments() {
+    fetchAll().then( (result) => {
+      if (result) {
+        setAllComments(result);
+      }
+    });
+  }
+
+  async function fetchAll() {
+    const response = await axios.get('http://localhost:5000/comment');
+    console.log(response.data.comments_list);
+    return response.data.comments_list;
+  }
+
   async function makePostCall(post) {
     try {
-      const response = await axios.post('https://getinvolvedapi.herokuapp.com/comments', post);
+      const response = await axios.post('http://localhost:5000/comment', post);
       return response;
     } finally {
       return 500;
@@ -126,4 +142,20 @@ function ForumPost(props) {
     </div>
   );
 }
+
+function DisplayComment(props) {
+  return (
+    <div>
+      <div>
+        <div>
+          <p> {props.comment.publisher} </p>
+        </div>
+
+        <p> {props.comment.content} </p>
+        <p> {props.comment.DatePosted} </p>
+      </div>
+    </div>
+  );
+}
+
 export default ForumPost;
