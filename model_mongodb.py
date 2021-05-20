@@ -98,11 +98,14 @@ class Comment(Model):
     db_client = MongoClient(url)
     collection = db_client["Comments"]["Comments"]
 
-    def find_all(self):
-        comments = list(self.collection.find())
+    def find_relevant(self, filter):
+        comments = list(self.collection.find(filter))
+    
         for comment in comments:
             comment["_id"] = str(comment["_id"]) #converting ObjectId to str
+
         return comments
+        
 class Login(Model2):
     url = os.getenv('DB_LINK')
     db_client = MongoClient(url)

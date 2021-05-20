@@ -9,17 +9,20 @@ app = Flask(__name__)
 
 CORS(app)
 
-@app.route('/comment', methods=['GET', 'POST'])
+@app.route('/comment', methods=['POST'])
+def post_comments():
+    commentToAdd = request.get_json()
+    newComment = Comment(commentToAdd)
+    newComment.save()
+    resp = jsonify(newComment), 201
+    return resp
+
+@app.route('/getComment', methods=['POST']) 
 def get_comments():
-    if request.method == 'GET':
-        comments = Comment().find_all()
-        return {"comments_list": comments}
-    elif request.method == 'POST':
-        commentToAdd = request.get_json()
-        newComment = Post(commentToAdd)
-        newComment.save()
-        resp = jsonify(newComment), 201
-        return resp
+    rawData = request.get_json()
+    comments = Comment().find_relevant(rawData)
+    return {"comments_list": comments}
+
 
 @app.route('/')
 def flask_mongodb_atlas():
