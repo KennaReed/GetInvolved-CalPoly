@@ -106,7 +106,7 @@ class Comment(Model):
             comment["_id"] = str(comment["_id"]) #converting ObjectId to str
 
         return comments
-
+        
 class Login(Model2):
     url = os.getenv('DB_LINK')
     db_client = MongoClient(url)

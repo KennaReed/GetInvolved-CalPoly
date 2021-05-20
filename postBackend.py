@@ -3,13 +3,11 @@ from flask_cors import CORS
 from flask import request
 from flask import jsonify
 from model_mongodb import Comment
-import logging
 from model_mongodb import Post, Login
 
 app = Flask(__name__)
 
 CORS(app)
-
 
 @app.route('/comment', methods=['POST'])
 def post_comments():
