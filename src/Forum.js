@@ -3,6 +3,7 @@ import ForumPost from './ForumPosts';
 import axios from 'axios';
 import styles from './forum.module.css';
 import SearchBar from './SearchBar';
+import ForumFiltering from './ForumFiltering';
 
 function Forum() {
   const [forumPosts, setForumPosts] = useState([]);
@@ -17,7 +18,7 @@ function Forum() {
   async function fetchAll() {
     try {
       const response = await axios.get('https://getinvolvedapi.herokuapp.com/forum');
-      return response.data.posts_list;
+      return response.data.posts_list.reverse();
     } catch (error) {
       console.log(error);
       return false;
@@ -40,10 +41,7 @@ function Forum() {
             return <ForumPost postData={p}/>;
           })}
         </div>
-
-        <div>
-          <h2>Placeholder for side Bar for Filtering/Sorting</h2>
-        </div>
+          < ForumFiltering upPost = {updatePost}/>
       </div>
     </div>
   );

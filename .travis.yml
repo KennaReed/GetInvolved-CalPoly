@@ -1,8 +1,16 @@
 language: node_js
 node_js: "14"
-  
+
 install:
   - npm install
   
 script:
   - npm run build
+
+language: python
+
+install:
+ - pip install -r requirements.txt
+
+script:
+ - pytest
