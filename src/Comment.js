@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from './commentForm.module.css';
 
 function Comment(props) {
   const [comment, setComment] = useState(
@@ -21,7 +22,6 @@ function Comment(props) {
   }
 
   function submitForm(event) {
-    console.log("HERE");
     const errors = errorChecker();
     event.preventDefault();
     if (errors === 0) {
@@ -46,10 +46,10 @@ function Comment(props) {
   return (
 
     <div >
-      <form>
+      <form className={styles.form}>
         <div>
           <div>
-          <label htmlFor="postingComment">Enter Comment</label>
+          <label className={styles.formLabel} htmlFor="postingComment">Enter Comment</label>
             <input 
               type="text"
               id="postingComment"
@@ -61,7 +61,7 @@ function Comment(props) {
           </div>
         </div>
 
-        <input type="button"
+        <input type="button" className={styles.submitbutton}
           value="Submit" onClick={submitForm}></input>
       </form>
 
