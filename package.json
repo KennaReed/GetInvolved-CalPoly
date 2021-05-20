@@ -9,14 +9,17 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "moment": "^2.29.1",
+    "multiselect-react-dropdown": "^1.6.11",
     "react": "^17.0.1",
     "react-big-calendar": "^0.33.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
+    "react-multi-select-component": "^4.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-search-field": "^1.2.0",
+    "react-select": "^4.3.0",
     "start": "^5.1.0",
     "use-file-picker": "^0.2.1",
     "web-vitals": "^1.1.0"
@@ -25,10 +28,12 @@
     "node": ">12"
   },
   "scripts": {
+    "cypress:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +45,7 @@
     "production": [
       ">0.2%",
       "not dead",
+      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
@@ -50,6 +56,7 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
+    "cypress": "^7.3.0",
     "eslint": "^7.24.0",
     "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",
