@@ -23,7 +23,6 @@ def get_comments():
     comments = Comment().find_relevant(rawData)
     return {"comments_list": comments}
 
-
 @app.route('/')
 def flask_mongodb_atlas():
     return 'flask mongodb atlas!'
