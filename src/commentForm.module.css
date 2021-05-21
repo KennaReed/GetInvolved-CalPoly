@@ -1,0 +1,15 @@
+.form {
+   display: flex;
+   flex-wrap: none; 
+   justify-content: space-between;
+   padding-right: 20%;
+   padding-top: 5%;
+}
+
+.submitbutton {
+    background-color: #ace1af;
+}
+
+.formLabel {
+    font-size: large;
+}
