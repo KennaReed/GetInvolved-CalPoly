@@ -12,7 +12,16 @@
     width:fit-content;
     margin: 2%;
 }
+.filter {
+    background-color: khaki;
+    border-style: groove;
+    border-color:green;
+    padding: 1%;
+    height:fit-content;
+    width:fit-content;
+    margin: 2%;
 
+}
 .opener {
     font-family: DejaVu Sans Mono, monospaces;
     font-weight: bold;

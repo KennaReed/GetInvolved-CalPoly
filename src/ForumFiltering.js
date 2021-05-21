@@ -81,7 +81,8 @@ function ForumFiltering (props){
         <h1>Don't know what to search?</h1>
         <h1>Search by category or cost!</h1>
         <br />
-        <text>Category</text> 
+        <text>Category</text>
+        <br />
         <div className="row">
           <div className="col-md-12">
             <input type="checkbox"  id="keyword1" name="keyword1" onChange={handleClick} />&nbsp;{keyword1.word}

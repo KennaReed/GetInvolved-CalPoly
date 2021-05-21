@@ -17,9 +17,12 @@ function Form(props) {
       },
   );
   let errorOutput = 'Please fix errors and resubmit.\n';
-
   function errorChecker() {
     let error = 0;
+    if(post.Location === undefined) {
+      console.log("here");
+      post.Location = '';
+    }
     if (post.title === '') {
       error += 1;
       errorOutput += 'Title is missing\n';
@@ -32,11 +35,11 @@ function Form(props) {
       error += 1;
       errorOutput += 'Description is missing\n';
     }
-    if (post.keyWords === '') {
+    if (post.keyWords === '' || post.keyWords === "Select") {
       error += 1;
       errorOutput += 'Select a category\n';
     }
-    if (post.Cost === '') {
+    if (post.Cost === '' || post.Cost === "Select") {
       error += 1;
       errorOutput += 'Select a cost\n';
     }
@@ -53,7 +56,8 @@ function Form(props) {
       }
     }
 
-    if (post.DateEvent.getTime !== post.DatePosted.getTime) {
+    if (post.DateEvent.getTime !== post.DatePosted.getTime && post.DateEvent !== "") {
+      console.log(post.DateEvent)
       if (post.time === '') {
         error += 1;
         errorOutput += 'Please select a time for the event\n';
@@ -83,10 +87,10 @@ function Form(props) {
   }
 
   function submitForm(event) {
-    console.log("HERE");
     const errors = errorChecker();
     event.preventDefault();
     if (errors === 0) {
+      console.log(post.Location)
       if (window.confirm('Thank you for submitting a post!')) {
         window.location.href='https://getinvolvedcalpoly.herokuapp.com/home';
       };
