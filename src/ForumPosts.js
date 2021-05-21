@@ -93,14 +93,14 @@ function ForumPost(props) {
   }
 
   async function fetchAll(filter) {
-    const response = await axios.post('http://127.0.0.1:5000//getComment', filter);
+    const response = await axios.post('https://getinvolvedapi.herokuapp.com/getComment', filter);
     console.log(response.data.comments_list);
     return response.data.comments_list.reverse();
   }
 
   async function makePostCall(comment) {
     try {
-      const response = await axios.post('http://127.0.0.1:5000//comment', comment);
+      const response = await axios.post('https://getinvolvedapi.herokuapp.com/comment', comment);
       return response;
     } finally {
       return 500;
