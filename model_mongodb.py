@@ -95,7 +95,7 @@ class Post(Model):
         return posts
 
 class Comment(Model):
-    url = os.getenv('DB_COMMENTS')
+    url = os.getenv('DB_LINK')
     db_client = MongoClient(url)
     collection = db_client["Comments"]["Comments"]
 
