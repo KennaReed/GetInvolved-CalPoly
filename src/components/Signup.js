@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 async function signupUser(credentials) {
-    return fetch('https://getinvolvedapi.herokuapp.com/login', {
+    return fetch('http://getinvolvedapi.herokuapp.com/sign-up', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -17,10 +17,11 @@ async function signupUser(credentials) {
 export default function Signup({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [name, setName] = useState();
 
   const handleSubmit = async e => {
     e.preventDefault();
-    fetch('https://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+    fetch('http://getinvolvedapi.herokuapp.com/sign-up').then(response => response.json()).then(async json => {
       
       console.log(json);
       let check = false;
@@ -40,7 +41,8 @@ export default function Signup({ setToken }) {
       }
       const token = await signupUser({
         username,
-        password
+        password,
+        name
       });
       setToken(token);
       });}
@@ -50,11 +52,15 @@ export default function Signup({ setToken }) {
 
   return(
     <div className="signup-wrapper">
-      <a href="http://localhost:3000/">
+      <a href="https://getinvolvedcalpoly.herokuapp.com/">
         <button id="myButton">Sign In</button>
       </a>
       <h1>Please Sign Up</h1>
       <form onSubmit={handleSubmit}>
+        <label>
+          <p>Preferred Name</p>
+          <input id="name" type="name" onChange={(e) => setName(e.target.value)} required/>
+        </label>
         <label>
           <p>Username</p>
           <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>

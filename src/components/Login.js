@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 async function loginUser(credentials) {
-    return fetch('https://getinvolvedapi.herokuapp.com/login', {
+    return fetch('http://getinvolvedapi.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    fetch('https://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+    fetch('http://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
       
       console.log(json);
       let check = 2;
@@ -40,7 +40,7 @@ export default function Login({ setToken }) {
         return Login;
       }
       else if (check === 2){
-        window.confirm("Account Doesn't Exist- Please Sign Up");
+        window.confirm("Account Doesn't Exist - Please Sign Up");
         return Login;
       }
       const token = await loginUser({
@@ -55,7 +55,7 @@ export default function Login({ setToken }) {
 
   return(
     <div className="login-wrapper">
-      <a href="http://localhost:3000/sign-up">
+      <a href="https://getinvolvedcalpoly.herokuapp.com/sign-up">
         <button id="myButton">Sign Up</button>
       </a>
       <h1>Please Log In</h1>

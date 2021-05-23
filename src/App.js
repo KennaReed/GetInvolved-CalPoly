@@ -45,6 +45,7 @@ function App() {
             <Route path="/logout" component={Signout}/>
             <Route path="/post" component={PostPage}/>
             <Route path="/" component={Home}/>
+            <Route path="/sign-up" component={Home}/>
           </Switch>
         </div>
       </BrowserRouter>
