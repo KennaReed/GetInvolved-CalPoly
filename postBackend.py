@@ -33,6 +33,18 @@ def get_account():
         return {"account_list": Login().find_all()}
 
 @app.route('/login', methods=['GET', 'POST'])
+def get_login_accounts():
+    if request.method == 'GET':
+        return {"account_list": Login().find_all()}
+
+    elif request.method == 'POST':
+        accountUsername = request.get_json()["username"]
+        total = Login().find_all()
+        for i in range(len(total)):
+            if total[i]["username"] == accountUsername:
+                return jsonify(token= total[i]["name"])
+
+@app.route('/sign-up', methods=['GET', 'POST'])
 def get_accounts():
     if request.method == 'GET':
         return {"account_list": Login().find_all()}
@@ -41,8 +53,7 @@ def get_accounts():
         accountToAdd = request.get_json()
         newaccount = Login(accountToAdd)
         newaccount.save()
-        return jsonify(token=accountToAdd["username"])
-
+        return jsonify(token=accountToAdd["name"])
 
 @app.route('/forum', methods=['GET'])
 def get_forumPosts():
