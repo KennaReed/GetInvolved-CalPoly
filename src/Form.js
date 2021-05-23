@@ -8,6 +8,7 @@ function Form(props) {
         DateEvent: new Date(),
         DatePosted: new Date(),
         time: '',
+        endTime: '',
         publisher: '',
         content: '',
         keyWords: '',
@@ -60,13 +61,32 @@ function Form(props) {
       console.log(post.DateEvent)
       if (post.time === '') {
         error += 1;
-        errorOutput += 'Please select a time for the event\n';
+        errorOutput += 'Please select a start time for the event\n';
       }
       if (post.Location === '') {
         error += 1;
         errorOutput += 'Please select a location for the event\n';
       }
     }
+
+    if (post.time !== '' && post.endTime === '') {
+      var array = post.time.split("")
+      array[0] = parseInt(array[0])
+      array[1] = parseInt(array[1])
+      console.log(array)
+      if (array[0] === 2 && array[1] === 3) {
+        array[0] = 0
+        array[1] = 0
+      }else if(array[1] === 9){
+        array[0] = array[0] + 1
+        array[1] = 0
+      }else{
+        array[1] = array[1] + 1
+      }
+
+      post.endTime = array.join('')
+    }
+
     const today = new Date();
     if (post.time === '') {
       post.time = '23:59';
@@ -97,7 +117,7 @@ function Form(props) {
       props.handleSubmit(post);
       setPost(
           {title: '', DateEvent: new Date(), DatePosted: new Date(),
-            time: '', publisher: '', content: '', keyWords: '',
+            time: '', endTime: '', publisher: '', content: '', keyWords: '',
             Cost: '', Location: ''});
     } else {
       window.confirm(errorOutput);
@@ -110,14 +130,22 @@ function Form(props) {
     if (name === 'title') {
       setPost(
           {title: value, DateEvent: post.DateEvent,
-            DatePosted: post.DatePosted, time: post.time,
+            DatePosted: post.DatePosted, time: post.time, endTime: post.endTime,
+            publisher: post.publisher,
+            content: post.content, keyWords: post.keyWords,
+            Cost: post.Cost, Location: post.Location, image: post.image});
+    }
+    if (name === 'endTime') {
+      setPost(
+          {title: post.title, DateEvent: post.DateEvent,
+            DatePosted: post.DatePosted, time: post.time, endTime: value,
             publisher: post.publisher,
             content: post.content, keyWords: post.keyWords,
             Cost: post.Cost, Location: post.Location, image: post.image});
     }
     if (name === 'DateEvent') {
       setPost({title: post.title, DateEvent: value,
-        DatePosted: post.DatePosted, time: post.time,
+        DatePosted: post.DatePosted, time: post.time, endTime: post.endTime,
         publisher: post.publisher,
         content: post.content, keyWords: post.keyWords,
         Cost: post.Cost, Location: post.Location, image: post.image});
@@ -125,28 +153,28 @@ function Form(props) {
     if (name === 'time') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: value, publisher: post.publisher,
+            post.DatePosted, time: value, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost:
             post.Cost, Location: post.Location, image: post.image});
     }
     if (name === 'publisher') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: value,
+            post.DatePosted, time: post.time, publisher: value, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
           Location: post.Location, image: post.image});
     }
     if (name === 'content') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher,
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: value, keyWords: post.keyWords, Cost: post.Cost,
           Location: post.Location, image: post.image});
     }
     if (name === 'keyWords') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher,
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: value, Cost: post.Cost, Location:
             post.Location, image: post.image});
     }
@@ -154,21 +182,21 @@ function Form(props) {
     if (name === 'Cost') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher,
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost: value,
           Location: post.Location, image: post.image});
     }
     if (name === 'Location') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher,
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
           Location: value, image: post.image});
     }
     if (name === 'image') {
       setPost(
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher,
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
           Location: post.location, image: value});
     }
@@ -266,6 +294,15 @@ function Form(props) {
               id="time"
               name="time"
               value={post.time}
+              onChange = {handleChange}>
+            </input>
+            <br></br>
+            <label className={styles.text} htmlFor="timeEnd">End Time:</label>
+            <input className="eventt1"
+              type="time"
+              id="endTime"
+              name="endTime"
+              value={post.endTime}
               onChange = {handleChange}>
             </input>
             <br></br>

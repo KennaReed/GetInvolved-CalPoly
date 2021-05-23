@@ -75,6 +75,19 @@
     display: block;
 }
 
+.topComment {
+    display: flex;
+    flex-wrap: none;
+    justify-content: space-between;
+    padding-right: 5%;
+    font-size: large;
+    font-style: italic;
+}
+
+.commentBody {
+    padding-left: 5%;
+}
+
 
 
 
