@@ -40,10 +40,12 @@ function Form(props) {
       error += 1;
       errorOutput += 'Select a category\n';
     }
-    if (post.Cost === '' || post.Cost === "Select") {
+    console.log(post.Cost)
+    if (post.Cost === '' || post.Cost === "SelectC") {
       error += 1;
       errorOutput += 'Select a cost\n';
     }
+
     if (post.DateEvent.getTime === post.DatePosted.getTime) {
       if (post.time !== '') {
         error += 1;
