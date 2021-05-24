@@ -58,20 +58,22 @@ export default function Login({ setToken }) {
       <a href="https://getinvolvedcalpoly.herokuapp.com/sign-up">
         <button className="myButton">Sign Up</button>
       </a>
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
-        </label>
-        <label>
-          <p>Password</p>
-          <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
-        </label>
-        <div>
-          <button className="submit" id="check" type="submit">Submit</button>
-        </div>
-      </form>
+      <div className="holder1">
+        <h1>Please Log In</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Username</p>
+            <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
+          </label>
+          <label>
+            <p>Password</p>
+            <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
+          </label>
+          <div>
+            <button className="submit" id="check" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

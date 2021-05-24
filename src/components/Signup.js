@@ -55,24 +55,26 @@ export default function Signup({ setToken }) {
       <a href="https://getinvolvedcalpoly.herokuapp.com/">
         <button className="myButton">Sign In</button>
       </a>
-      <h1>Please Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Preferred Name</p>
-          <input id="name" type="name" onChange={(e) => setName(e.target.value)} required/>
-        </label>
-        <label>
-          <p>Username</p>
-          <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
-        </label>
-        <label>
-          <p>Password</p>
-          <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
-        </label>
-        <div>
-          <button className="submit" id="check" type="submit">Submit</button>
-        </div>
-      </form>
+      <div className="holder">
+        <h1>Please Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Preferred Name</p>
+            <input id="name" type="name" onChange={(e) => setName(e.target.value)} required/>
+          </label>
+          <label>
+            <p>Username</p>
+            <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
+          </label>
+          <label>
+            <p>Password</p>
+            <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
+          </label>
+          <div>
+            <button className="submit1" id="check" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

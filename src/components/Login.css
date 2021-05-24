@@ -24,6 +24,11 @@
     color: white;
   }
 
+  .holder1 {
+    border-color: #1f8523;
+    border-style: inset;
+  }
+
 .submit{
     position: relative;
     background-color: #4CAF50;
@@ -51,7 +56,7 @@
     transition: all 0.8s
   }
   
-.button:active:after {
+.submit:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
