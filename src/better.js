@@ -25,16 +25,15 @@ const Header = () => {
           <li>
             <Link to="/post">POST</Link>
           </li>
-          <li>
-            <Link to="/logout">sign-out</Link>
-          </li>
         </ul>
-
         <div className="logo-container">
           <a href="/post">
             <Logo class="logo"/>
           </a>
         </div>
+        <Link to="/logout">
+            <button className="log">Log out</button>
+        </Link>
       </div>
     </div>
   );
