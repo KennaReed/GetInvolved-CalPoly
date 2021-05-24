@@ -1,0 +1,23 @@
+.signup-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top:180px;
+    align-items: center;
+}
+.myButton {
+    background-color: #114213; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    position: absolute;
+    right: 170px;
+    top: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .myButton:hover {
+      background-color: #4CAF50; /* Green */
+      color: white;
+    }

@@ -1,10 +1,10 @@
 import React, {useState } from 'react';
-import './Login.css';
+import './Signup.css';
 import PropTypes from 'prop-types';
 
 
-async function loginUser(credentials) {
-    return fetch('http://getinvolvedapi.herokuapp.com/login', {
+async function signupUser(credentials) {
+    return fetch('http://getinvolvedapi.herokuapp.com/sign-up', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -14,38 +14,35 @@ async function loginUser(credentials) {
       .then(data => data.json())
     }
 
-export default function Login({ setToken }) {
+export default function Signup({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [name, setName] = useState();
 
   const handleSubmit = async e => {
     e.preventDefault();
-    fetch('http://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+    fetch('http://getinvolvedapi.herokuapp.com/sign-up').then(response => response.json()).then(async json => {
       
       console.log(json);
-      let check = 2;
+      let check = false;
       let i = 0;
       for (i=0; i < (json.account_list.length); i ++){
         console.log(json.account_list[i]);
         console.log(username);
         if (json.account_list[i].username === username){
-            if (json.account_list[i].password === password)
-              check = 0;
-            else
-              check = 1;
+            if (json.account_list[i].password !== password){
+              check = true;
+            }
         }
       }
-      if (check === 1){
-        window.confirm("Wrong Password");
-        return Login;
+      if (check === true){
+        window.confirm("Existing Account");
+        return Signup;
       }
-      else if (check === 2){
-        window.confirm("Account Doesn't Exist - Please Sign Up");
-        return Login;
-      }
-      const token = await loginUser({
+      const token = await signupUser({
         username,
-        password
+        password,
+        name
       });
       setToken(token);
       });}
@@ -54,12 +51,16 @@ export default function Login({ setToken }) {
 
 
   return(
-    <div className="login-wrapper">
-      <a href="https://getinvolvedcalpoly.herokuapp.com/sign-up">
-        <button className="myButton">Sign Up</button>
+    <div className="signup-wrapper">
+      <a href="https://getinvolvedcalpoly.herokuapp.com/">
+        <button className="myButton">Sign In</button>
       </a>
-      <h1>Please Log In</h1>
+      <h1>Please Sign Up</h1>
       <form onSubmit={handleSubmit}>
+        <label>
+          <p>Preferred Name</p>
+          <input id="name" type="name" onChange={(e) => setName(e.target.value)} required/>
+        </label>
         <label>
           <p>Username</p>
           <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
@@ -76,6 +77,6 @@ export default function Login({ setToken }) {
   )
 }
 
-Login.propTypes = {
+Signup.propTypes = {
     setToken: PropTypes.func.isRequired
   }
