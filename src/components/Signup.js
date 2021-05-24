@@ -53,7 +53,7 @@ export default function Signup({ setToken }) {
   return(
     <div className="signup-wrapper">
       <a href="https://getinvolvedcalpoly.herokuapp.com/">
-        <button id="myButton">Sign In</button>
+        <button className="myButton">Sign In</button>
       </a>
       <h1>Please Sign Up</h1>
       <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ export default function Signup({ setToken }) {
           <input id="password" type="password" onChange={(e) => setPassword(e.target.value)} required/>
         </label>
         <div>
-          <button id="check" type="submit">Submit</button>
+          <button className="submit" id="check" type="submit">Submit</button>
         </div>
       </form>
     </div>
