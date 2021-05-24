@@ -29,6 +29,40 @@
     border-style: inset;
   }
 
+  .log{
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    width: 100px;
+    color: #161313;
+    padding: 20px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+.log:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+.log:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
 .submit{
     position: relative;
     background-color: #4CAF50;
