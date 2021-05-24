@@ -21,7 +21,7 @@ export default function Signup({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    fetch('http://getinvolvedapi.herokuapp.com/sign-up').then(response => response.json()).then(async json => {
+    fetch('https://getinvolvedapi.herokuapp.com/sign-up').then(response => response.json()).then(async json => {
       
       console.log(json);
       let check = false;
@@ -63,7 +63,7 @@ export default function Signup({ setToken }) {
             <input id="name" type="name" onChange={(e) => setName(e.target.value)} required/>
           </label>
           <label>
-            <p>Username</p>
+            <p>Email</p>
             <input id="username" type="email"  onChange={(e) => setUserName(e.target.value)} required/>
           </label>
           <label>
