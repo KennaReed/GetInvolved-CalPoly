@@ -9,6 +9,7 @@ import PostPage from './PostPage';
 import {Switch, Route} from 'react-router-dom';
 import {BrowserRouter} from 'react-router-dom/cjs/react-router-dom.min';
 import Login from './components/Login'
+import Signup from './components/Signup'
 import useToken from './useToken';
 import Signout from './signout';
 
@@ -16,7 +17,19 @@ import Signout from './signout';
 function App() {
   const { token, setToken } = useToken();
   if(!token) {
-    return <Login setToken={setToken} />
+    return (
+      <body>
+          <BrowserRouter>
+          <Switch>
+            <Route path="/sign-up">
+              <Signup setToken={setToken}/>
+            </Route>
+            <Route path="/">
+              <Login setToken={setToken}/>
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </body>)
   }
   return (
     <body>
@@ -32,6 +45,7 @@ function App() {
             <Route path="/logout" component={Signout}/>
             <Route path="/post" component={PostPage}/>
             <Route path="/" component={Home}/>
+            <Route path="/sign-up" component={Home}/>
           </Switch>
         </div>
       </BrowserRouter>
