@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 async function loginUser(credentials) {
-    return fetch('http://getinvolvedapi.herokuapp.com/login', {
+    return fetch('https://getinvolvedapi.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    fetch('http://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+    fetch('https://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
       
       console.log(json);
       let check = 2;
