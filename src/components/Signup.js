@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 async function signupUser(credentials) {
-    return fetch('http://getinvolvedapi.herokuapp.com/sign-up', {
+    return fetch('https://getinvolvedapi.herokuapp.com/sign-up', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
