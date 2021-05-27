@@ -101,6 +101,7 @@ function ForumPost(props) {
   async function makePostCall(comment) {
     try {
       const response = await axios.post('https://getinvolvedapi.herokuapp.com/comment', comment);
+      setComments(!comments);
       return response;
     } finally {
       return 500;
@@ -114,6 +115,7 @@ function ForumPost(props) {
         setAllComments([...commentList, comment] );
       }
     });
+    setComments(!comments);
   }
 
   function handleLocation() {
