@@ -46,9 +46,6 @@ export default function Signup({ setToken }) {
       });
       setToken(token);
       });}
-    
-
-
 
   return(
     <div className="signup-wrapper">

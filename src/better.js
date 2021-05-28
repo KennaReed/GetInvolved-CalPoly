@@ -32,7 +32,7 @@ const Header = () => {
           </a>
         </div>
         <Link to="/logout">
-            <button className="log">Log out</button>
+            <button className="log">LOG OUT </button>
         </Link>
       </div>
     </div>

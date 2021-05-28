@@ -24,6 +24,25 @@
     color: white;
   }
 
+.myButtonnext {
+  background-color: #a8b318;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  position: absolute;
+  right: 315px;
+  top: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.myButtonnext:hover {
+    background-color: #747514; /* yellow color */
+    color: white;
+  }
+
   .holder1 {
     border-color: #1f8523;
     border-style: inset;
@@ -33,7 +52,8 @@
     position: relative;
     background-color: #4CAF50;
     border: none;
-    width: 100px;
+    width: 85px;
+    height: 80px;
     color: #161313;
     padding: 20px;
     text-align: center;
