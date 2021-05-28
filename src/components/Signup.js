@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import './Signup.css';
 import PropTypes from 'prop-types';
-
+import bcryptjs from 'bcryptjs';
 
 async function signupUser(credentials) {
     return fetch('https://getinvolvedapi.herokuapp.com/sign-up', {
@@ -29,19 +29,19 @@ export default function Signup({ setToken }) {
       for (i=0; i < (json.account_list.length); i ++){
         console.log(json.account_list[i]);
         console.log(username);
-        if (json.account_list[i].username === username){
-            if (json.account_list[i].password !== password){
-              check = true;
-            }
-        }
+        if (json.account_list[i].username === username)
+          check = true;
       }
       if (check === true){
         window.confirm("Existing Account");
         return Signup;
       }
+      const salt = await bcryptjs.genSalt(1);
+      const newpassword = await bcryptjs.hash(password, salt);
+      console.log(newpassword)
       const token = await signupUser({
         username,
-        password,
+        "password" : newpassword,
         name
       });
       setToken(token);
