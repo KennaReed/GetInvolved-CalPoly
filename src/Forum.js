@@ -15,10 +15,29 @@ function Forum() {
     });
   }, []);
 
+  function grabRelevant(posts) {
+    var retPosts = [];
+    posts.forEach((p) => {
+      const datePostedAdded = Date.parse(new Date(p.DatePosted)) + 432000000;
+      const today = Date.parse(new Date());
+      if (datePostedAdded > today) {
+        retPosts.push(p);
+      } else {
+        deleteOld(p);
+      }
+    });
+    return retPosts;
+  }
+
+  function deleteOld(p) {
+    
+  }
+
   async function fetchAll() {
     try {
       const response = await axios.get('https://getinvolvedapi.herokuapp.com/forum');
-      return response.data.posts_list.reverse();
+      const relevant = grabRelevant(response.data.posts_list.reverse())
+      return relevant;
     } catch (error) {
       console.log(error);
       return false;
