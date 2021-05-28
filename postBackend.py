@@ -4,6 +4,7 @@ from flask import request
 from flask import jsonify
 from model_mongodb import Comment
 from model_mongodb import Post, Login
+import bcrypt
 
 app = Flask(__name__)
 
@@ -51,6 +52,10 @@ def get_accounts():
 
     elif request.method == 'POST':
         accountToAdd = request.get_json()
+        password = accountToAdd["password"]
+        salt = bcrypt.gensalt()
+        hashed = bcrypt.hashpw(password, salt)
+        accountToAdd["password"] = hashed
         newaccount = Login(accountToAdd)
         newaccount.save()
         return jsonify(token=accountToAdd["name"])
