@@ -53,6 +53,7 @@ def get_accounts():
     elif request.method == 'POST':
         accountToAdd = request.get_json()
         password = accountToAdd["password"]
+        password = bytes(password, 'utf-8')
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(password, salt)
         accountToAdd["password"] = hashed
