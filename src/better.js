@@ -17,13 +17,13 @@ const Header = () => {
             <Link to="/home">HOME</Link>
           </li>
           <li>
-            <Link to="/forum">FORUM</Link>
+            <Link id="forum" to="/forum">FORUM</Link>
           </li>
           <li>
-            <Link to="/calendar">CALENDAR</Link>
+            <Link id="calendar" to="/calendar">CALENDAR</Link>
           </li>
           <li>
-            <Link to="/post">POST</Link>
+            <Link id="post" to="/post">POST</Link>
           </li>
         </ul>
         <div className="logo-container">
