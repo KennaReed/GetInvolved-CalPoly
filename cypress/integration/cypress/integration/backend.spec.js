@@ -13,12 +13,12 @@ describe('Backend running -- Smoke test', () => {
         before(() => {
             cy.intercept({
                 method: 'GET',
-                url: 'http://localhost:5000/',
+                url: 'https://getinvolvedapi.herokuapp.com/',
             }).as('apiCheck');
         });
 
         it('When I visit the root endpoint it does not smoke!', () => {
-            cy.visit('http://localhost:5000/');
+            cy.visit('https://getinvolvedapi.herokuapp.com/');
             cy.wait('@apiCheck').then((interception) => {
               assert.isNotNull(interception.response.body, 'API is up and doesn\'t smoke!');
             }); // or
@@ -30,9 +30,21 @@ describe('Backend running -- Smoke test', () => {
     });
 });
 
-describe ('Grabbing All Forum Posts', () => {
+describe ('Grabbing All Posts on Homepage', () => {
     it ('Getting Posts', () => {
-        cy.request('GET', 'http://localhost:5000/home').then(
+        cy.request('GET', 'https://getinvolvedapi.herokuapp.com/home').then(
+            (response) => {
+                expect(response.status).to.be.equal(200);
+                expect(response.body).to.have.property('posts_list');
+                assert.isNotEmpty(response.body.posts_list);
+            }
+            )
+    });
+});
+
+describe ('Grabbing All Posts from Forum', () => {
+    it ('Getting Posts', () => {
+        cy.request('GET', 'https://getinvolvedapi.herokuapp.com/forum').then(
             (response) => {
                 expect(response.status).to.be.equal(200);
                 expect(response.body).to.have.property('posts_list');
@@ -59,5 +71,44 @@ describe('Creating a Post!', () => {
                  expect(response.status).to.be.equal(201);
                 }
               )
+    });
+});
+
+describe('Creating a Comment!', () => {
+    it('Sending a comment for insertion', () => {
+        cy.request('POST', 'https://getinvolvedapi.herokuapp.com/comment', { 
+            DatePosted: "2021-05-24T17:47:11.583Z",
+            publisher: "Daddy Jeff",
+            content: "Using three things: facts and data",
+            postID:  "60aab6f985d5a6ff170207d0"}).then(
+            (response) => {
+             expect(response.status).to.be.equal(201);
+            }
+          )
+});
+});
+
+describe('Grabbing Comment(s)!', () => {
+    it('Sending a postId to get its connected comments', () => {
+        cy.request('POST', 'https://getinvolvedapi.herokuapp.com/getComment', { 
+            postID:  "60aab6f985d5a6ff170207d0"}).then(
+            (response) => {
+             expect(response.status).to.be.equal(200);
+             expect(response.body).to.have.property('comments_list');
+            assert.isNotEmpty(response.body.comments_list);
+            }
+          )
+});
+});
+
+describe ('Get all accounts', () => {
+    it ('Getting users', () => {
+        cy.request('GET', 'https://getinvolvedapi.herokuapp.com/login1').then(
+            (response) => {
+                expect(response.status).to.be.equal(200);
+                expect(response.body).to.have.property('account_list');
+                assert.isNotEmpty(response.body.account_list);
+            }
+            )
     });
 });
