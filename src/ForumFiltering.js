@@ -31,7 +31,7 @@ function ForumFiltering (props){
 
     async function getData(filter) {
         try {
-            const response = await axios.post('http://localhost:5000/filter', filter)
+            const response = await axios.post('https://getinvolvedcalpoly.herokuapp.com/filter', filter)
             return response.data.post_list;
         } catch (error) {
             console.log(error);
@@ -140,7 +140,7 @@ function ForumFiltering (props){
             <hr />
           </div>
         </div>
-        <input className="submit" class= "submut" type="button"
+        <input className="submit" class= "submut"type="button"
           value="Submit" onClick={submitFilter}></input>
       </div>
     );
