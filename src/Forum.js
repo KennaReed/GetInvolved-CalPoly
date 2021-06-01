@@ -18,7 +18,7 @@ function Forum() {
   async function fetchAll() {
     try {
       const response = await axios.get('https://getinvolvedapi.herokuapp.com/forum');
-      return response.data.posts_list.reverse();
+      return response.data.posts_list;
     } catch (error) {
       console.log(error);
       return false;
@@ -41,7 +41,9 @@ function Forum() {
             return <ForumPost postData={p}/>;
           })}
         </div>
+        <div className = {styles.filter}>
           < ForumFiltering upPost = {updatePost}/>
+          </div>
       </div>
     </div>
   );

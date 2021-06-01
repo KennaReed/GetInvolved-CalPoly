@@ -31,7 +31,7 @@ function ForumFiltering (props){
 
     async function getData(filter) {
         try {
-            const response = await axios.post('https://getinvolvedapi.herokuapp.com/filter', filter)
+            const response = await axios.post('https://getinvolvedcalpoly.herokuapp.com/filter', filter)
             return response.data.post_list;
         } catch (error) {
             console.log(error);
@@ -62,6 +62,7 @@ function ForumFiltering (props){
                 i++;
             }
         }
+        console.log(array)
         getData(array).then((result) => {
             props.upPost(result.reverse())
             uncheckAll()
@@ -81,7 +82,8 @@ function ForumFiltering (props){
         <h1>Don't know what to search?</h1>
         <h1>Search by category or cost!</h1>
         <br />
-        <text>Category</text> 
+        <text>Category</text>
+        <br />
         <div className="row">
           <div className="col-md-12">
             <input type="checkbox"  id="keyword1" name="keyword1" onChange={handleClick} />&nbsp;{keyword1.word}
@@ -138,7 +140,7 @@ function ForumFiltering (props){
             <hr />
           </div>
         </div>
-        <input className="submit" type="button"
+        <input className="submit" class= "submut"type="button"
           value="Submit" onClick={submitFilter}></input>
       </div>
     );
