@@ -88,6 +88,24 @@ describe('Creating a Comment!', () => {
 });
 });
 
+// var filters = []
+// var filter = {}
+// filter["Free"] = "Cost"
+// filters.push(filter)
+// describe('Filtering Posts!', () => {
+//     it('Sending filters', () => {
+//         cy.request('POST', 'http://127.0.0.1:5000/filter', { 
+//             filters
+//             }).then(
+//             (response) => {
+//             expect(response.status).to.be.equal(200);
+//             expect(response.body).to.have.property('posts_list');
+//             assert.isNotEmpty(response.body.posts_list);
+//             }
+//         )
+// });
+// });
+
 describe('Grabbing Comment(s)!', () => {
     it('Sending a postId to get its connected comments', () => {
         cy.request('POST', 'https://getinvolvedapi.herokuapp.com/getComment', { 
