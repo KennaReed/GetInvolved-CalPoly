@@ -90,7 +90,7 @@ def add_filters():
                 filters["Cost"] = key
             if value == "keyWords":
                 filters["keyWords"] = key
-            posts.append(Post().apply_filter(filters, posts))
+            posts.append(Post().apply_filter(filters))
             filters = {}
     combined = sum(posts, [])
     retPosts = []
