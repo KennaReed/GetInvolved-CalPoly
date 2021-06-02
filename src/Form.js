@@ -112,7 +112,7 @@ function Form(props) {
             Cost: post.Cost, Location: post.Location, image: post.image});
     }
     if (name === 'DateEvent') {
-      setPost({title: post.title, DateEvent: value,
+      setPost({title: post.title, DateEvent: new Date(value),
         DatePosted: post.DatePosted, time: post.time,
         publisher: post.publisher,
         content: post.content, keyWords: post.keyWords,

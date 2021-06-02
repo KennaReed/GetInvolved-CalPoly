@@ -9,8 +9,8 @@ function pad(n) {
 
 function formatDate(datestr) {
   const dateobj = new Date(datestr);
-  return pad(dateobj.getDate())+'/'+
-    pad(dateobj.getMonth()+1)+'/'+dateobj.getFullYear();
+  return pad(dateobj.getMonth()+1)+'/'+
+    pad(dateobj.getDate())+'/'+dateobj.getFullYear();
 }
 
 function DisplayPost(props) {
@@ -18,7 +18,6 @@ function DisplayPost(props) {
     <div className={styles.whole}>
       <div className={styles.shiftText}>
         <div className={styles.top}>
-          {console.log(props.post.title)}
           <p className={styles.title}> {props.post.title} </p>
           <p className={styles.datePosted}>
             Posted On: {formatDate(props.post.DatePosted)} </p>
@@ -31,6 +30,36 @@ function DisplayPost(props) {
     </div>
   );
 }
+
+function grabRelevant(posts) {
+  var retPosts = [];
+  var truth = false;
+  posts.forEach((p) => {
+    truth = false
+    console.log(p.DatePosted);
+    console.log(p.DateEvent);
+    if (Date.parse(new Date(p.DatePosted)) ===Date.parse(new Date(p.DateEvent))) {
+      truth = relevantPost(p, 432000000);
+    } else {
+      truth = relevantPost(p, 86400000);
+    }
+    if (truth) {
+      retPosts.push(p);
+    }
+  });
+  console.log(retPosts)
+  return retPosts;
+}
+
+function relevantPost(p, offset) {
+  const datePostedAdded = Date.parse(new Date(p.DatePosted)) + parseInt(offset);
+  const today = Date.parse(new Date());
+  if (datePostedAdded > today) {
+    return true
+  }
+  return false 
+}
+
 
 function handleEvent(post) {
   if (post.DateEvent !== post.DatePosted) {
@@ -54,8 +83,9 @@ function Home(props) {
 
   async function fetchAll() {
     const response = await axios.get('https://getinvolvedapi.herokuapp.com/posts');
+    console.log("relevant posts");
     console.log(response.data.posts_list);
-    return response.data.posts_list;
+    return grabRelevant(response.data.posts_list.reverse());
   }
 
   useEffect(() => {
