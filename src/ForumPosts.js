@@ -49,6 +49,7 @@ function ForumPost(props) {
 
   function getComments() {
     if (comments) {
+      console.log(commentList);
       return (
         <div>
           {postCommentBox()}
@@ -88,13 +89,15 @@ function ForumPost(props) {
     fetchAll({"postID": props.postData._id}).then( (result) => {
       if (result) {
         setAllComments(result);
+        getComments();
+        setComments(!comments);
+        setButton(!button)
       }
     });
   }
 
   async function fetchAll(filter) {
     const response = await axios.post('https://getinvolvedapi.herokuapp.com/getComment', filter);
-    console.log(response.data.comments_list);
     return response.data.comments_list.reverse();
   }
 
@@ -114,7 +117,8 @@ function ForumPost(props) {
         setAllComments([...commentList, comment] );
       }
     });
-  }
+  fetchComments()  
+}
 
   function handleLocation() {
     if (props.postData.Location) {

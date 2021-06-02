@@ -14,7 +14,6 @@ function Form(props) {
         keyWords: '',
         Cost: '',
         Location: '',
-        image: '',
       },
   );
   let errorOutput = 'Please fix errors and resubmit.\n';
@@ -195,13 +194,6 @@ function Form(props) {
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
           Location: value, image: post.image});
     }
-    if (name === 'image') {
-      setPost(
-          {title: post.title, DateEvent: post.DateEvent, DatePosted:
-            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
-          content: post.content, keyWords: post.keyWords, Cost: post.Cost,
-          Location: post.location, image: value});
-    }
   }
   return (
 
@@ -265,13 +257,6 @@ function Form(props) {
               <option value="About 10 Dollars">About 10</option>
               <option value="More than 10 Dollars">More than 10</option>
             </select>
-            <br></br>
-
-            <label className={styles.text}
-              htmlFor="image">Image:</label>
-            <input className={styles.text}
-              type="file" id = "image" name = "image"
-              value = {post.image} onChange={handleChange}/>
             <br></br>
           </div>
 
