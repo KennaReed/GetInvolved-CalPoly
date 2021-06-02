@@ -31,7 +31,7 @@ function ForumFiltering (props){
 
     async function getData(filter) {
         try {
-            const response = await axios.post('https://getinvolvedcalpoly.herokuapp.com/filter', filter)
+            const response = await axios.post('https://getinvolvedapi.herokuapp.com/filter', filter)
             return response.data.post_list;
         } catch (error) {
             console.log(error);
