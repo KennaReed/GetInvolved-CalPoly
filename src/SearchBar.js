@@ -64,7 +64,8 @@ function SearchBar(props) {
             Search!
       </button>
       <br/>
-      <reset>Click here to reset the forum </reset>
+      <br/>
+      <reset>Reset the forum </reset>
       <button type="button" onClick={submitSearch} >
             Reset!
       </button>

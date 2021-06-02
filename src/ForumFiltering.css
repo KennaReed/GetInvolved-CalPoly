@@ -15,4 +15,7 @@ h4 {
     margin: 0;
     font-weight: bold;
     font-size: 130%;
-  }
+}
+.submit{
+  background-color: white;
+}

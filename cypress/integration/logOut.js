@@ -1,11 +1,12 @@
-// Feature: Login User
-//   It logins a user.
+// Feature: Logout User
+//   It logouts a user.
  
 //   Scenario: Logging in User
 //     Given I visit the main page 
 //     And I type an email and password
 //     When I click on the submit button
-//     Then I should be able to access the website
+//     And I access the logout
+//     Then Logout should occur
 
 describe('Logging in User', () => {
     it('Given I visit the main page', () => {
@@ -20,13 +21,21 @@ describe('Logging in User', () => {
         
     });
 
-    it('When I click on the submit button', () => {
+    it('When I click on the submit button and logout button', () => {
         //Note this other way to access the html element (form) by the className
         cy.get('[id="check"]').click();
         cy.wait(1000);
+        cy.get('[class=log]').click();
+        cy.wait(100);
     });
 
-    it('Then I should be able to access the website', () => {   
-       cy.get('[class="it"]').should('be.visible');
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        // returning false here prevents Cypress from
+        // failing the test
+        return false
+      })
+
+    it('Then I should be able to logout', () => {   
+       cy.get('[class="submit"]').should('be.visible');
     });
 });

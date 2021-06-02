@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import './Login.css';
 import PropTypes from 'prop-types';
-
+import bcryptjs from 'bcryptjs';
 
 async function loginUser(credentials) {
     return fetch('https://getinvolvedapi.herokuapp.com/login', {
@@ -13,7 +13,7 @@ async function loginUser(credentials) {
     })
       .then(data => data.json())
     }
-
+    
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
@@ -26,13 +26,11 @@ export default function Login({ setToken }) {
       let check = 2;
       let i = 0;
       for (i=0; i < (json.account_list.length); i ++){
-        console.log(json.account_list[i]);
-        console.log(username);
         if (json.account_list[i].username === username){
-            if (json.account_list[i].password === password)
-              check = 0;
-            else
-              check = 1;
+          if (await bcryptjs.compare(password, json.account_list[i].password))
+            check = 0;
+          else
+            check = 1;
         }
       }
       if (check === 1){
@@ -49,15 +47,24 @@ export default function Login({ setToken }) {
       });
       setToken(token);
       });}
-    
 
-
+  const handleGuest = async e => {
+    e.preventDefault();
+    fetch('https://getinvolvedapi.herokuapp.com/login').then(response => response.json()).then(async json => {
+    const token = await loginUser({
+      "username" :"guest@gmail.com",
+      "password" :"password"
+    });
+    setToken(token);
+    })
+  }
 
   return(
     <div className="login-wrapper">
       <a href="https://getinvolvedcalpoly.herokuapp.com/sign-up">
         <button className="myButton">Sign Up</button>
       </a>
+      <button onClick={handleGuest} className="myButtonnext" id="Guest">Sign in as Guest</button>
       <div className="holder1">
         <h1>Please Log In</h1>
         <form onSubmit={handleSubmit}>
@@ -77,6 +84,7 @@ export default function Login({ setToken }) {
     </div>
   )
 }
+
 
 Login.propTypes = {
     setToken: PropTypes.func.isRequired

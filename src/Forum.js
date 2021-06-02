@@ -42,7 +42,9 @@ function Forum() {
             return <ForumPost postData={p}/>;
           })}
         </div>
+        <div className = {styles.filter}>
           < ForumFiltering upPost = {updatePost}/>
+          </div>
       </div>
     </div>
   );
