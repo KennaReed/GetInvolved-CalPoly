@@ -90,6 +90,8 @@ function ForumPost(props) {
       if (result) {
         setAllComments(result);
         getComments();
+        setComments(!comments);
+        setButton(!button)
       }
     });
   }

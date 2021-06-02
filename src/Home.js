@@ -10,7 +10,7 @@ function pad(n) {
 function formatDate(datestr) {
   const dateobj = new Date(datestr);
   return pad(dateobj.getMonth()+1)+'/'+
-    pad(dateobj.getDate())+'/'+dateobj.getFullYear();
+    pad(dateobj.getDate()+1)+'/'+dateobj.getFullYear();
 }
 
 function DisplayPost(props) {
@@ -41,6 +41,7 @@ function grabRelevant(posts) {
     if (Date.parse(new Date(p.DatePosted)) ===Date.parse(new Date(p.DateEvent))) {
       truth = relevantPost(p, 432000000);
     } else {
+      console.log("Is Event")
       truth = relevantPost(p, 86400000);
     }
     if (truth) {
@@ -103,7 +104,7 @@ function Home(props) {
   return (
     <div className={styles.home}>
       <br/>
-      <h1 className={styles.opener}> Most Relevant Posts </h1>
+      <h1 className={styles.opener}> Most Recent Posts </h1>
       <br/>
       <div className="container">
       {sortedposts.map((p, i) => {

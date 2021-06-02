@@ -38,7 +38,7 @@ function Forum() {
       </div>
       <div className={styles.ForumBody}>
         <div>
-          {forumPosts.map((p, index) => {
+          {forumPosts.map((p) => {
             return <ForumPost postData={p}/>;
           })}
         </div>
