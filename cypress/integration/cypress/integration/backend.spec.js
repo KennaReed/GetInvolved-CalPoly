@@ -119,6 +119,35 @@ describe('Grabbing Comment(s)!', () => {
 });
 });
 
+describe('Login info', () => {
+    it('Sending login information', () => {
+        cy.request('POST', 'https://getinvolvedapi.herokuapp.com/login', { 
+            username: "guest@gmail.com",
+            password: "$2a$04$UC1IBNicRJDoZdJxg/Fvq.cwIB5PenF1R9OkkWIkFgRg85hb0Vcbu"
+            }).then(
+            (response) => {
+             expect(response.status).to.be.equal(200);
+            assert.isNotEmpty(response.body);
+            }
+          )
+});
+});
+
+describe('Signup info', () => {
+    it('Sending login information', () => {
+        cy.request('POST', 'https://getinvolvedapi.herokuapp.com/sign-up', { 
+            name: "guest1",
+            username: "guest@gmail.com",
+            password : "$2a$04$UC1IBNicRJDoZdJxg/Fvq.cwIB5PenF1R9OkkWIkFgRg85hb0Vcbu"
+            }).then(
+            (response) => {
+             expect(response.status).to.be.equal(200);
+            assert.isNotEmpty(response.body);
+            }
+          )
+});
+});
+
 describe ('Get all accounts', () => {
     it ('Getting users', () => {
         cy.request('GET', 'https://getinvolvedapi.herokuapp.com/login1').then(
