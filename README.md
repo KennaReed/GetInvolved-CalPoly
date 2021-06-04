@@ -56,3 +56,14 @@ CI for the project:
 https://travis-ci.com/github/KennaReed/GetInvolved-CalPoly
 https://travis-ci.com/KennaReed/GetInvolved-CalPoly.svg?branch=main
 
+Testing and Code Coverage: 
+
+Unfortunetely, due to our choice of using Cypress with Python files for our end-to-end testing, there is not an effective way to calculate the code coverage for our backend. However, since code coverage is important to understand how far the testing process has progressed, we will detail our tests here. 
+The backend has 10 endpoints, 10 of which we have tests for 9. We were unable to test the last endpoint, due to not being able to create the needed object structure in Cypress. Of the 10 endpoints, 3 just handle GET requests, 3 handle just POST requests, 3 hanlde GET and POST request, and 1 is just the / message to check that the backend is connected. We have one test for each type of request for each of the 9 branches tested. These tests incorporate Gherkin, typical of acceptance tests. Typically, we would want to test the "happy path" and several "unhappy paths" that is the intended use and error cases, but those are error handled in the frontend, so anything the backend receives would already be vetted. If we had more time, we would implement more error handling on the backend for extra protection. 
+
+Classpath to File Containing Tests (make sure on main_backend branch) /GetInvolved-CalPoly/cypress/integration/cypress/integration/backend.spec.js
+
+Additionally, we have more acceptance tests for the Frontend. This can be found (make sure on main branch): /GetInvolved-CalPoly/cypress/integration folder. Here we have 7 more tests for different scenarios, each in their own file. 
+
+Note: All of these tests are testing on the deployed (Heroku) version of the project. 
+
