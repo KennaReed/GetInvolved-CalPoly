@@ -14,6 +14,7 @@ function Form(props) {
         keyWords: '',
         Cost: '',
         Location: '',
+        Image: '',
       },
   );
   let errorOutput = 'Please fix errors and resubmit.\n';
@@ -119,7 +120,7 @@ function Form(props) {
       setPost(
           {title: '', DateEvent: new Date(), DatePosted: new Date(),
             time: '', endTime: '', publisher: '', content: '', keyWords: '',
-            Cost: '', Location: ''});
+            Cost: '', Location: '', image: ''});
     } else {
       window.confirm(errorOutput);
       errorOutput = 'Please fix errors and resubmit.\n';
@@ -194,6 +195,13 @@ function Form(props) {
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
           Location: value, image: post.image});
     }
+    if (name === 'image') {
+      setPost(
+          {title: post.title, DateEvent: post.DateEvent, DatePosted:
+            post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
+          content: post.content, keyWords: post.keyWords, Cost: post.Cost,
+          Location: value, image: value});
+    }
   }
   return (
 
@@ -245,6 +253,16 @@ function Form(props) {
               <option value="Art">Art</option>
               <option value="School">School</option>
             </select>
+            <br></br>
+
+            <label className={styles.text} htmlFor="image"> Image(URL):</label>
+            <input className="image1"
+              type="text"
+              id="image"
+              name="image"
+              value={post.image}
+              onChange = {handleChange}>
+            </input>
             <br></br>
 
             <label className={styles.text} htmlFor="Cost">

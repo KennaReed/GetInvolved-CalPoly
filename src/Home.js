@@ -22,9 +22,10 @@ function DisplayPost(props) {
           <p className={styles.datePosted}>
             Posted On: {formatDate(props.post.DatePosted)} </p>
         </div>
-
+	
         <p className={styles.description}> {props.post.content} </p>
         {handleEvent(props.post)}
+        <img src={props.post.image} alt={props.post.image} border= '1px' border-radius= '4px' padding= '5px' width= '150px'/>
         <p className={styles.generalInfo}>Cost: {props.post.Cost}</p>
       </div>
     </div>

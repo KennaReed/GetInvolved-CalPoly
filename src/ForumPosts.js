@@ -38,6 +38,7 @@ function ForumPost(props) {
         <div className={styles.hiddenDetails}>
           <h5>{props.postData.content}</h5>
           <h5>Cost: {props.postData.Cost}</h5>
+          <img src={props.postData.image} alt={props.postData.image} border= '1px' border-radius= '4px' padding= '5px' width= '150px'/>
           {handleEvents()}
           {handleLocation()}
           {getComments()}
