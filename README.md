@@ -54,6 +54,8 @@ By clicking the link, you will be sent to a page where you can log in if you alr
 
 CI for the project:
 https://travis-ci.com/github/KennaReed/GetInvolved-CalPoly
+Clicking the link above will send you to the Travis CI website where you will need to make an account. Once you have an account, you will still be unable to access our specific Travis CI page since we have to invite you, so let an exisiting team memeber know and they will invite you. After that, you will have full access to Travis CI through the above link.
+
 https://travis-ci.com/KennaReed/GetInvolved-CalPoly.svg?branch=main
 
 Testing and Code Coverage: 
