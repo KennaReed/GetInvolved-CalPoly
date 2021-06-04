@@ -53,6 +53,6 @@ https://getinvolvedcalpoly.herokuapp.com/
 By clicking the link, you will be sent to a page where you can log in if you already have an account, sign up to create an account, or log in as a guest. Once you are signed in, you will be redirected to the homepage that shows upcoming events/ most recent announcements. From there it is up to you to explore and do the activites mentioned in the description, such as creating a post, viewing the calender for upcoming events, or looking through the forum for activites that interest you!
 
 CI for the project:
-
+https://travis-ci.com/github/KennaReed/GetInvolved-CalPoly
 https://travis-ci.com/KennaReed/GetInvolved-CalPoly.svg?branch=main
 
