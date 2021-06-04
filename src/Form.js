@@ -200,7 +200,7 @@ function Form(props) {
           {title: post.title, DateEvent: post.DateEvent, DatePosted:
             post.DatePosted, time: post.time, publisher: post.publisher, endTime: post.endTime,
           content: post.content, keyWords: post.keyWords, Cost: post.Cost,
-          Location: value, image: value});
+          Location: post.Location, image: value});
     }
   }
   return (
