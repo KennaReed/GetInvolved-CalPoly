@@ -56,7 +56,7 @@ function App() {
       <br/>
       <br/>      
       <br/>
-      <footer className="footer"> GetInvolved by Allison Reed, McKenna Reed, Alex Hartford, Billy Choi </footer>
+      <footer className="footer"> GetInvolved by Allison Reed, McKenna Reed, Alex Hartford, Billy Choi, Jackson Furie </footer>
       </div>
       </div>
     </body>

@@ -64,6 +64,11 @@ function ForumFiltering (props){
         }
         console.log(array)
         getData(array).then((result) => {
+            result.sort(function(a,b) {
+              var dateA = new Date(a.DatePosted);
+              var dateB = new Date(b.DatePosted);
+              return dateA -  dateB;
+            })
             props.upPost(result.reverse())
             uncheckAll()
 
