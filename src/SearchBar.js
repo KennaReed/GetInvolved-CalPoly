@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import "./searchBar.css";
+import {allItems} from "./ForumFiltering";
 
 function SearchBar(props) {
   const [search, setSearch] = useState(
@@ -21,6 +22,11 @@ function SearchBar(props) {
     }
   }
   function submitSearch() {
+    var num = 0;
+    while (num < allItems.length){
+      document.getElementById(allItems[num].name).checked = false
+      num +=1
+    }
     search.word = search.word.toLowerCase();
     getData().then((result) => {
       for (let i = 0; i < result.length; i++) {
