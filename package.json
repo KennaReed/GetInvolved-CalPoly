@@ -10,6 +10,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
+    "cors": "^2.8.5",
     "moment": "^2.29.1",
     "multiselect-react-dropdown": "^1.6.11",
     "react": "^17.0.1",
@@ -56,8 +57,9 @@
     ]
   },
   "devDependencies": {
-    "cors": "^2.8.5",
-    "cypress": "^7.3.0",
+    "@cypress/code-coverage": "^3.9.6",
+    "babel-plugin-istanbul": "^6.0.0",
+    "cypress": "^7.4.0",
     "eslint": "^7.24.0",
     "eslint-auto-fix": "^1.0.3",
     "eslint-config-google": "^0.14.0",

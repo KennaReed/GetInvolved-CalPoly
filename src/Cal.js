@@ -45,7 +45,7 @@ function Cal() {
 
 
     return (
-      <div className="App">
+      <div className="cal">
         <Calendar
           localizer={localizer}
           defaultDate={new Date()}
