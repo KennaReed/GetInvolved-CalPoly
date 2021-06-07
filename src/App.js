@@ -12,6 +12,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import useToken from './useToken';
 import Signout from './signout';
+import './footer';
 
 
 function App() {
@@ -33,8 +34,8 @@ function App() {
   }
   return (
     <body>
+      <div id = "wrapper">
       <BrowserRouter>
-
         <div className='App'>
           <div className="it">
             <Header/>
@@ -49,6 +50,15 @@ function App() {
           </Switch>
         </div>
       </BrowserRouter>
+      <div className='main'> 
+      </div>
+      <div>
+      <br/>
+      <br/>      
+      <br/>
+      <footer className="footer"> GetInvolved by Allison Reed, McKenna Reed, Alex Hartford, Billy Choi, Jackson Furie </footer>
+      </div>
+      </div>
     </body>
   );
 }
