@@ -12,6 +12,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import useToken from './useToken';
 import Signout from './signout';
+import './footer.css';
 
 
 function App() {
@@ -53,7 +54,9 @@ function App() {
       </div>
       <div>
       <br/>
-    
+      <br/>      
+      <br/>
+      <div className="footer"> GetInvolved by Allison Reed, McKenna Reed, Alex Hartford, Billy Choi, Jackson Furie </div>
       </div>
       </div>
     </body>
