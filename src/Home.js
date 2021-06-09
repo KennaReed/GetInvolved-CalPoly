@@ -10,7 +10,7 @@ function pad(n) {
 function formatDate(datestr) {
   const dateobj = new Date(datestr);
   return pad(dateobj.getMonth()+1)+'/'+
-    pad(dateobj.getDate()+1)+'/'+dateobj.getFullYear();
+    pad(dateobj.getDate())+'/'+dateobj.getFullYear();
 }
 
 function DisplayPost(props) {
